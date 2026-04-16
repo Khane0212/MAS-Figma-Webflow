@@ -1,0 +1,28 @@
+{
+    "project_name": "Tùng's Stunning Site",
+    "site_id": "69ba23bcbeeca991e01f6a09",
+    "last_sync": "2026-04-16T11:27:00Z",
+    "global_components": {
+        "navbar": {
+            "component_id": null,
+            "status": "pending",
+            "last_updated": null
+        },
+        "footer": {
+            "component_id": null,
+            "status": "pending",
+            "last_updated": null
+        }
+    },
+    "project_fonts": {
+        "primary": "Sen",
+        "secondary": "Inter"
+    },
+    "project_colors": {
+        "primary": "#FFD050",
+        "secondary": "#592EA9",
+        "dark": "#232536",
+        "light": "#FFFFFF",
+        "grey": "#6D6E76"
+    }
+}
