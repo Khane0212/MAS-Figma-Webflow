@@ -1,36 +1,51 @@
 # Code Style Rules
 
-## Client-First Methodology
+## 🏗️ Core Structure (Bắt buộc)
 
-### Cấu trúc thư mục Class
+### Page Layout Hierarchy
 ```
-.[page/section]-[block]-[element]-[modifier]
+.page-wrapper
+  └── .main-wrapper
+      └── .section_[name]
+          └── .padding-global
+              └── .container-[size]
+                  └── .padding-section-[size]
+                      └── CONTENT
 ```
 
-### Quy tắc đặt tên Class
+### Ví dụ đầy đủ:
+```html
+<div class="page-wrapper">
+  <div class="main-wrapper">
+    <section class="section_hero">
+      <div class="padding-global">
+        <div class="container-large">
+          <div class="padding-section-large">
+            <!-- Hero content here -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+```
 
-#### 1. Page/Section (Bối cảnh cao nhất)
-- `.home-hero` - Hero section trang Home
-- `.about-team` - Team section trang About
-- `.product-detail` - Detail page của Product
+### Core Classes
 
-#### 2. Block (Khối chức năng)
-- `.hero-wrapper` - Wrapper của hero
-- `.navbar-container` - Container của navbar
-- `.card-component` - Component card
-- `.form-block` - Block form
+| Class | Purpose |
+|-------|---------|
+| `.page-wrapper` | Wrap toàn bộ trang |
+| `.main-wrapper` | Wrap nội dung chính (không include nav/footer) |
+| `.section_[name]` | Define section theo chức năng |
+| `.padding-global` | Horizontal padding responsive (1.5rem → 3rem) |
+| `.container-large` | 80rem (1280px) - Main content container |
+| `.container-medium` | 64rem (1024px) - Medium content |
+| `.container-small` | 48rem (768px) - Small content, text blocks |
+| `.padding-section-small` | 3rem vertical |
+| `.padding-section-medium` | 5rem vertical |
+| `.padding-section-large` | 7rem vertical |
 
-#### 3. Element (Phần tử con)
-- `.hero-heading` - Heading trong hero
-- `.card-image` - Image trong card
-- `.form-input` - Input trong form
-
-#### 4. Modifier (Trạng thái/Biến thể)
-- `.button-primary` - Button kiểu primary
-- `.card-large` - Card size lớn
-- `.text-center` - Text căn giữa
-- `.is-active` - Trạng thái active
-- `.is-hidden` - Trạng độ ẩn
+---
 
 ## REM Units
 

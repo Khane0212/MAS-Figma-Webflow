@@ -32,13 +32,19 @@ Dự án này tự động hóa quy trình chuyển đổi thiết kế từ Fig
 - **Tài liệu bắt buộc**: Đọc `skills/figma-scanner.md` và `rules/design-system.md`.
 - **Đơn vị**: Luôn convert sang REM theo `rules/code-style.md`.
 
-### 3. Đồng bộ Webflow (Webflow Sync)
-- **Hành động**: Build trực tiếp qua MCP.
-- **Tài liệu bắt buộc**: Đọc `skills/webflow-sync.md`.
-- **Kiểm tra**: Luôn đối chiếu `memory/classes-inventory.json` để tái sử dụng class.
-- **Nội dung**: Sử dụng `skills/content-generator.md` để tạo copy.
+### 3. Chuyển đổi & Mapping (Transformation)
+Để đảm bảo tính chuyên biệt, quy trình mapping được chia thành 4 kỹ năng:
+- **Variable Mapper**: Map Colors, Typography, Spacing theo `rules/design-system.md`. Đọc `skills/variable-mapper.md`.
+- **Naming Mapper**: Gán Class Name chuẩn Client-First theo `rules/naming-convention.md` (philosophy) và `rules/code-style.md` (Core Classes). Đọc `skills/naming-mapper.md`.
+- **Content Generator**: Tinh chỉnh nội dung, tông giọng (Brand Voice). Đọc `skills/content-generator.md`.
+- **Semantic Mapper**: Tổng chỉ huy (Orchestrator) kết hợp 3 mapper trên để tạo Payload cuối cùng. Đọc `skills/semantic-mapper.md`.
 
-### 4. Kiểm tra chất lượng (QA Tester)
+### 4. Đồng bộ Webflow (Webflow Sync)
+- **Hành động**: Build trực tiếp qua MCP dựa trên Payload JSON.
+- **Tài liệu bắt buộc**: Đọc `skills/webflow-sync.md`.
+- **Quy tắc**: Tuyệt đối tuân thủ Payload, không tự ý thay đổi structure trong bước này.
+
+### 5. Kiểm tra chất lượng (QA Tester)
 - **Hành động**: Audit & Checklist.
 - **Tài liệu bắt buộc**: Đọc `agents/qa-tester.md`.
 - **Đầu ra**: Ghi kết quả vào `memory/project-history.log`.

@@ -1,76 +1,12 @@
 # Client-First Naming Convention (Finsweet)
 
 > **Documentation**: https://finsweet.com/client-first
+>
+> **Tham khảo thêm**: `code-style.md` cho Core Structure (wrappers, containers, padding)
 
 ---
 
-## 🏗️ Core Structure (Bắt buộc)
-
-### Page Layout Hierarchy
-```
-.page-wrapper
-  └── .main-wrapper
-      └── .section_[name]
-          └── .padding-global
-              └── .container-[size]
-                  └── .padding-section-[size]
-                      └── CONTENT
-```
-
-### Ví dụ đầy đủ:
-```html
-<div class="page-wrapper">
-  <div class="main-wrapper">
-    <section class="section_hero">
-      <div class="padding-global">
-        <div class="container-large">
-          <div class="padding-section-large">
-            <!-- Hero content here -->
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-</div>
-```
-
----
-
-## 📋 Core Classes
-
-### Wrappers
-| Class | Purpose |
-|-------|---------|
-| `.page-wrapper` | Wrap toàn bộ trang |
-| `.main-wrapper` | Wrap nội dung chính (không include nav/footer) |
-
-### Sections
-| Pattern | Example | Purpose |
-|---------|---------|---------|
-| `.section_[name]` | `.section_hero`, `.section_about`, `.section_pricing` | Define section theo chức năng |
-
-### Padding Global
-| Class | Purpose |
-|-------|---------|
-| `.padding-global` | Horizontal padding responsive (1.5rem → 3rem) |
-
-### Containers
-| Class | Max Width | Purpose |
-|-------|-----------|---------|
-| `.container-large` | 80rem (1280px) | Main content container |
-| `.container-medium` | 64rem (1024px) | Medium content |
-| `.container-small` | 48rem (768px) | Small content, text blocks |
-
-### Section Padding
-| Class | Vertical Padding |
-|-------|------------------|
-| `.padding-section-small` | 3rem top/bottom |
-| `.padding-section-medium` | 5rem top/bottom |
-| `.padding-section-large` | 7rem top/bottom |
-
----
-
-## 🎯 Semantic Naming - Client First Philosophy
+## � Semantic Naming - Client First Philosophy
 
 > **Đặt tên theo CHỨC NĂNG, không phải STYLE**
 
