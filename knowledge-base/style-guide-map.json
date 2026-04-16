@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "audit_phase": "0",
+    "generated_at": "2026-04-15T04:31:24.019Z",
+    "figma": {
+      "file_key": "yuqHQmL2a4swEazzkbT4Fy",
+      "node_id": "226:413",
+      "node_name": "Thumbnail",
+      "source_url": "https://www.figma.com/design/yuqHQmL2a4swEazzkbT4Fy/Client-first-2.0-for-Figma-%7C-Simplify-Figma--%3E-Webflow--Community-?node-id=226-413&m=dev"
+    },
+    "webflow": {
+      "site_id": "69d6045f113e53f87d5d2de9",
+      "display_name": "Ngo's Groovy Site",
+      "short_name": "ngos-groovy-site-5b12d2",
+      "designer_url": "https://ngos-groovy-site-5b12d2.design.webflow.com/"
+    },
+    "webflow_snapshot": {
+      "variable_collections": [
+        {
+          "id": "collection-c66b35aa-9570-c662-dc9e-0cb425f14209",
+          "name": "Base collection"
+        }
+      ],
+      "variables_total": 0,
+      "styles_total": 0,
+      "api_notes": "variable_tool and style_tool returned zero variables and zero styles. Webflow Designer may need to be open for a full sync, or the project is intentionally empty pending Client-First import."
+    },
+    "lessons_learned_path": "/knowledge-base/04-lessons-learned.json",
+    "lessons_applied": "File was empty; no prior merge or reject rules applied."
+  },
+  "conflict_resolution": {
+    "source_of_truth": "Webflow variables are authoritative when present; none exist yet, so Figma tokens are provisional until created in Webflow.",
+    "next_actions": [
+      "Create or import Client-First typography variables and spacing variables in Webflow before Phase 1 execution.",
+      "Re-run Webflow variable and style fetch after Designer session to refresh this map."
+    ]
+  },
+  "mappings": [
+    {
+      "figma_style_id": "text-size/regular/Semi Bold",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "Inter Semi Bold 16px / line-height 1.5",
+        "sanitized": "text-size-regular-semi-bold",
+        "mapped_to": null
+      },
+      "reasoning": "No Webflow typography variable exists. Proposed CSS name --text-size-regular-semi-bold; map to Client-First text utility when building Phase 1."
+    },
+    {
+      "figma_style_id": "HTML Tags/Heading/H1",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "Inter Bold 64px / line-height ~1.2",
+        "sanitized": "html-tags-heading-h1",
+        "mapped_to": null
+      },
+      "reasoning": "No matching Webflow variable; heading scale should follow Client-First H1 naming once variables exist."
+    },
+    {
+      "figma_style_id": "text-size/medium/Normal",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "Inter Regular 20px / line-height 1.5",
+        "sanitized": "text-size-medium-normal",
+        "mapped_to": null
+      },
+      "reasoning": "Body copy style from Figma; Webflow has no font-size variable to bind yet."
+    }
+  ],
+  "color_tokens": [
+    {
+      "figma_role": "text_primary",
+      "hex": "#000000",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "#000000",
+        "sanitized": "text-primary",
+        "mapped_to": null
+      },
+      "reasoning": "No Webflow color variable; distance checks against future tokens deferred until palette exists."
+    },
+    {
+      "figma_role": "page_background",
+      "hex": "#ffffff",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "#ffffff",
+        "sanitized": "background-primary",
+        "mapped_to": null
+      },
+      "reasoning": "No Webflow color variable; standard white background."
+    },
+    {
+      "figma_role": "panel_background",
+      "hex": "rgba(0,0,0,0.05)",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "rgba(0,0,0,0.05)",
+        "sanitized": "neutral-overlay-5",
+        "mapped_to": null
+      },
+      "reasoning": "Alpha differs from solid black; per skill, separate variable name with opacity suffix (e.g. Neutral-5) rather than merging with #000000."
+    }
+  ],
+  "spacing_tokens": [
+    {
+      "figma_px": 48,
+      "snapped_px": 48,
+      "rem_suggested": "3rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "48px",
+        "sanitized": "spacing-48",
+        "mapped_to": null
+      },
+      "reasoning": "snapValue(48) = 48; matches 8px grid; no Webflow size variable yet."
+    },
+    {
+      "figma_px": 32,
+      "snapped_px": 32,
+      "rem_suggested": "2rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "32px",
+        "sanitized": "spacing-32",
+        "mapped_to": null
+      },
+      "reasoning": "Used for inner horizontal padding and list row gaps."
+    },
+    {
+      "figma_px": 64,
+      "snapped_px": 64,
+      "rem_suggested": "4rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "64px",
+        "sanitized": "spacing-64",
+        "mapped_to": null
+      },
+      "reasoning": "Vertical padding inside panel and major grid gap."
+    },
+    {
+      "figma_px": 16,
+      "snapped_px": 16,
+      "rem_suggested": "1rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "16px",
+        "sanitized": "spacing-16",
+        "mapped_to": null
+      },
+      "reasoning": "Heading block stack gap."
+    },
+    {
+      "figma_px": 24,
+      "snapped_px": 24,
+      "rem_suggested": "1.5rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "24px",
+        "sanitized": "spacing-24",
+        "mapped_to": null
+      },
+      "reasoning": "Vertical gap between list groups."
+    },
+    {
+      "figma_px": 28,
+      "snapped_px": 28,
+      "rem_suggested": "1.75rem",
+      "webflow_variable_id": null,
+      "value_mapping": {
+        "original": "28px",
+        "sanitized": "spacing-28",
+        "mapped_to": null
+      },
+      "reasoning": "Icon box; snapValue preserved 28 (within scale); border or icon sizes under 32px should not be merged with unrelated spacing."
+    }
+  ],
+  "precision_guard": {
+    "notes": [
+      "Decorative Figma logo frame uses sub-pixel absolute sizes (e.g. 57.532px height); do not snap or merge with global spacing tokens."
+    ]
+  }
+}

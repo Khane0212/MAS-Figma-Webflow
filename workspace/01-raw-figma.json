@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "source": "Figma MCP",
+    "figmaUrl": "https://www.figma.com/design/yuqHQmL2a4swEazzkbT4Fy/Client-first-2.0-for-Figma-%7C-Simplify-Figma--%3E-Webflow--Community-?node-id=226-413&m=dev",
+    "fileKey": "yuqHQmL2a4swEazzkbT4Fy",
+    "nodeId": "226:413",
+    "nodeName": "Thumbnail",
+    "extractedAt": "2026-04-15T04:31:08.408Z"
+  },
+  "variableDefinitions": {
+    "text-size/regular/Semi Bold": "Font(family: \"Inter\", style: Semi Bold, size: 16, weight: 600, lineHeight: 1.5, letterSpacing: 0)",
+    "HTML Tags/Heading/H1": "Font(family: \"Inter\", style: Bold, size: 64, weight: 700, lineHeight: 1.2000000476837158, letterSpacing: 0)",
+    "text-size/medium/Normal": "Font(family: \"Inter\", style: Regular, size: 20, weight: 400, lineHeight: 1.5, letterSpacing: 0)"
+  },
+  "designContextHints": {
+    "containedTextStyles": [
+      "text-size/regular/Semi Bold",
+      "HTML Tags/Heading/H1",
+      "text-size/medium/Normal"
+    ],
+    "notes": "From get_variable_defs and get_design_context; React+Tailwind is reference-only for MAS."
+  },
+  "colorsObservedInCode": [
+    {
+      "role": "page_background",
+      "value": "#ffffff",
+      "tailwind": "bg-white"
+    },
+    {
+      "role": "text_primary",
+      "value": "#000000",
+      "tailwind": "text-black"
+    },
+    {
+      "role": "panel_background",
+      "value": "rgba(0,0,0,0.05)",
+      "tailwind": "bg-[rgba(0,0,0,0.05)]"
+    }
+  ],
+  "spacingObservedInCodePx": {
+    "paddingOuter": 48,
+    "paddingHorizontalInner": 32,
+    "paddingVerticalInner": 64,
+    "gapHeadingBlock": 16,
+    "gapContentGrid": 64,
+    "gapList": 24,
+    "gapListItem": 32,
+    "iconSize": 28
+  },
+  "designContextCode": "const imgWebclipPng = \"https://www.figma.com/api/mcp/asset/b2fdd8ce-69e8-46be-bd17-e433bb4f48a6\";\r\nconst imgGroup = \"https://www.figma.com/api/mcp/asset/16dd56fb-c4c9-4eec-872e-3797cb78b58c\";\r\nconst imgGroup1 = \"https://www.figma.com/api/mcp/asset/2c4ba338-9a40-4525-974c-9d16c81d1b05\";\r\nconst imgGroup2 = \"https://www.figma.com/api/mcp/asset/29e0b48d-5e79-4d0d-a1c0-ad5243f932a8\";\r\n\r\nexport default function Thumbnail() {\r\n  return (\r\n    <div className=\"bg-white content-stretch flex items-start p-[48px] relative size-full\" data-node-id=\"226:413\" data-name=\"Thumbnail\">\r\n      <div className=\"bg-[rgba(0,0,0,0.05)] content-stretch flex flex-[1_0_0] flex-col h-full items-center justify-center min-w-px overflow-clip px-[32px] py-[64px] relative\" data-node-id=\"232:699\" data-name=\"home-message_component\">\r\n        <div className=\"content-stretch flex flex-col gap-[64px] items-start relative shrink-0\" data-node-id=\"232:733\" data-name=\"home-message_content-grid\">\r\n          <div className=\"content-stretch flex flex-col gap-[16px] items-start relative shrink-0 w-full\" data-node-id=\"232:706\" data-name=\"home-message_heading-block\">\r\n            <div className=\"relative shrink-0 size-[64px]\" data-node-id=\"232:736\" data-name=\"webclip.png\">\r\n              <img alt=\"\" className=\"absolute inset-0 max-w-none object-cover pointer-events-none size-full\" src={imgWebclipPng} />\r\n            </div>\r\n            <p className=\"font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[1.5] not-italic relative shrink-0 text-[16px] text-black w-[1024px]\" data-node-id=\"232:702\">\r\n              VERSION 2\r\n            </p>\r\n            <p className=\"font-['Inter:Bold',sans-serif] font-bold leading-[1.2] not-italic relative shrink-0 text-[64px] text-black w-[1024px]\" data-node-id=\"232:704\">{`Client-First official starter project for `}</p>\r\n            <div className=\"absolute h-[57.532px] left-[349px] overflow-clip top-[216.47px] w-[207.527px]\" data-node-id=\"232:751\" data-name=\"figma-5 1 1\">\r\n              <div className=\"absolute contents inset-[0_0.66%_2.06%_0.83%]\" data-node-id=\"232:752\" data-name=\"Clip path group\">\r\n                <div className=\"absolute inset-[0.04%_0.66%_2.11%_0.83%] mask-alpha mask-intersect mask-no-clip mask-no-repeat mask-position-[0px_-0.024px] mask-size-[204.449px_56.346px]\" data-node-id=\"232:755\" style={{ maskImage: `url('${imgGroup}')` }} data-name=\"Group\">\r\n                  <img alt=\"\" className=\"absolute block inset-0 max-w-none size-full\" src={imgGroup1} />\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div className=\"content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full\" data-node-id=\"232:721\" data-name=\"home-message_list\">\r\n            <div className=\"content-stretch flex gap-[32px] items-start relative shrink-0 w-full\" data-node-id=\"232:714\" data-name=\"home-message_item\">\r\n              <div className=\"bg-white overflow-clip relative shrink-0 size-[28px]\" data-node-id=\"232:710\" data-name=\"home-message_item-icon\">\r\n                <div className=\"absolute inset-[29.6%_21.8%_29.7%_23.9%]\" data-node-id=\"232:711\" data-name=\"Group\">\r\n                  <img alt=\"\" className=\"absolute block inset-0 max-w-none size-full\" src={imgGroup2} />\r\n                </div>\r\n              </div>\r\n              <p className=\"flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-px not-italic relative text-[20px] text-black\" data-node-id=\"232:713\">\r\n                <span className=\"leading-[1.5]\">{`This `}</span>\r\n                <a className=\"[text-decoration-skip-ink:none] cursor-pointer decoration-solid leading-[1.5] underline\" href=\"https://www.finsweet.info/client-first-cloneable\" target=\"_blank\">\r\n                  <span className=\"[text-decoration-skip-ink:none] decoration-solid underline\" href=\"https://www.finsweet.info/client-first-cloneable\" target=\"_blank\">\r\n                    Client-First cloneable\r\n                  </span>\r\n                </a>\r\n                <span className=\"leading-[1.5]\">{` is the starter project for Finsweet's `}</span>\r\n                <a className=\"[text-decoration-skip-ink:none] cursor-pointer decoration-solid leading-[1.5] underline\" href=\"https://www.finsweet.com/client-first/\" target=\"_blank\">\r\n                  <span className=\"[text-decoration-skip-ink:none] decoration-solid underline\" href=\"https://www.finsweet.com/client-first/\" target=\"_blank\">\r\n                    Client-First style system for Webflow\r\n                  </span>\r\n                </a>\r\n                <span className=\"leading-[1.5]\">.</span>\r\n              </p>\r\n            </div>\r\n            <div className=\"content-stretch flex gap-[32px] items-start relative shrink-0 w-full\" data-node-id=\"232:716\" data-name=\"home-message_item\">\r\n              <div className=\"bg-white overflow-clip relative shrink-0 size-[28px]\" data-node-id=\"232:717\" data-name=\"home-message_item-icon\">\r\n                <div className=\"absolute inset-[29.6%_21.8%_29.7%_23.9%]\" data-node-id=\"232:718\" data-name=\"Group\">\r\n                  <img alt=\"\" className=\"absolute block inset-0 max-w-none size-full\" src={imgGroup2} />\r\n                </div>\r\n              </div>\r\n              <p className=\"flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[1.5] min-w-px not-italic relative text-[20px] text-black\" data-node-id=\"232:720\">\r\n                This project contains a style guide page with utility classes that come with Client-First.\r\n              </p>\r\n            </div>\r\n            <div className=\"content-stretch flex gap-[32px] items-start relative shrink-0 w-full\" data-node-id=\"232:722\" data-name=\"home-message_item\">\r\n              <div className=\"bg-white overflow-clip relative shrink-0 size-[28px]\" data-node-id=\"232:723\" data-name=\"home-message_item-icon\">\r\n                <div className=\"absolute inset-[29.6%_21.8%_29.7%_23.9%]\" data-node-id=\"232:724\" data-name=\"Group\">\r\n                  <img alt=\"\" className=\"absolute block inset-0 max-w-none size-full\" src={imgGroup2} />\r\n                </div>\r\n              </div>\r\n              <p className=\"flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[1.5] min-w-px not-italic relative text-[20px] text-black\" data-node-id=\"232:726\">\r\n                No pages, no layouts, no components. No styles to delete or update. Delete this message and get started.\r\n              </p>\r\n            </div>\r\n            <div className=\"content-stretch flex gap-[32px] items-start relative shrink-0 w-full\" data-node-id=\"232:728\" data-name=\"home-message_item\">\r\n              <div className=\"bg-white overflow-clip relative shrink-0 size-[28px]\" data-node-id=\"232:729\" data-name=\"home-message_item-icon\">\r\n                <div className=\"absolute inset-[29.6%_21.8%_29.7%_23.9%]\" data-node-id=\"232:730\" data-name=\"Group\">\r\n                  <img alt=\"\" className=\"absolute block inset-0 max-w-none size-full\" src={imgGroup2} />\r\n                </div>\r\n              </div>\r\n              <p className=\"flex-[1_0_0] font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-px not-italic relative text-[20px] text-black\" data-node-id=\"232:732\">\r\n                <span className=\"leading-[1.5]\">{`Learn Client-First for Webflow with extensive `}</span>\r\n                <a className=\"[text-decoration-skip-ink:none] cursor-pointer decoration-solid leading-[1.5] underline\" href=\"https://www.finsweet.com/client-first/docs\" target=\"_blank\">\r\n                  <span className=\"[text-decoration-skip-ink:none] decoration-solid underline\" href=\"https://www.finsweet.com/client-first/docs\" target=\"_blank\">\r\n                    documentation\r\n                  </span>\r\n                </a>\r\n                <span className=\"leading-[1.5]\">.</span>\r\n              </p>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n",
+  "mcpAdvisoryNotes": "Tailwind reference from MCP must be converted to Webflow Variables (colors, spacing, type) and Client-First layout classes per MAS rules."
+}
