@@ -1,0 +1,280 @@
+{
+  "project": "World Peas",
+  "lastUpdated": "2026-04-15",
+  "variables": {
+    "colors": {
+      "--color-primary-default": "#426b1f",
+      "--color-primary-hover": "#355818",
+      "--color-text-primary": "#000000",
+      "--color-text-muted": "#444444",
+      "--color-text-on-primary": "#ffffff",
+      "--color-background-page": "#ffffff",
+      "--color-background-muted": "#fafaf5",
+      "--color-border-default": "#e6e6e6",
+      "--color-border-subtle": "rgba(0, 0, 0, 0.06)",
+      "--color-success": "#426b1f",
+      "--color-error": "#b42318",
+      "--color-warning": "#b45309"
+    },
+    "typography": {
+      "--font-family-heading": "Newsreader, serif",
+      "--font-family-body": "Inter, sans-serif",
+      "--font-size-h1": "4rem",
+      "--font-size-h2": "2.5rem",
+      "--font-size-h3": "1.5rem",
+      "--font-size-h4": "1.25rem",
+      "--font-size-body": "1rem",
+      "--font-size-body-lg": "1.125rem",
+      "--font-size-small": "0.75rem",
+      "--font-size-caption": "0.875rem",
+      "--font-size-nav-logo": "2rem"
+    },
+    "spacing": {
+      "--space-xs": "0.25rem",
+      "--space-sm": "0.5rem",
+      "--space-md": "1rem",
+      "--space-lg": "1.5rem",
+      "--space-xl": "2rem",
+      "--space-2xl": "3rem",
+      "--space-3xl": "4rem",
+      "--space-4xl": "6rem"
+    },
+    "layout": {
+      "--line-height-tight": "1.2",
+      "--line-height-snug": "1.3",
+      "--radius-sm": "4px",
+      "--radius-md": "8px",
+      "--radius-pill": "20px",
+      "--radius-card": "24px",
+      "--section-padding-x": "6rem",
+      "--container-max": "80rem"
+    }
+  },
+  "frames": [
+    {
+      "name": "home",
+      "file": "home.whtml",
+      "classes": {
+        "layout": [
+          "page-wrapper",
+          "main-wrapper",
+          "padding-global",
+          "container-large",
+          "container-large-1-2-3",
+          "container-medium",
+          "padding-section-y",
+          "padding-section-small",
+          "surface-muted",
+          "divider"
+        ],
+        "navigation": [
+          "navbar",
+          "navbar-header",
+          "logo-heading-1",
+          "nav-links",
+          "nav",
+          "nav-cart"
+        ],
+        "hero": [
+          "hero-headline",
+          "hero-headline-1",
+          "text-title",
+          "hero-button",
+          "hero-images-1",
+          "hero-image-left",
+          "cta-button"
+        ]
+      }
+    },
+    {
+      "name": "who-we-are",
+      "file": "who-we-are.whtml",
+      "classes": {
+        "reusedFromHome": [
+          "page-wrapper",
+          "main-wrapper",
+          "padding-global",
+          "container-large",
+          "padding-section-large",
+          "padding-section-medium",
+          "section_nav",
+          "nav-inner",
+          "nav-links",
+          "nav-link",
+          "nav-cart",
+          "heading-xlarge",
+          "heading-large",
+          "text-large",
+          "text-body"
+        ],
+        "newClasses": {
+          "hero": [
+            "section_hero"
+          ],
+          "story": [
+            "section-story",
+            "card-story",
+            "grid-2-col"
+          ],
+          "stats": [
+            "section-stats",
+            "grid-4-col",
+            "stat-card"
+          ],
+          "values": [
+            "section-values",
+            "card-story",
+            "grid-3-col",
+            "value-card",
+            "value-icon"
+          ],
+          "team": [
+            "section-team",
+            "card-story",
+            "grid-4-col",
+            "team-card",
+            "team-image"
+          ]
+        }
+      }
+    },
+    {
+      "name": "newstand",
+      "file": "newstand.html",
+      "classes": {
+        "reusedFromHome": [
+          "page-wrapper",
+          "main-wrapper",
+          "padding-global",
+          "container-large",
+          "padding-section-large",
+          "padding-section-medium",
+          "section_nav",
+          "nav-inner",
+          "logo-heading-1",
+          "nav-links",
+          "nav-link",
+          "nav-cart",
+          "heading-xlarge",
+          "text-large",
+          "text-body"
+        ],
+        "newClasses": {
+          "hero": [
+            "section_newstand-hero",
+            "heading-h1",
+            "text-subtitle"
+          ],
+          "featured": [
+            "section_featured-article",
+            "featured-card",
+            "featured-image",
+            "featured-content",
+            "heading-h2",
+            "text-body-lg",
+            "tag-badge",
+            "text-meta"
+          ],
+          "filters": [
+            "section_filters",
+            "filter-bar",
+            "tag-filter",
+            "search-bar"
+          ],
+          "articles": [
+            "section_articles",
+            "newstand-grid",
+            "article-card",
+            "article-image",
+            "article-content",
+            "heading-h4",
+            "text-small",
+            "article-meta"
+          ],
+          "newsletter": [
+            "section_newsletter",
+            "newsletter-cta",
+            "newsletter-form",
+            "text-white",
+            "heading-h3"
+          ]
+        }
+      }
+    }
+  ],
+  "allClasses": [
+    "page-wrapper",
+    "main-wrapper",
+    "padding-global",
+    "container-large",
+    "container-medium",
+    "padding-section-y",
+    "padding-section-small",
+    "padding-section-large",
+    "padding-section-medium",
+    "surface-muted",
+    "divider",
+    "section_nav",
+    "nav-inner",
+    "nav-link",
+    "navbar",
+    "navbar-header",
+    "logo-heading-1",
+    "nav-links",
+    "nav",
+    "nav-cart",
+    "heading-xlarge",
+    "heading-large",
+    "text-large",
+    "text-body",
+    "hero-headline",
+    "hero-headline-1",
+    "text-title",
+    "hero-button",
+    "hero-images-1",
+    "hero-image-left",
+    "cta-button",
+    "section_hero",
+    "section-story",
+    "card-story",
+    "grid-2-col",
+    "section-stats",
+    "stat-card",
+    "section-values",
+    "grid-3-col",
+    "value-card",
+    "value-icon",
+    "section-team",
+    "grid-4-col",
+    "team-card",
+    "team-image",
+    "heading-h1",
+    "heading-h2",
+    "heading-h3",
+    "heading-h4",
+    "text-subtitle",
+    "text-body-lg",
+    "text-meta",
+    "text-small",
+    "section_newstand-hero",
+    "section_featured-article",
+    "featured-card",
+    "featured-image",
+    "featured-content",
+    "tag-badge",
+    "section_filters",
+    "filter-bar",
+    "tag-filter",
+    "search-bar",
+    "section_articles",
+    "newstand-grid",
+    "article-card",
+    "article-image",
+    "article-content",
+    "article-meta",
+    "section_newsletter",
+    "newsletter-cta",
+    "newsletter-form",
+    "text-white"
+  ]
+}

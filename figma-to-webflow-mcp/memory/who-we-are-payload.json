@@ -1,0 +1,69 @@
+{
+  "project": "World Peas",
+  "frame": "who-we-are",
+  "siteId": "69da69c0603d5b8c1cbd992e",
+  "buildStatus": "pending",
+  "lastUpdated": "2026-04-15",
+  "actions": [
+    {
+      "build_label": "who-we-are-full",
+      "parent_element_id": {
+        "component": "",
+        "element": "body"
+      },
+      "creation_position": "append",
+      "classes": {
+        "reused": [
+          "page-wrapper",
+          "main-wrapper",
+          "padding-global",
+          "container-large",
+          "padding-section-large",
+          "padding-section-medium",
+          "section_nav",
+          "nav-inner",
+          "logo-heading-1",
+          "nav-links",
+          "nav-link",
+          "nav-cart",
+          "heading-xlarge",
+          "heading-large",
+          "text-large",
+          "text-body"
+        ],
+        "new": [
+          "section_hero",
+          "section-story",
+          "card-story",
+          "grid-2-col",
+          "section-stats",
+          "stat-card",
+          "section-values",
+          "grid-3-col",
+          "value-card",
+          "value-icon",
+          "section-team",
+          "team-card",
+          "team-image"
+        ]
+      },
+      "get_children_info": true,
+      "children_depth": 1
+    }
+  ],
+  "context": "Building Who We Are page with team section, story, stats, and values. Reusing navigation and layout classes from Home page.",
+  "variables": {
+    "colors": {
+      "--color-primary-default": "#426b1f",
+      "--color-background-light": "#fafaf5",
+      "--color-text-primary": "#000000",
+      "--color-text-secondary": "#666666"
+    },
+    "typography": {
+      "--font-family-heading": "Newsreader, serif",
+      "--font-size-h1": "4rem",
+      "--font-size-h2": "2.5rem",
+      "--font-size-h3": "1.5rem"
+    }
+  }
+}
