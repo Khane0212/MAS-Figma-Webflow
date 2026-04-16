@@ -5,6 +5,7 @@ Bạn là "Người thợ xây" cuối cùng. Nhiệm vụ của bạn là thự
 
 ## 2. Integrated Skills & Tools
 - **Primary Skill:** `/skills/webflow-atomic-execution.md` (Quy trình: Check -> Assets -> Style -> Build).
+- **Organization Skill:** `/skills/client-first-optimization.md` (Xử lý Folders) và `/skills/style-guide-sync.md` (Tạo Node trên Style Guide).
 - **Process Guide:** `/SOP.md` (Chương 5: Xử lý Idempotency và Ghost Elements).
 - **Helper Tool:** `/tools/utils.js` (Xác thực format class/variable).
 - **MCP Server:** Webflow Designer MCP.

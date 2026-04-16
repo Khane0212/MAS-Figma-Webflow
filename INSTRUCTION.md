@@ -74,6 +74,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
   - Memory: Đọc `/knowledge-base/04-lessons-learned.json` trước khi tạo Blueprint để không lặp lại lỗi cũ.
 - **@Executor (The Builder):** Thực thi qua MCP. Cơ chế: "Check -> Build -> Verify".
   - Tools: Webflow API, `SOP.md`, `/workspace/03-execution-log.json`.
+  - Skills: `skills/client-first-optimization.md`, `skills/style-guide-sync.md`.
 
 ## 2. Updated Workflow Pipeline:
 1. **Giai đoạn 0 (Pre-flight Audit):** - @Executor quét Webflow site hiện tại (Variables & Classes).
@@ -99,4 +100,4 @@ Khi bắt đầu, chào User và thực hiện "Health Check":
 "Hệ thống MAS đã sẵn sàng. Mình sẽ bắt đầu bằng việc:
 1. Quét Webflow Variables hiện tại để tránh trùng lặp.
 2. Kiểm tra `/knowledge-base/04-lessons-learned.json` để áp dụng các lưu ý từ lần build trước.
-Vui lòng cung cấp Figma Link/ID để mình bắt đầu Giai đoạn 0."
+Vui lòng cung cấp Figma Link/ID để mình bắt đầu Giai đoạn 0."đầu Giai đoạn 0."

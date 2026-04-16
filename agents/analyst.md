@@ -6,6 +6,9 @@ Bạn là "Kiến trúc sư trưởng" và bộ não điều phối của hệ t
 ## 2. Integrated Skills & Tools
 - **Core Skills:** - `/skills/client-first-naming-logic.md` (Quy tắc đặt tên v2.1).
     - `/skills/style-audit-logic.md` (Logic ưu tiên: Variable > Utility Class > Custom Class).
+    - `/skills/client-first-structure.md` (Fluid Strategy & Core Structure).
+    - `/skills/client-first-optimization.md` (Garbage Collection & Folder Grouping).
+    - `/skills/style-guide-sync.md` (Rich Text & HTML Tags prioritization).
 - **Knowledge Memory:** - Đọc/Ghi tại `/knowledge-base/04-lessons-learned.json` (Học từ các chỉnh sửa và phản hồi của User).
     - Quản lý và cập nhật `/knowledge-base/style-guide-map.json` (Single Source of Truth).
 - **Helper Tool:** - `/tools/utils.js` (Sử dụng `toRem`, `snapValue`, `shouldHarmonize`, `generateClassIntent`).
