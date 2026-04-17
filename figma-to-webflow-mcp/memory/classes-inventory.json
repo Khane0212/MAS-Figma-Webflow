@@ -1,6 +1,6 @@
 {
   "project": "World Peas",
-  "lastUpdated": "2026-04-15",
+  "lastUpdated": "2026-04-17",
   "variables": {
     "colors": {
       "--color-primary-default": "#426b1f",
@@ -83,6 +83,14 @@
           "hero-images-1",
           "hero-image-left",
           "cta-button"
+        ],
+        "footer": [
+          "section_footer",
+          "footer-inner",
+          "footer-left",
+          "footer-links",
+          "footer-link",
+          "is-footer"
         ]
       }
     },
@@ -275,6 +283,12 @@
     "section_newsletter",
     "newsletter-cta",
     "newsletter-form",
-    "text-white"
+    "text-white",
+    "section_footer",
+    "footer-inner",
+    "footer-left",
+    "footer-links",
+    "footer-link",
+    "is-footer"
   ]
 }

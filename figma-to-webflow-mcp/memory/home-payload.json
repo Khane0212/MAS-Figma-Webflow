@@ -3,8 +3,62 @@
   "frame": "home",
   "siteId": "69da69c0603d5b8c1cbd992e",
   "buildStatus": "completed",
-  "lastUpdated": "2026-04-15",
+  "lastUpdated": "2026-04-17",
+  "buildStatus": "completed",
   "actions": [
+    {
+      "build_label": "home-full",
+      "parent_element_id": {
+        "component": "",
+        "element": "body"
+      },
+      "creation_position": "append",
+      "classes": {
+        "reused": [],
+        "new": [
+          "page-wrapper",
+          "main-wrapper",
+          "padding-global",
+          "container-large-1-2-3",
+          "container-medium",
+          "padding-section-y",
+          "padding-section-small",
+          "surface-muted",
+          "divider",
+          "navbar",
+          "navbar-header",
+          "logo-heading-1",
+          "nav-links",
+          "nav",
+          "nav-cart",
+          "section_hero",
+          "hero-headline",
+          "hero-headline-1",
+          "text-title",
+          "hero-button",
+          "hero-images-1",
+          "hero-image-left",
+          "cta-button"
+        ]
+      },
+      "get_children_info": true,
+      "children_depth": 1
+    },
+    {
+      "build_label": "home-footer-update",
+      "context": "Updated footer to use section tag with proper Client-First classes",
+      "classes": {
+        "reused": ["footer-inner", "footer-left", "footer-links", "footer-link", "text-size-small-1-2"],
+        "new": ["section_footer", "is-footer"]
+      },
+      "actions": [
+        "Removed old footer-primary (tag: footer)",
+        "Created section_footer style",
+        "Created is-footer combo class for nav-logo",
+        "Added new footer as section"
+      ]
+    }
+  ],
     {
       "build_label": "home-full",
       "parent_element_id": {

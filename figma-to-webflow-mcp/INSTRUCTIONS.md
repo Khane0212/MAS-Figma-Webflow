@@ -44,6 +44,13 @@ Dự án này tự động hóa quy trình chuyển đổi thiết kế từ Fig
 - **Tài liệu bắt buộc**: Đọc `skills/webflow-sync.md`.
 - **Quy tắc**: Tuyệt đối tuân thủ Payload, không tự ý thay đổi structure trong bước này.
 
+### 4.5. Cập nhật Payload (Update Payload) - BẮT BUỘC khi có thay đổi thủ công
+- **Hành động**: Sau mỗi lần thay đổi trên Webflow (thủ công hoặc qua MCP), PHẢI cập nhật lại các file Payload và classes-inventory.json.
+- **Files cần cập nhật**:
+  - `memory/[frame]-payload.json`: Thêm action mới vào mảng `actions`
+  - `memory/classes-inventory.json`: Cập nhật `lastUpdated`, thêm class mới vào frame tương ứng và mảng `allClasses`
+- **Quy tắc**: Payload là nguồn sự thật duy nhất về cấu trúc trang - luôn giữ cho nó đồng bộ với Webflow.
+
 ### 5. Kiểm tra chất lượng (QA Tester)
 - **Hành động**: Audit & Checklist.
 - **Tài liệu bắt buộc**: Đọc `agents/qa-tester.md`.
