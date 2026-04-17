@@ -1,11 +1,16 @@
 # Standard Operating Procedure (SOP) - Figma to Webflow MAS (V2 Refactored)
 
 ## 0. Quy trình Style & Variable Audit (Pre-flight)
-- **Nhiệm vụ:** - @Executor: Chạy `list_variables` và `list_styles` trên Webflow.
+- **Nhiệm vụ:** - @Executor: Chạy `list_variables` và `list_styles` trên Webflow thông qua native MCP tool hoặc dùng lệnh fallback `node tools/webflow.mjs ...`.
     - @Reader: Quét Global Styles/Variables từ Figma.
     - @Analyst: Đối soát hai nguồn để tạo `/knowledge-base/style-guide-map.json`.
 - **Nguyên tắc ưu tiên:** Nếu trùng tên nhưng khác giá trị, @Analyst phải báo cáo để User chọn "Override" hoặc "Create New with Suffix".
 - **Output:** File `/knowledge-base/style-guide-map.json` (Nguồn sự thật duy nhất).
+
+## 0.5. Khởi tạo & Đồng bộ Style Guide (Mandatory Prerequisite)
+- **Prerequisite:** Dự án Webflow phải được bắt đầu từ Template Client-First Starter (bắt buộc đã có sẵn trang Style Guide).
+- **Two-Way Sync:** Khi @Executor tạo mới bất kỳ một Variable (Color, Spacing, Typography) hoặc Global Class nào thông qua MCP, BẮT BUỘC phải tạo thêm một Node trực quan trên trang `Style Guide` để đảm bảo khách hàng có thể quản lý sau handoff.
+- **Error Fallback:** Nếu @Executor quét không thấy trang `Style Guide` (hoặc bị xóa nhầm), hệ thống MAS phải báo lỗi và dừng toàn bộ tiến trình, yêu cầu User khôi phục trang này trước khi đi tiếp.
 
 ## 1. Quy trình Handoff (Bàn giao & Chunking)
 - **Từ @Reader sang @Analyst:** - Dữ liệu Figma phải được chia nhỏ theo **Section** (tránh tràn Context).

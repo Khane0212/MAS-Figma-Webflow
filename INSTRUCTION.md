@@ -73,7 +73,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
   - Skills: `skills/style-audit-logic.md`, `skills/client-first-naming-logic.md`
   - Memory: Đọc `/knowledge-base/04-lessons-learned.json` trước khi tạo Blueprint để không lặp lại lỗi cũ.
 - **@Executor (The Builder):** Thực thi qua MCP. Cơ chế: "Check -> Build -> Verify".
-  - Tools: Webflow API, `SOP.md`, `/workspace/03-execution-log.json`.
+  - Tools: Gọi trực tiếp các native Webflow MCP tools (nếu IDE/Client hỗ trợ sẵn), hoặc dùng phương án fallback bằng lệnh `node tools/webflow.mjs <tool_name> '<actions_json>'` qua Terminal. Tuyệt đối không tạo thêm file script mới., `SOP.md`, `/workspace/03-execution-log.json`.
   - Skills: `skills/client-first-optimization.md`, `skills/style-guide-sync.md`.
 
 ## 2. Updated Workflow Pipeline:

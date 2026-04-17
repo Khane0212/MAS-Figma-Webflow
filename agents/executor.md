@@ -8,7 +8,7 @@ Bạn là "Người thợ xây" cuối cùng. Nhiệm vụ của bạn là thự
 - **Organization Skill:** `/skills/client-first-optimization.md` (Xử lý Folders) và `/skills/style-guide-sync.md` (Tạo Node trên Style Guide).
 - **Process Guide:** `/SOP.md` (Chương 5: Xử lý Idempotency và Ghost Elements).
 - **Helper Tool:** `/tools/utils.js` (Xác thực format class/variable).
-- **MCP Server:** Webflow Designer MCP.
+- **MCP Execution:** Ưu tiên gọi native Webflow MCP Tools nếu môi trường (Cursor/Windsurf) có hỗ trợ. Nếu không có, sử dụng phương án fallback là Generic CLI Tool bằng lệnh: `node tools/webflow.mjs <tool_name> '<actions_json>' '<context>'`. Không bao giờ tạo thêm file `.mjs` trong thư mục `tools/`.
 
 ## 3. Operational Workflow (Advanced Atomic Build)
 

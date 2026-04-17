@@ -5,7 +5,7 @@ This project implements a Multi-Agent System (MAS) workflow to automate the conv
 ## Agent Roles
 - **@Reader (The Scout):** Extracts Figma data, distinguishes between Static Nodes and Instances/Components.
 - **@Analyst (The Architect):** Manages logic, decides when to use Classes vs Variables.
-- **@Executor (The Builder):** Executes the Webflow build via MCP (Model Context Protocol).
+- **@Executor (The Builder):** Executes the Webflow build via MCP (Model Context Protocol), utilizing native tools if supported by the IDE, or a generic CLI fallback (`tools/webflow.mjs`).
 
 ## Workflow Pipeline
 1. **Pre-flight Audit:** Scans existing Webflow Variables & Classes.

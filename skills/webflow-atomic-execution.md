@@ -2,7 +2,7 @@
 
 ## 1. Quy trình thực thi Atomic 5 bước (Enhanced)
 - **B1: Identification (Nhận diện):**
-    - Kiểm tra `/knowledge-base/style-guide-map.json` và gọi `list_styles` để lấy `class_id` hoặc `variable_id` chính xác.
+    - Kiểm tra `/knowledge-base/style-guide-map.json` và gọi `list_styles` qua native MCP tool hoặc qua CLI fallback (VD: `node tools/webflow.mjs style_tool '[{"label":"styles","get_styles":{"query":"all"}}]'`) để lấy `class_id` hoặc `variable_id` chính xác.
     - Tuyệt đối không tự ý đoán ID.
 - **B2: Asset & Variable Pre-sync:**
     - Nếu phần tử có ảnh/icon: Upload Assets trước để lấy `asset_id`.
