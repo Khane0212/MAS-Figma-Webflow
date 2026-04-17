@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postinstall": "node scripts/fix-mcp-remote.js"
+  },
   "dependencies": {
     "mcp-remote": "^0.1.38"
   }

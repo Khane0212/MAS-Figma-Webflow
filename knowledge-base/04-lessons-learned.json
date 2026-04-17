@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ERR-001-POWERSHELL-JSON-ESCAPING",
+    "context": "Executing Webflow MCP tools via terminal on Windows (PowerShell)",
+    "problem": "PowerShell strips quotes from inline JSON arguments (e.g. `node tools/webflow.mjs style_tool '[{\"label\":...}]'`), causing SyntaxError during JSON.parse in Node.js.",
+    "solution": "NEVER pass JSON strings directly through PowerShell arguments. ALWAYS use `node -e \"import('./tools/webflow-client.mjs').then(m => m.callWebflowTool(...))\"` with native JavaScript objects to execute tools safely and bypass shell escaping issues."
+  },
+  {
+    "id": "ERR-002-TOOL-MISMATCH",
+    "context": "Fetching CSS Classes vs. Variables from Webflow MCP",
+    "problem": "Attempted to fetch variables using `style_tool`, which resulted in an 'Unrecognized key(s): get_variables' error.",
+    "solution": "Webflow separates these entities. MUST use `style_tool` (with `get_styles`) strictly for CSS Classes. MUST use `variable_tool` for anything related to Variables (Color, Size, Font, etc.). Always double-check `workspace/webflow-tools.json` for the exact schema."
+  },
+  {
+    "id": "ERR-003-VARIABLE-FETCH-WORKFLOW",
+    "context": "Fetching all existing variables using variable_tool",
+    "problem": "Variables cannot be fetched globally in a single call. They belong to specific Collections.",
+    "solution": "Fetching variables is a MANDATORY TWO-STEP PROCESS: 1. Call `variable_tool` with `get_variable_collections` (query: 'all') to get the Collection ID (e.g., 'Base collection'). 2. Call `variable_tool` with `get_variables` using the retrieved `variable_collection_id`."
+  },
+  {
+    "id": "ERR-004-ACTION-PAYLOAD-STRUCTURE",
+    "context": "Calling Webflow tools with actions array",
+    "problem": "Sending actions as a flat object or array of strings causes Invalid arguments error (Expected array, received object or Provide at least one of...).",
+    "solution": "The actions parameter MUST be an array of objects. For boolean actions, specify the action name as a key with value true, e.g., [{ \"label\": \"get_page\", \"get_current_page\": true }] or [{ \"label\": \"get_elements\", \"get_all_elements\": true }]."
+  },
+  {
+    "id": "ERR-005-POWERSHELL-HTML-ESCAPING",
+    "context": "Passing complex HTML strings to whtml_builder via Node eval on Windows",
+    "problem": "PowerShell still corrupts complex strings with nested quotes, spaces, and HTML tags inside a Node eval command, causing SyntaxError: Invalid or unexpected token.",
+    "solution": "For complex payloads like whtml_builder, encode the entire action arguments as a Base64 string and decode inside the eval: `JSON.parse(Buffer.from('...', 'base64').toString())`."
+  }
+]

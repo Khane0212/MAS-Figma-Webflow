@@ -81,5 +81,6 @@ export async function callWebflowTool(toolName, actions, context, siteId = SITE_
   );
 
   const dataStr = result.content ? result.content[0].text : result.data.content[0].text;
+  console.log("Raw Webflow Response:", dataStr);
   return JSON.parse(dataStr);
 }

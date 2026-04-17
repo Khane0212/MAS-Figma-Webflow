@@ -1,7 +1,11 @@
 # Standard Operating Procedure (SOP) - Figma to Webflow MAS (V2 Refactored)
 
 ## 0. Quy trình Style & Variable Audit (Pre-flight)
-- **Nhiệm vụ:** - @Executor: Chạy `list_variables` và `list_styles` trên Webflow thông qua native MCP tool hoặc dùng lệnh fallback `node tools/webflow.mjs ...`.
+- **Nhiệm vụ:**
+    - @Executor: 
+        1. **Check Schema:** Tra cứu `workspace/webflow-tools-summary.json` để xác định Tool & Action phù hợp.
+        2. **Surgical Read:** Nếu cần tham số chi tiết, đọc đúng đoạn cần thiết trong `workspace/webflow-tools.json`.
+        3. **Execution:** Chạy lệnh thông qua `node -e` (để tránh lỗi PowerShell).
     - @Reader: Quét Global Styles/Variables từ Figma.
     - @Analyst: Đối soát hai nguồn để tạo `/knowledge-base/style-guide-map.json`.
 - **Nguyên tắc ưu tiên:** Nếu trùng tên nhưng khác giá trị, @Analyst phải báo cáo để User chọn "Override" hoặc "Create New with Suffix".

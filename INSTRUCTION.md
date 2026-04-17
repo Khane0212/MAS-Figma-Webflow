@@ -60,9 +60,30 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
+## 5. Webflow MCP & Windows Environment Mandates (MAS Specific)
+
+**Rule 1: Optimized Tool Discovery (Summary-First)**
+- BEFORE calling any Webflow MCP tool, check `workspace/webflow-tools-summary.json` to confirm the tool name and available actions (this is lightweight and saves tokens).
+- ONLY if specific property details or parameter schemas are needed, perform a surgical read of `workspace/webflow-tools.json` using `grep_search` to find the line number and `read_file` with `start_line/end_line`.
+- NEVER read the entire `webflow-tools.json` file.
+
+**Rule 2: Payload Integrity on Windows/PowerShell**
+- DO NOT pass JSON strings as CLI arguments to `tools/webflow.mjs` (PowerShell corrupts quotes).
+- ALWAYS use the Node.js eval pattern: `node -e "import('./tools/webflow-client.mjs').then(m => m.callWebflowTool(...))"`.
+- This ensures data is passed as a native JS Object, bypassing shell escaping issues.
+
+**Rule 3: Diagnostic-First Failure Recovery**
+- If a tool call fails, the first response must be a "Diagnostic Step": Re-read the tool schema and verify the site ID/Collection ID involved.
+- Only attempt a fix after confirming the discrepancy between the requested action and the supported schema.
+
+**Rule 4: Clean Start Protocol (Dọn dẹp thông tin cũ)**
+- Whenever the user explicitly requests "Dọn dẹp thông tin cũ" (or similar intent for a new project), automatically reset all data-tracking JSON files to their empty state (`{}` or `[]`).
+- Files to reset: `knowledge-base/style-guide-map.json`, `workspace/01-chunked-discovery.json`, `workspace/01-raw-figma.json`, `workspace/02-analyzed-map.json`, `workspace/03-execution-log.json`, `workspace/04-style-audit.json`, `workspace/04-style-audit-report.md`, `workspace/webflow-data.json`.
+- CRITICAL: NEVER clear `knowledge-base/04-lessons-learned.json` (contains vital system rules) or Webflow tool schemas (`webflow-tools.json`, `webflow-tools-summary.json`).
+
 ---
 
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+**These guidelines are working if:** no more JSON SyntaxErrors from PowerShell, no more "Unrecognized Key" errors from Webflow MCP, and higher autonomy in discovering new Webflow features.
 
 # Multi-Agent Workflow: Figma to Webflow Client-First (MAS Edition - V2)
 
