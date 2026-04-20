@@ -3,9 +3,33 @@
   "frame": "newstand",
   "siteId": "69da69c0603d5b8c1cbd992e",
   "buildStatus": "completed",
-  "lastUpdated": "2026-04-15",
-  "notes": "✅ REBUILT: Filters and Newsletter sections fixed. All 6 sections present with correct styles. 9 articles in 3x3 grid matching Figma. Created styles: tag-filter, search-bar, newsletter-subtitle, newsletter-form, newsletter-input, newsletter-btn.",
+  "lastUpdated": "2026-04-19",
+  "notes": "✅ ADDED FOOTER: Section added with World Peas logo, copyright text, and nav links (Shop, Newstand, Who we are). Classes reused from Home page.",
   "actions": [
+    {
+      "build_label": "add-footer",
+      "parent_element_id": {
+        "component": "69df0278d72ce6bd8df82e60",
+        "element": "031ba775-07d5-934f-4c5b-61d00a53f252"
+      },
+      "creation_position": "append",
+      "classes": {
+        "reused": [
+          "section_footer",
+          "padding-global",
+          "container-large",
+          "padding-section-medium",
+          "footer-inner",
+          "footer-left",
+          "footer-links",
+          "nav-logo",
+          "is-footer",
+          "footer-link",
+          "text-size-small-1-2"
+        ],
+        "new": []
+      }
+    },
     {
       "build_label": "newstand-full",
       "parent_element_id": {

@@ -19,6 +19,29 @@ Dự án này tự động hóa quy trình chuyển đổi thiết kế từ Fig
 
 ---
 
+## 🔌 MCP SETUP (REQUIRED)
+
+> **BOOTSTRAP**: Đọc `mcp-servers.json` để lấy MCP servers config.
+
+### 1. Kết nối Tools
+Agent cần có 2 MCP connections. Xem chi tiết trong `mcp-servers.json`:
+
+| MCP | Tools | Dùng cho |
+|-----|-------|---------|
+| **Figma MCP** | `get_design_context`, `get_variable_defs`, `get_metadata` | Quét Figma |
+| **Webflow MCP** | `element_builder`, `style_tool`, `variable_tool`, `data_pages` | Build Webflow |
+
+### 2. Verification
+Chạy test commands:
+- Figma: `get_design_context`
+- Webflow: `list_sites`
+
+### 3. Inputs cần từ User
+- **Figma URL**: File/Frame URL từ Figma
+- **Webflow Site ID**: Từ Webflow Dashboard
+
+---
+
 ## 🛠 WORKFLOW CHI TIẾT (MANDATORY FILE ACCESS)
 
 ### 1. Phân tích & Nghiên cứu (Research Agent)

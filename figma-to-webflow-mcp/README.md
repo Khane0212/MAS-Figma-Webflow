@@ -4,6 +4,23 @@ AI-powered Figma-to-Webflow workflow with Frame-by-Frame build, Memory-First app
 
 ---
 
+## 🚀 Bắt đầu nhanh (Người mới)
+
+```bash
+# 1. Clone về
+git clone <repo-url>
+cd figma-to-webflow-mcp
+
+# 2. Setup MCP (tự động copy cho agent)
+node generate-configs.js
+
+# 3. Mở agent và bắt đầu chat!
+```
+
+Xem chi tiết: [GETTING-STARTED.md](./GETTING-STARTED.md)
+
+---
+
 ## ⚡ Quick Workflow
 
 ```

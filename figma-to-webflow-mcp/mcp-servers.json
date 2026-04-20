@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "servers": {
+    "figma": {
+      "name": "Figma MCP",
+      "url": "https://mcp.figma.com/mcp",
+      "type": "http",
+      "auth": "oauth"
+    },
+    "webflow": {
+      "name": "Webflow MCP",
+      "url": "https://mcp.webflow.com/mcp",
+      "type": "http",
+      "auth": "oauth"
+    }
+  },
+  "agents": {
+    "opencode": {
+      "file": "opencode.json",
+      "content": {
+        "mcp": {
+          "figma": { "type": "remote", "url": "https://mcp.figma.com/mcp", "enabled": true },
+          "webflow": { "type": "remote", "url": "https://mcp.webflow.com/mcp", "enabled": true }
+        }
+      }
+    },
+    "claude-desktop": {
+      "file": "claude.json",
+      "content": {
+        "mcpServers": {
+          "figma": { "url": "https://mcp.figma.com/mcp", "type": "http" },
+          "webflow": { "url": "https://mcp.webflow.com/mcp", "type": "http" }
+        }
+      }
+    },
+    "vscode": {
+      "file": "mcp.json",
+      "content": {
+        "mcpServers": {
+          "figma": { "url": "https://mcp.figma.com/mcp", "type": "http" },
+          "webflow": { "url": "https://mcp.webflow.com/mcp", "type": "http" }
+        }
+      }
+    },
+    "gemini-cli": {
+      "file": "~/.gemini/settings.json",
+      "content": {
+        "mcpServers": {
+          "figma": { "url": "https://mcp.figma.com/mcp" },
+          "webflow": { "url": "https://mcp.webflow.com/mcp" }
+        }
+      }
+    },
+    "claude-code": {
+      "setup": "claude mcp add --transport http figma https://mcp.figma.com/mcp && claude mcp add --transport http webflow https://mcp.webflow.com/mcp"
+    },
+    "cursor": {
+      "setup": "/add-plugin figma"
+    },
+    "codex": {
+      "setup": "codex mcp add figma --url https://mcp.figma.com/mcp && codex mcp add webflow --url https://mcp.webflow.com/mcp"
+    }
+  },
+  "verification": {
+    "figma": "get_design_context",
+    "webflow": "list_sites"
+  },
+  "inputs": {
+    "figma_url": "https://figma.com/file/xxx?node-id=xxx",
+    "webflow_site_id": "Từ Webflow Dashboard → Site Settings"
+  }
+}
