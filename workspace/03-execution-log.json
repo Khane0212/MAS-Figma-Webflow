@@ -1,1 +1,39 @@
-[]
+{
+  "project_metadata": {
+    "status": "INITIALIZING",
+    "current_phase": 0,
+    "last_update": "2026-04-20",
+    "auto_pilot": false
+  },
+  "phases": [
+    {
+      "id": 0,
+      "name": "Pre-flight Audit",
+      "status": "PENDING",
+      "steps": [
+        { "step": "Scan Webflow Variables", "agent": "@Executor", "status": "PENDING", "qa": "NOT_STARTED" },
+        { "step": "Scan Figma Styles", "agent": "@Reader", "status": "PENDING", "qa": "NOT_STARTED" },
+        { "step": "Create Style Guide Map", "agent": "@Analyst", "status": "PENDING", "qa": "NOT_STARTED" }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Chunked Discovery",
+      "status": "PENDING",
+      "steps": []
+    },
+    {
+      "id": 2,
+      "name": "Logic Analysis",
+      "status": "PENDING",
+      "steps": []
+    },
+    {
+      "id": 3,
+      "name": "Execution & Validation",
+      "status": "PENDING",
+      "steps": []
+    }
+  ],
+  "execution_history": []
+}

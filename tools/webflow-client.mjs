@@ -82,5 +82,10 @@ export async function callWebflowTool(toolName, actions, context, siteId = SITE_
 
   const dataStr = result.content ? result.content[0].text : result.data.content[0].text;
   console.log("Raw Webflow Response:", dataStr);
-  return JSON.parse(dataStr);
+  try {
+    return JSON.parse(dataStr);
+  } catch (e) {
+    console.error("Failed to parse Webflow response as JSON. Returning raw string.");
+    return [{ status: "error", message: "Invalid JSON response", data: dataStr }];
+  }
 }

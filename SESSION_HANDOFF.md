@@ -1,30 +1,33 @@
-# Session Handoff - MAS Figma to Webflow V2
+# SESSION_HANDOFF: MAS V2 Architecture Initialized
 
-## Project State
-The system has completed a comprehensive **End-to-End Test Build** and subsequent **Clean Start Initialization**. The execution environment (Windows/PowerShell) is now highly resilient against escaping errors, and the system is fully prepared for a new project.
+## 📝 Tổng kết Phiên làm việc
+Phiên làm việc này đã hoàn thành việc tái cấu trúc hệ thống MAS (Multi-Agent System) từ phiên bản đơn lẻ sang kiến trúc **Orchestration (Điều phối)** phức tạp và kỷ luật cao.
 
-### Technical Achievements (Latest Session):
-1.  **Successful Test Build (NavBar):**
-    - Verified the ability to create Variables (`color--white`, `color--black`).
-    - Verified the ability to create Client-First compliant Styles (`navbar_component`, `navbar_container`, etc.) linking to variables.
-    - Successfully used `whtml_builder` to construct and inject a complex DOM structure into Webflow.
-2.  **Windows Environment Hardening (Base64 Payload):**
-    - Solved the persistent PowerShell HTML/JSON escaping issue for complex payloads (like `whtml_builder`).
-    - **Established Standard:** All complex string arguments must be passed as Base64 encoded strings and decoded inside the Node eval command: `JSON.parse(Buffer.from('...', 'base64').toString())`.
-3.  **Automated Clean Start Protocol (Rule 4):**
-    - Updated `INSTRUCTION.md` with **Rule 4**. When the user requests "Dọn dẹp thông tin cũ" for a new project, the system automatically resets all tracking JSON files (e.g., `01-chunked-discovery.json`, `style-guide-map.json`, etc.) to empty states (`{}` or `[]`).
-    - Executed the Clean Start: All old project data has been wiped.
-4.  **Knowledge Base Expansion:**
-    - Added `ERR-004-ACTION-PAYLOAD-STRUCTURE`: Enforces the correct array-of-objects structure for Webflow MCP actions.
-    - Added `ERR-005-POWERSHELL-HTML-ESCAPING`: Enforces the Base64 encoding rule for complex HTML payloads.
+### 1. Các thay đổi cốt lõi:
+- **Agent @PM (The Orchestrator):** Đã thiết lập `agents/pm.md` làm trung tâm điều hành. @PM chịu trách nhiệm đọc Log, ra lệnh cho Agent con và gọi QA.
+- **Agent @QA (The Gatekeeper):** Đã tích hợp vào Pipeline để kiểm duyệt Blueprint và Payload trước khi thực thi.
+- **Hệ thống Skill mới:**
+    - `skills/orchestration-logic.md`: Quản lý State Machine (PENDING -> DRAFTING -> QA -> READY).
+    - `skills/status-reporting-protocol.md`: Quy chuẩn báo cáo minh bạch cho User.
+- **Cải tiến Logic:** Cập nhật `skills/figma-layout-interpretation.md` để bảo tồn Variable ID và thêm `reason` cho việc đặt tên Class (giúp QA duyệt nhanh hơn).
 
-## Next Immediate Steps
-1.  **Initiate Phase 0 (Figma Side):**
-    - The system is completely clean and waiting for the **Figma Link or ID** to begin extracting the design for the new project.
-    - **@Reader** will extract Global Styles and Variables from the provided Figma file.
-    - **@Analyst** will then begin the cross-audit process.
+### 2. Trạng thái Tài liệu & Quy trình:
+- **`README.md` & `INSTRUCTION.md`:** Đã cập nhật đầy đủ mô tả về Agent @PM và Pipeline 5 giai đoạn.
+- **`SOP.md`:** Đã thiết lập 3 lớp bảo vệ (Internal QA, User Approval, Post-build Verification).
+- **`workspace/03-execution-log.json`:** Đã khởi tạo cấu trúc State-based mới.
+- **Clean Start:** Đã thực hiện "Dọn dẹp thông tin cũ" (Reset toàn bộ dữ liệu tạm).
 
-## Notes for the Next Session
-- **Clean Slate:** The `workspace` and `knowledge-base` (data files) are empty and ready for new data.
-- **Lessons Learned:** Always consult `knowledge-base/04-lessons-learned.json` before executing commands, especially regarding payload structures and Base64 encoding for HTML injection.
-- **Workflow:** Await the Figma Link/ID from the user to start Phase 0.
+## 🚀 Trạng thái hiện tại: [Giai đoạn 0 - Pre-flight Audit]
+Hệ thống đang ở trạng thái **INITIALIZING**. Mọi cấu trúc đã sẵn sàng để bắt đầu quét Webflow và Figma.
+
+## 🎯 Hướng dẫn cho phiên kế tiếp:
+Để bắt đầu, hãy sử dụng **Golden Start Prompt** trong `README.md`:
+
+1.  **Dán link Figma** và **Webflow Site ID**.
+2.  Yêu cầu @PM bắt đầu **Giai đoạn 0 (Pre-flight Audit)**.
+3.  @PM sẽ tự động:
+    - Ra lệnh @Executor quét Variables Webflow.
+    - Ra lệnh @Reader quét Styles Figma.
+    - Ra lệnh @Analyst tạo Style Guide Map.
+
+**Lưu ý quan trọng:** Luôn để @PM dẫn dắt. Nếu Agent nào khác tự ý thực thi, hãy nhắc nhở nó đọc lại `agents/pm.md`.

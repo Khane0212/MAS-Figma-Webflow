@@ -28,5 +28,23 @@
     "context": "Passing complex HTML strings to whtml_builder via Node eval on Windows",
     "problem": "PowerShell still corrupts complex strings with nested quotes, spaces, and HTML tags inside a Node eval command, causing SyntaxError: Invalid or unexpected token.",
     "solution": "For complex payloads like whtml_builder, encode the entire action arguments as a Base64 string and decode inside the eval: `JSON.parse(Buffer.from('...', 'base64').toString())`."
+  },
+  {
+    "id": "RULE-006-PRE-INJECTION-QUALITY-GATE",
+    "context": "Generating and injecting HTML payload into Webflow",
+    "problem": "Executor generated HTML with hardcoded pixels (width, padding) and inline CSS instead of strictly adhering to Client-First class structures and rem units, causing layout breaks.",
+    "solution": "MANDATORY QUALITY GATE: Before using `whtml_builder`, the agent MUST cross-check the HTML against `skills/client-first-structure.md` and `skills/figma-layout-interpretation.md`. Ensure top structure is `[component]_component` > `padding-global` > `container-[size]`, and all sizings/gaps use `rem`. Never hardcode `max-width` on custom wrappers."
+  },
+  {
+    "id": "RULE-007-COMPONENT-TRANSFORMATION",
+    "context": "Creating reusable Webflow Components (Symbols)",
+    "problem": "Injecting HTML with a `[component]_component` class only creates a raw Div block, not a true Webflow Component that can be reused across pages.",
+    "solution": "After injecting the HTML block for a global component (like Navbar or Footer) via `whtml_builder`, ALWAYS follow up immediately with `de_component_tool` -> `transform_element_to_component` to officially register the element as a reusable Component in Webflow's registry."
+  },
+  {
+    "id": "RULE-008-STRICT-WORKFLOW-ENFORCEMENT",
+    "context": "Executing multi-agent workflow (Figma to Webflow)",
+    "problem": "The agent skipped Phase 2 (Blueprint generation) and Phase 3 (Human-in-the-loop approval), jumping directly to code generation and injection. This resulted in poor structural quality, bypassed QA, and frustrated the user.",
+    "solution": "ABSOLUTE MANDATE: The agent MUST NOT proceed to HTML generation or Webflow injection without explicitly completing these prerequisites: 1) Write the analyzed structure to workspace/02-analyzed-map.json. 2) Present the Blueprint to the user and explicitly WAIT for the user to approve before continuing. Violating this sequence breaks the Multi-Agent System architecture."
   }
 ]
