@@ -3,17 +3,17 @@
 ## 1. Reporting Structure
 Mọi báo cáo từ @PM phải tuân thủ format:
 ```
-### 📊 Trạng thái Hệ thống [Phase X/Y]
+### Trạng thái Hệ thống [Phase X/Y]
 - **Công việc vừa làm:** [Mô tả ngắn gọn]
 - **Agent thực hiện:** [@Reader/@Analyst/...]
 - **Kiểm duyệt bởi @QA:** [✅ Pass / ❌ Rejected - Lý do]
 - **Dữ liệu hiện tại:** [Link file JSON hoặc tóm tắt số lượng Node]
 
-### 🎯 Hành động tiếp theo
+### Hành động tiếp theo
 - [Mô tả bước tiếp theo]
 - [Dự kiến kết quả]
 
-### 🛑 Checkpoint - Cần xác nhận
+### Checkpoint - Cần xác nhận
 [Câu hỏi hoặc yêu cầu Approval từ User]
 ```
 
