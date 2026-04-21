@@ -1,15 +1,17 @@
 # MAS-Cursor: Figma to Webflow Client-First Orchestrator (V2)
 
-Hệ thống MAS (Multi-Agent System) là bộ khung điều phối AI chuyên dụng để chuyển đổi thiết kế từ Figma sang Webflow theo tiêu chuẩn **Client-First V2**. Hệ thống được thiết kế với tính kỷ luật cực cao, đảm bảo 100% tuân thủ quy trình và an toàn dữ liệu.
+Hệ thống này là một bộ khung **Agentic Workflow nâng cao** mô phỏng kiến trúc Multi-Agent System (Simulated MAS) thông qua kỹ thuật **Role-playing / Persona Prompting**. Hệ thống được thiết kế chuyên dụng để tự động hóa chuyển đổi thiết kế từ Figma sang Webflow theo tiêu chuẩn **Client-First V2** với tính kỷ luật cực cao, đảm bảo tuân thủ quy trình (SOP) qua quản lý trạng thái bằng các file `workspace`.
 
-## Kiến trúc Agent
-Hệ thống vận hành dưới sự điều hành của một Agent Orchestrator duy nhất:
+*Lưu ý về kiến trúc: Thay vì khởi tạo các luồng AI riêng biệt, toàn bộ các "Agent" trong hệ thống chia sẻ chung một Context Window và được kích hoạt tuần tự. Chúng lưu trữ và giao tiếp thông tin qua việc đọc/ghi các file JSON trung gian (State Management).*
 
-*   **@PM (The Orchestrator):** Giám sát toàn bộ dự án, quản lý Log trạng thái, điều phối các Agent con và đảm bảo QA.
-*   **@Reader (The Scout):** Trích xuất và làm sạch dữ liệu từ Figma (Auto Layout, Variables).
-*   **@Analyst (The Architect):** Thiết kế Blueprint logic, quy đổi Class và Variable theo Client-First.
-*   **@Executor (The Builder):** Thực thi lệnh thông qua Webflow MCP Server (Node.js eval/Base64).
-*   **@QA (The Gatekeeper):** Chốt chặn cuối cùng, kiểm duyệt payload và cấu trúc HTML/CSS trước khi thực thi.
+## Kiến trúc Agent (Role-playing Personas)
+Hệ thống vận hành bằng cách luân chuyển linh hoạt giữa các vai trò (Personas) dưới sự điều phối của một luồng chính:
+
+*   **@PM (The Orchestrator):** Vai trò chủ đạo giám sát dự án, quản lý Log trạng thái, điều phối các "Mũ" (Hats/Personas) khác và bảo đảm quy trình QA.
+*   **@Reader (The Scout):** Nhiệm vụ chuyên biệt để trích xuất và làm sạch dữ liệu từ Figma (Auto Layout, Node trees, Variables).
+*   **@Analyst (The Architect):** Chuyên tư duy thiết kế Blueprint logic, vạch ra các quy đổi Class và Variable tuân theo Design System Client-First.
+*   **@Executor (The Builder):** Khởi tạo hành động thông qua Webflow MCP Server (Giao tiếp an toàn bằng shell args kiểu Node.js eval/Base64).
+*   **@QA (The Gatekeeper):** Vai trò chốt chặn cuối cùng, kiểm duyệt chéo nội dung payload và cấu trúc HTML/CSS trước khi thực thi write đẩy lên Webflow.
 
 ## Quy trình vận hành (Pipeline)
 1.  **Phase 0 - Pre-flight Audit:** Đối soát Style Guide giữa Figma và Webflow.
