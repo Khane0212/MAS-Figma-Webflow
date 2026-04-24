@@ -1,50 +1,86 @@
-# Standard Operating Procedure (SOP) - Figma to Webflow MAS (V2 Refactored)
+# Standard Operating Procedure (SOP) - Architect & Operator Model (Professional Edition)
 
-## 0. Quy trình Điều phối Dự án (Orchestration - Managed by @PM)
-- **Nhiệm vụ:**
-    - @PM là Agent dẫn dắt. Trước mỗi hành động, @PM phải:
-        1. **Check State:** Đọc `workspace/03-execution-log.json`.
-        2. **Dispatch:** Chỉ định Agent chuyên trách và cung cấp context cô đọng.
-        3. **QA Verification:** Gọi @QA kiểm duyệt kết quả trước khi cho phép đi tiếp.
-        4. **User Sync:** Báo cáo trạng thái theo quy chuẩn `skills/status-reporting-protocol.md`.
+Tài liệu này quy định quy trình vận hành chuẩn cho hệ thống MAS (Architect & Operator) để đảm bảo chất lượng thiết kế 1:1 và cấu trúc Client-First 100%.
 
-## 0.5. Quy trình Style & Variable Audit (Pre-flight)
-- **Nhiệm vụ:**
-    - @PM ra lệnh @Executor quét Webflow site và @Reader quét Figma.
-    - @Analyst đối soát để tạo `/knowledge-base/style-guide-map.json`.
-- **Nguyên tắc ưu tiên:** Nếu trùng tên nhưng khác giá trị, @Analyst báo cáo @PM để @PM xin ý kiến User.
+---
 
-## 0.7. Khởi tạo & Đồng bộ Style Guide (Mandatory Prerequisite)
-- **Prerequisite:** Dự án Webflow phải được bắt đầu từ Template Client-First Starter.
-- **Two-Way Sync:** Khi @Executor tạo mới bất kỳ một Variable hoặc Global Class nào, BẮT BUỘC phải tạo thêm một Node trực quan trên trang `Style Guide`.
-- **Error Fallback:** Nếu thiếu trang `Style Guide`, @PM phải đình chỉ tiến trình ngay lập tức.
+## Giai đoạn 0: Khởi tạo & Audit hệ thống (Setup & Audit)
 
-## 1. Quy trình Handoff (Bàn giao & Chunking)
-- **Từ @Reader sang @Analyst (Dưới sự giám sát của @PM):** 
-    - Dữ liệu Figma phải được chia nhỏ theo **Section**.
-    - Phải bảo tồn Variable ID nếu có (theo `skills/figma-layout-interpretation.md`).
-- **Từ @Analyst sang @Executor:**
-    - Blueprint phải chỉ định rõ: Thuộc tính nào dùng Class, thuộc tính nào dùng Variable ID.
-- **Từ @Executor sang @QA (Gatekeeping):** 
-    - @Executor trình bày payload dự kiến.
-    - @QA kiểm duyệt. Nếu Reject, @PM ra lệnh sửa lại.
+Mục tiêu: Thiết lập môi trường và nhận diện hệ thống Style hiện tại.
 
-## 2. Quy trình Xử lý Ngoại lệ (Exceptions)
-- **Figma "Dirty" (Thiếu Auto Layout):** @Analyst đề xuất cấu trúc Flexbox tối ưu dựa trên tọa độ `absoluteBoundingBox` và hỏi ý kiến User.
-- **Webflow API Rate Limit:** - @Executor áp dụng Exponential Backoff (5s -> 15s -> 60s).
-    - Sau 3 lần: Ghi trạng thái "Paused" vào Log và lưu Cache phiên làm việc.
+1.  **Thiết lập:** User cung cấp Figma Link/Node ID và Webflow Site ID.
+2.  **Operator (Chat 2):**
+    - Đọc `knowledge-base/project-rules.md`.
+    - **Bắt buộc:** Gọi `webflow_guide_tool` đầu tiên.
+    - Quét toàn bộ Webflow Variables và Global Classes hiện có.
+    - Quét Global Styles (Colors, Typography) từ Figma.
+    - Ghi dữ liệu vào `workspace/design-system.json`.
+3.  **Architect (Chat 1):**
+    - Đọc `knowledge-base/project-rules.md`.
+    - Đọc `workspace/design-system.json`.
+    - Đối soát xung đột: Phát hiện các Style trùng tên nhưng khác giá trị hoặc trùng giá trị nhưng khác tên.
+    - Đề xuất phương án đồng bộ hệ thống Style cho User duyệt.
 
-## 3. Quy trình Kiểm soát Chất lượng (Quality Gate)
-- **Lớp 1 (Internal QA):** @QA rà soát kỹ thuật (Pre-build).
-- **Lớp 2 (User Approval):** @PM báo cáo và chờ User duyệt Blueprint.
-- **Lớp 3 (Post-build Verification):** @Executor so sánh `get_page_dom` với Blueprint. @PM ghi nhận vào Log.
+---
 
-## 4. Quản lý State & Memory
-- **Atomic Logging:** Ghi nhật ký ngay sau mỗi Node thành công. 
-- **Cấu trúc Log:** `{ "figma_id": "...", "webflow_id": "...", "type": "variable|class|element", "status": "success" }`.
-- **Học tập (Learning):** Sau khi hoàn thành một Section, @Analyst phải tự vấn: "User đã sửa gì ở Blueprint?" và ghi các quy tắc mới vào `/knowledge-base/04-lessons-learned.json`.
+## Giai đoạn 1: Trích xuất & Phân tích chuyên sâu (Blueprint)
 
-## 5. Quy trình Xử lý Sự cố (Incident Response)
-- **Idempotency:** Kiểm tra Log theo `figma_id` trước mọi lệnh Write.
-- **Ghost Search:** Nếu gặp lỗi Network, phải dùng `discovery_tool` tìm kiếm Element theo `custom_attribute` (được gắn kèm lúc tạo) trước khi tạo lại.
-- **Cleanup:** Nếu User yêu cầu "Rollback", @Executor dựa vào Log của phiên gần nhất để xóa các node vừa tạo theo thứ tự ngược lại (Bottom-up).
+Mục tiêu: Tạo ra bản vẽ kỹ thuật chi tiết nhất trước khi xây dựng.
+
+1.  **Operator (Chat 2):**
+    - Đọc `knowledge-base/project-rules.md`.
+    - Thực hiện **Deep Extraction** cho Section được chỉ định. Phải lấy đủ thông số "Vàng" (Layout, Typo, Spacing, Visuals). Lưu vào `workspace/blueprint.json` (phần raw data).
+2.  **Architect (Chat 1):**
+    - Đọc `knowledge-base/project-rules.md`.
+    - Đọc `knowledge-base/client-first-theory.md` và `skills/client-first-rules.md`.
+    - Phân tích Raw Data để lập cấu trúc 6 lớp: `section` > `padding-global` > `container` > `padding-section` > `component_wrapper` > `elements`.
+    - Đặt tên Class (Custom `_` và Utility `-`) chuẩn Client-First.
+    - **Bắt buộc:** Viết phần `rationale` giải thích logic chọn cấu trúc layout.
+    - Hoàn thiện `workspace/blueprint.json`.
+3.  **DỪNG:** User duyệt Blueprint.
+
+---
+
+## Giai đoạn 2: Thực thi & Chốt chặn phê duyệt (Execution & Approval Gate)
+
+Mục tiêu: Xây dựng chính xác và an toàn trên Webflow Designer.
+
+1.  **Operator (Chat 2):** 
+    - Đọc `knowledge-base/project-rules.md`.
+    - Tiếp nhận Blueprint đã duyệt.
+2.  **Snapshot:** Sử dụng `element_snapshot_tool` để chụp ảnh trạng thái hiện tại của khu vực sẽ sửa đổi.
+3.  **Pre-Execution Approval (Chốt chặn):**
+    - Operator trình bày kế hoạch thực thi chi tiết (Ví dụ: "Tôi sẽ tạo 3 class mới, chèn 5 element vào section hero...").
+    - **Chờ User xác nhận:** Chỉ thực hiện khi User gõ `Đồng ý` hoặc `Tiếp tục`.
+4.  **Thực thi:** 
+    - Bước 1: Tạo/Cập nhật Styles và Variables.
+    - Bước 2: Xây dựng cấu trúc HTML (Nesting).
+    - Bước 3: Áp dụng thuộc tính và nội dung.
+    - Bước 4: Đồng bộ trực quan lên trang `Style Guide`.
+5.  **Báo cáo:** Ghi nhật ký vào `workspace/state.json`.
+
+---
+
+## Giai đoạn 3: Kiểm duyệt chất lượng chuyên nghiệp (Professional QA Gate)
+
+Mục tiêu: Đảm bảo độ khớp 1:1 và cấu trúc hoàn hảo.
+
+1.  **Architect (Chat 1):** 
+    - Đọc `knowledge-base/project-rules.md`.
+    - Đọc `workspace/state.json` và tự chụp ảnh Snapshot kết quả thực tế từ Webflow.
+2.  **Checklist đối soát 5 điểm:**
+    - **Visual:** Khớp 100% màu sắc, font, hiệu ứng so với thiết kế Figma.
+    - **Naming:** Custom class dùng `_`, Utility class dùng `-`, không viết tắt.
+    - **Structure:** Đầy đủ 6 lớp layout, không lồng ghép dư thừa.
+    - **Units:** 100% sử dụng đơn vị `rem`.
+    - **Variables:** Đã bind đúng các biến Global thay vì dùng mã màu hex cứng.
+3.  **Kết luận:** Trình thẻ `[APPROVED]` để hoàn tất Section hoặc `[FIX]` kèm chỉ dẫn chi tiết lỗi.
+
+---
+
+## Quy tắc giao tiếp & Bàn giao dữ liệu
+
+- **Vai trò của User:** Là người "vận chuyển" dữ liệu JSON giữa 2 cửa sổ chat.
+- **Bàn giao Blueprint:** Sau Giai đoạn 1, User copy `blueprint.json` từ Architect sang Operator.
+- **Bàn giao Log/State:** Sau Giai đoạn 2, User copy `state.json` từ Operator sang Architect để QA.
+- **Tính nhất quán:** Các Agent không được tự ý sửa file JSON nếu không có lệnh hoặc không thuộc phạm vi trách nhiệm của mình.

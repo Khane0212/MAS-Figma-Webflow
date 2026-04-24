@@ -1,52 +1,109 @@
 /**
- * UTILS.JS - The High-Performance Engine for Figma-to-Webflow MAS
- * Optimized for: Variable-First, Alpha Channel Sensing, & Webflow API Compliance.
+ * UTILS.JS - The High-Performance Engine for Finsweet Client-First MAS
+ * Optimized for: Visual Fidelity 1:1, Unit Safety (REM), & Layout Translation.
  */
 
 const CONFIG = {
   baseFontSize: 16,
-  snapThreshold: 2, // px - Ngưỡng để bắt đầu snap
   colorThreshold: 15, // Ngưỡng hòa hợp màu sắc (Euclidean)
-  // Scale chuẩn cho Client-First, bảo vệ các giá trị nhỏ (0, 1, 2)
-  spacingScale: [0, 1, 2, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128]
+  // Scale chuẩn Finsweet Client-First cho spacing
+  spacingScale: {
+    tiny: 4,
+    small: 8,
+    medium: 16,
+    large: 32,
+    huge: 64,
+    "section-small": 40,
+    "section-medium": 80,
+    "section-large": 120
+  }
 };
 
 const Utils = {
   /**
    * 1. CONVERSION: PX TO REM
-   * Đảm bảo số thập phân sạch và không có số 0 thừa.
+   * Hỗ trợ số đơn, chuỗi (vd: "20px 40px"), hoặc mảng.
    */
-  toRem: (px, base = CONFIG.baseFontSize) => {
-    const value = parseFloat(px);
-    if (isNaN(value) || value === 0) return "0rem";
-    // Giới hạn 3 chữ số thập phân và xóa số 0 vô nghĩa ở cuối
-    return `${(value / base).toFixed(3).replace(/\.?0+$/, "")}rem`;
+  toRem: (input) => {
+    if (input === undefined || input === null) return "0rem";
+
+    const convert = (val) => {
+      const num = parseFloat(val);
+      if (isNaN(num) || num === 0) return "0rem";
+      return `${(num / CONFIG.baseFontSize).toFixed(3).replace(/\.?0+$/, "")}rem`;
+    };
+
+    if (Array.isArray(input)) {
+      return input.map(v => convert(v)).join(" ");
+    }
+
+    if (typeof input === 'string' && input.includes(" ")) {
+      return input.split(" ").map(v => convert(v)).join(" ");
+    }
+
+    return convert(input);
   },
 
   /**
-   * 2. LOGIC: SMART SNAP
-   * Đưa giá trị về grid 4px/8px nhưng bảo vệ Border-width (1px, 2px).
+   * 2. NAMING: CLIENT-FIRST SLUGIFY
+   * Khử dấu tiếng Việt, giữ lại dấu gạch dưới (_) cho Custom Class.
    */
-  snapValue: (px) => {
-    const val = parseFloat(px);
-    if (isNaN(val)) return 0;
-    if (val <= CONFIG.snapThreshold) return val; // Không snap border/stroke nhỏ
-    
-    const closest = CONFIG.spacingScale.reduce((prev, curr) => 
-      Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev
-    );
-    
-    // Chỉ snap nếu độ lệch nằm trong ngưỡng cho phép
-    return Math.abs(closest - val) <= CONFIG.snapThreshold ? closest : val;
+  slugify: (str) => {
+    if (!str) return "";
+    return str
+      .toLowerCase()
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9\s-_]/g, "") // Cho phép dấu gạch dưới (_)
+      .replace(/\s+/g, "-") // Chỉ chuyển khoảng trắng thành gạch ngang
+      .replace(/-+/g, "-");
   },
 
   /**
-   * 3. COLOR: ADVANCED HARMONIZATION
-   * Hỗ trợ RGBA và tính khoảng cách màu bao gồm độ trong suốt.
-   * Công thức Euclidean: $$d = \sqrt{(r_2-r_1)^2 + (g_2-g_1)^2 + (b_2-b_1)^2 + (a_2-a_1)^2}$$
+   * 3. CLASS FORMATTER
+   * Định dạng class theo đúng chuẩn Finsweet Client-First.
+   */
+  formatClass: (prefix, element = null, isUtility = false) => {
+    const cleanPrefix = Utils.slugify(prefix);
+    if (isUtility) {
+      return cleanPrefix; // Utility class chỉ dùng gạch ngang
+    }
+    const cleanElement = element ? Utils.slugify(element) : "";
+    return cleanElement ? `${cleanPrefix}_${cleanElement}` : cleanPrefix;
+  },
+
+  /**
+   * 4. LAYOUT MAPPING: FIGMA TO WEBFLOW
+   * Dịch thuộc tính Auto Layout sang CSS Flexbox/Grid.
+   */
+  mapLayout: {
+    flex: (figmaProps) => {
+      const mapping = {
+        PRIMARY: { START: 'flex-start', CENTER: 'center', END: 'flex-end', SPACE_BETWEEN: 'space-between' },
+        COUNTER: { START: 'flex-start', CENTER: 'center', END: 'flex-end', STRETCH: 'stretch' }
+      };
+
+      return {
+        display: 'flex',
+        direction: figmaProps.direction === 'VERTICAL' ? 'column' : 'row',
+        justify: mapping.PRIMARY[figmaProps.primaryAxisAlignItems] || 'flex-start',
+        align: mapping.COUNTER[figmaProps.counterAxisAlignItems] || 'stretch',
+        gap: Utils.toRem(figmaProps.itemSpacing || 0)
+      };
+    },
+    sizing: (figmaValue) => {
+      if (figmaValue === 'FIXED') return 'fixed';
+      if (figmaValue === 'FILL') return '100%';
+      if (figmaValue === 'HUG') return 'auto';
+      return 'auto';
+    }
+  },
+
+  /**
+   * 5. COLOR: ADVANCED HARMONIZATION
    */
   parseColor: (input) => {
-    // Xử lý object màu trực tiếp từ Figma API {r, g, b, a} (0-1)
     if (typeof input === 'object' && input.r !== undefined) {
       return {
         r: Math.round(input.r * 255),
@@ -55,7 +112,6 @@ const Utils = {
         a: input.a !== undefined ? parseFloat(input.a.toFixed(2)) : 1
       };
     }
-    // Xử lý chuỗi HEX (hỗ trợ cả 3, 6, 8 ký tự)
     if (typeof input === 'string') return Utils.hexToRgba(input);
     return null;
   },
@@ -78,50 +134,12 @@ const Utils = {
     const c1 = Utils.parseColor(color1);
     const c2 = Utils.parseColor(color2);
     if (!c1 || !c2) return 1000;
-
     return Math.sqrt(
       Math.pow(c2.r - c1.r, 2) +
       Math.pow(c2.g - c1.g, 2) +
       Math.pow(c2.b - c1.b, 2) +
-      Math.pow((c2.a - c1.a) * 255, 2) // Cân bằng trọng số Alpha
+      Math.pow((c2.a - c1.a) * 255, 2)
     );
-  },
-
-  shouldHarmonize: (color1, color2) => {
-    return Utils.getColorDistance(color1, color2) <= CONFIG.colorThreshold;
-  },
-
-  /**
-   * 4. NAMING: API-SAFE SLUGIFY
-   * Đảm bảo tên Class/Variable không bao giờ làm gãy Webflow API.
-   */
-  slugify: (str) => {
-    if (!str) return "";
-    return str
-      .toLowerCase()
-      .trim()
-      .normalize("NFD") // Khử dấu tiếng Việt
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9\s-]/g, "") 
-      .replace(/[\s_]+/g, "-") // Chuyển gạch dưới và khoảng trắng thành gạch ngang
-      .replace(/-+/g, "-");
-  },
-
-  /**
-   * 5. STRUCTURE: CLASS INTENT BUILDER
-   * Tách biệt Base và Modifiers để Executor có thể map sang Webflow Class IDs.
-   */
-  generateClassIntent: (folder, part, modifiers = []) => {
-    const base = `${Utils.slugify(folder)}_${Utils.slugify(part)}`;
-    const cleanModifiers = modifiers
-      .filter(m => m)
-      .map(m => `is-${Utils.slugify(m)}`);
-    
-    return {
-      base: base, // Dùng để tìm kiếm ID của Class chính
-      modifiers: cleanModifiers, // Dùng để tìm kiếm ID của các Combo Classes
-      fullPath: [base, ...cleanModifiers].join(".") // Chỉ dùng để log/audit cho User
-    };
   }
 };
 

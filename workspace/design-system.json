@@ -1,0 +1,50 @@
+{
+  "webflow": {
+    "siteId": "69d6045f113e53f87d5d2de9",
+    "variables": [],
+    "collections": [
+      {
+        "id": "collection-c66b35aa-9570-c662-dc9e-0cb425f14209",
+        "name": "Base collection"
+      }
+    ],
+    "styles": []
+  },
+  "figma": {
+    "fileKey": "Zac1gTeeX5PWiaUI40a2nt",
+    "nodeId": "363:6",
+    "colors": {
+      "Grey": "#F4F6FC",
+      "White": "#FFFFFF",
+      "Dark blue": "#282938",
+      "Yellow": "#FCD980",
+      "Navy": "#1C1E53"
+    },
+    "typography": {
+      "Paragraph": {
+        "family": "Poppins",
+        "style": "Regular",
+        "size": "16px",
+        "weight": 400,
+        "lineHeight": "28px"
+      },
+      "Heading 2": {
+        "family": "Poppins",
+        "style": "SemiBold",
+        "size": "48px",
+        "weight": 600,
+        "lineHeight": "64px"
+      }
+    }
+  },
+  "audit": {
+    "status": "ready-for-sync",
+    "conflicts": [],
+    "recommendations": [
+      "Initialize Client-First variables for 6 colors identified in Figma.",
+      "Initialize Poppins as the primary font family.",
+      "Setup core Client-First structure classes (page-wrapper, main-wrapper, padding-global, container-large).",
+      "Ensure all spacing uses rem units (16px base)."
+    ]
+  }
+}

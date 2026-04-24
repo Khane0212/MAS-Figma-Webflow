@@ -1,0 +1,19 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "instructions": [
+        "figma-to-webflow-mcp/INSTRUCTIONS.md",
+        "figma-to-webflow-mcp/CLAUDE.md"
+    ],
+    "mcp": {
+        "figma": {
+            "type": "remote",
+            "url": "http://127.0.0.1:3845/mcp",
+            "enabled": true
+        },
+        "webflow": {
+            "type": "remote",
+            "url": "https://mcp.webflow.com/mcp",
+            "enabled": true
+        }
+    }
+}
