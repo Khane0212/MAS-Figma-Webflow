@@ -1,11 +1,12 @@
 # Design System Rules
 
-## Màu sắc (Colors)
 
-### Nguyên tắc đặt tên biến màu
-```
---color-[purpose]-[variant]-[state]
-```
+## 🎨 DESIGN SYSTEM RULES
+- **Colors**: `--color-[purpose]-[variant]-[state]`
+- **Typography**: `--font-[property]-[variant]` (Luôn dùng REM)
+- **Spacing**: `--space-[scale]` (Scale Finsweet)
+
+---
 
 ### Ví dụ
 - `--color-primary-default` - Màu chính mặc định

@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "nodeId": "103:4",
+    "fileKey": "7parfs6tguFTp2pmF2CKVl",
+    "scannedAt": "2026-04-27T16:30:00Z",
+    "project": "Privacy Policy",
+    "siteId": "69e6f9ff2d918079b2295a5b"
+  },
+
+  "figmaReference": {
+    "source": "memory/figma-reference.html",
+    "generatedAt": "2026-04-27T16:30:00Z"
+  },
+
+  "content": {
+    "description": "FULL TEXT CONTENT - Map từ figma-reference.html",
+    "sections": {
+      "navbar": {
+        "logo": "Finsweet",
+        "links": [
+          {"text": "Home", "href": "/", "isHome": true},
+          {"text": "About us", "href": "/about"},
+          {"text": "Features", "href": "/features"},
+          {"text": "Pricing", "href": "/pricing"},
+          {"text": "FAQ", "href": "/faq"},
+          {"text": "Blog", "href": "/blog"}
+        ],
+        "cta": {"text": "Contact us", "href": "/contact"}
+      },
+      "hero": {
+        "heading": "Privacy Policy",
+        "subtitle": "When you're ready to go beyond prototyping in Figma, Webflow's ready to help you bring your visions to life."
+      },
+      "content": {
+        "block1": {
+          "heading": "Lorem ipsum dolor.",
+          "paragraphs": [
+            {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+              "links": [{"text": "Excepteur sint occaecat", "href": "#"}]
+            },
+            {"text": "Sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."}
+          ]
+        },
+        "block2": {
+          "heading": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "paragraphs": [
+            {
+              "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+              "links": [{"text": "cupidatat", "href": "#"}]
+            },
+            {"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."}
+          ],
+          "bulletItems": [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do."
+          ]
+        }
+      },
+      "footer": {
+        "brand": {
+          "logo": "Finsweet",
+          "description": "We are always open to discuss your project, improve your online presence and help with your UX/UI design challenges."
+        },
+        "cta": {
+          "heading": "Lets Talk!",
+          "description": "We are always open to discuss your project, improve your online presence."
+        },
+        "contact": {
+          "emailLabel": "Email me at",
+          "email": "contact@website.com",
+          "phoneLabel": "Call us",
+          "phone": "0927 6277 28525"
+        },
+        "copyright": "Copyright 2021, Finsweet.com",
+        "footerLinks": ["Home", "About us", "Features", "Pricing", "FAQ", "Blog"]
+      }
+    }
+  },
+
+  "layout": {
+    "width": "1600px",
+    "sections": ["navbar", "privacy-hero", "privacy-content", "footer"]
+  },
+
+  "elements": {
+    "section_navbar": {
+      "type": "nav",
+      "class": "section_navbar",
+      "background": "var(--color-primary)",
+      "height": "92px"
+    },
+    "section_privacy-hero": {
+      "type": "section",
+      "class": "section_privacy-hero",
+      "background": "var(--color-white)"
+    },
+    "section_privacy-content": {
+      "type": "section",
+      "class": "section_privacy-content",
+      "background": "var(--color-white)"
+    },
+    "section_footer": {
+      "type": "footer",
+      "class": "section_footer",
+      "background": "var(--color-primary)"
+    }
+  },
+
+  "classes": {
+    "reuse": [
+      "section_navbar", "section_privacy-hero", "section_privacy-content", "section_footer",
+      "container-large", "container-small", "padding-global", "padding-section-large", "padding-section-medium",
+      "navbar_wrapper", "nav_links", "nav-link", "nav-link-home", "logo", "cta-button",
+      "heading-style-h2", "heading-style-h3", "text-size-regular", "text-size-small", "text-size-label",
+      "text-color-white", "text-color-dark", "text-color-dark-70", "text-color-link", "opacity-70", "opacity-80",
+      "privacy-hero_wrapper", "privacy-content_wrapper", "content-block",
+      "footer-wrapper", "footer-grid", "footer-column", "footer-cta", "footer-contact-box", "footer-logo",
+      "social-icons", "bullet-list", "bullet-item", "footer-links-wrapper", "footer-links", "footer-links-list",
+      "background-color-white"
+    ],
+    "create": []
+  },
+
+  "images": {
+    "logo": "http://localhost:3845/assets/097cc1a73fcc1b58f00828d7c59d02adfd9f2d06.svg",
+    "footerLogo": "http://localhost:3845/assets/f9b170f8a2e2d7675543b3ea0f4f701d458172ac.svg",
+    "social": [
+      "http://localhost:3845/assets/434b941427c51a78fa5b72e486ba22f414a53f04.svg",
+      "http://localhost:3845/assets/5ce3202cfa992c77931448a78bc6b402f2110723.svg",
+      "http://localhost:3845/assets/9768e6a3da494b31d0f0e6c90c5b5ea860623c10.svg",
+      "http://localhost:3845/assets/9bfda3cb79ac956cb9e42a368ddc6ae6d3436826.svg"
+    ]
+  },
+
+  "colors": {
+    "primary": { "hex": "#1c1e53", "variable": "var(--color-primary)" },
+    "dark": { "hex": "#282938", "variable": "var(--color-dark)" },
+    "white": { "hex": "#ffffff", "variable": "var(--color-white)" },
+    "yellow": { "hex": "#fcd980", "variable": "var(--color-yellow)" },
+    "grey": { "hex": "#f4f6fc", "variable": "var(--color-grey)" },
+    "muted": { "hex": "#bbbbcb", "variable": "var(--color-muted)" },
+    "link": { "hex": "#2405f2", "variable": "var(--color-link)" }
+  },
+
+  "typography": {
+    "h1": { "element": "h1", "fontSize": "48px", "fontWeight": 600, "lineHeight": "64px", "fontFamily": "Poppins" },
+    "h2": { "element": "h2", "fontSize": "38px", "fontWeight": 600, "lineHeight": "56px", "fontFamily": "Poppins" },
+    "body": { "element": "p", "fontSize": "16px", "fontWeight": 400, "lineHeight": "28px", "fontFamily": "Poppins" },
+    "label": { "element": "p", "fontSize": "18px", "fontWeight": 500, "lineHeight": "32px", "fontFamily": "Poppins" }
+  },
+
+  "source": {
+    "figmaReferenceHtml": "memory/figma-reference.html",
+    "inventory": "memory/classes-inventory.json"
+  },
+
+  "parseStatus": "pass",
+  "reuseStatus": true
+}

@@ -6,6 +6,7 @@
 
 ---
 
+
 ## � Semantic Naming - Client First Philosophy
 
 > **Đặt tên theo CHỨC NĂNG, không phải STYLE**
@@ -119,6 +120,8 @@
 ```
 
 ---
+
+> **Xem chi tiết COMBO CLASSES PATTERN tại:** `code-style.md` → 🛑 COMBO CLASSES PATTERN
 
 ## 📱 Display & Layout
 

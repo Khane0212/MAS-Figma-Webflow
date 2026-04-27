@@ -1,165 +1,382 @@
-# FIGMA-TO-WEBFLOW MCP: CENTRAL INSTRUCTIONS
+# INSTRUCTIONS.md - Central Brain
 
-## 🧠 PROJECT BRAIN & ORCHESTRATION
-Dự án này tự động hóa quy trình chuyển đổi thiết kế từ Figma sang Webflow theo chuẩn Client-First và Semantic Naming.
+## Role
 
----
-
-## 🛑 QUY TẮC ĐIỀU PHỐI (MANDATORY)
-
-> **RULE 1 (Initialization)**: Bất kể Agent nào (Claude, Cursor, GPT), hành động đầu tiên PHẢI là đọc `memory/classes-inventory.json` để đồng bộ trạng thái.
-> 
-> **RULE 2 (Source of Truth)**: File `INSTRUCTIONS.md` này là tài liệu hướng dẫn cao nhất. Mọi thay đổi về workflow phải được cập nhật tại đây.
-> 
-> **RULE 3 (Frame-by-Frame)**: Chỉ xử lý từng Frame một. Xong một Frame PHẢI dừng lại xác nhận với User trước khi tiếp tục.
-> 
-> **RULE 4 (Memory First)**: Luôn kiểm tra `figma-to-webflow-mcp/memory/` trước khi tạo mới bất cứ thứ gì trên Webflow.
-> 
-> **RULE 5 (Auto-Logging)**: Mọi hành động (Sync, Generate, Scan) sau khi thành công PHẢI tự động ghi một dòng tóm tắt vào `figma-to-webflow-mcp/memory/project-history.log`.
+Senior Webflow Developer + UI Engineer. Chuyên đổi thiết kế Figma sang Webflow bằng MCP tools.
 
 ---
 
-## 🔌 MCP SETUP (REQUIRED)
+## QUICK START
 
-> **BOOTSTRAP**: Đọc `mcp-servers.json` để lấy MCP servers config.
-
-### 1. Kết nối Tools
-Agent cần có 2 MCP connections. Xem chi tiết trong `mcp-servers.json`:
-
-| MCP | Tools | Dùng cho |
-|-----|-------|---------|
-| **Figma MCP** | `get_design_context`, `get_variable_defs`, `get_metadata` | Quét Figma |
-| **Webflow MCP** | `element_builder`, `style_tool`, `variable_tool`, `data_pages` | Build Webflow |
-
-### 2. Verification
-Chạy test commands:
-- Figma: `get_design_context`
-- Webflow: `list_sites`
-
-### 3. Inputs cần từ User
-- **Figma URL**: File/Frame URL từ Figma
-- **Webflow Site ID**: Từ Webflow Dashboard
-
----
-
-## 🛠 WORKFLOW CHI TIẾT (MANDATORY FILE ACCESS)
-
-### 1. Phân tích & Nghiên cứu (Research Agent)
-- **Hành động**: Đọc Figma Context.
-- **Tài liệu bắt buộc**: Đọc `agents/research-agent.md`.
-- **Đầu ra**: Tạo/Cập nhật `memory/brand-context.md`.
-- **Quy tắc đặt tên**: Tuân thủ `rules/naming-convention.md`.
-
-### 2. Quét Figma (Figma Scanner)
-- **Hành động**: Trích xuất Variables & Layout.
-- **Tài liệu bắt buộc**: Đọc `skills/figma-scanner.md` và `rules/design-system.md`.
-- **Đơn vị**: Luôn convert sang REM theo `rules/code-style.md`.
-
-### 3. Chuyển đổi & Mapping (Transformation)
-Để đảm bảo tính chuyên biệt, quy trình mapping được chia thành 4 kỹ năng:
-- **Variable Mapper**: Map Colors, Typography, Spacing theo `rules/design-system.md`. Đọc `skills/variable-mapper.md`.
-- **Naming Mapper**: Gán Class Name chuẩn Client-First theo `rules/naming-convention.md` (philosophy) và `rules/code-style.md` (Core Classes). Đọc `skills/naming-mapper.md`.
-- **Content Generator**: Tinh chỉnh nội dung, tông giọng (Brand Voice). Đọc `skills/content-generator.md`.
-- **Semantic Mapper**: Tổng chỉ huy (Orchestrator) kết hợp 3 mapper trên để tạo Payload cuối cùng. Đọc `skills/semantic-mapper.md`.
-
-### 4. Đồng bộ Webflow (Webflow Sync)
-- **Hành động**: Build trực tiếp qua MCP dựa trên Payload JSON.
-- **Tài liệu bắt buộc**: Đọc `skills/webflow-sync.md`.
-- **Quy tắc**: Tuyệt đối tuân thủ Payload, không tự ý thay đổi structure trong bước này.
-
-### 4.5. Cập nhật Payload (Update Payload) - BẮT BUỘC khi có thay đổi thủ công
-- **Hành động**: Sau mỗi lần thay đổi trên Webflow (thủ công hoặc qua MCP), PHẢI cập nhật lại các file Payload và classes-inventory.json.
-- **Files cần cập nhật**:
-  - `memory/[frame]-payload.json`: Thêm action mới vào mảng `actions`
-  - `memory/classes-inventory.json`: Cập nhật `lastUpdated`, thêm class mới vào frame tương ứng và mảng `allClasses`
-- **Quy tắc**: Payload là nguồn sự thật duy nhất về cấu trúc trang - luôn giữ cho nó đồng bộ với Webflow.
-
-### 5. Kiểm tra chất lượng (QA Tester)
-- **Hành động**: Audit & Checklist.
-- **Tài liệu bắt buộc**: Đọc `agents/qa-tester.md`.
-- **Đầu ra**: Ghi kết quả vào `memory/project-history.log`.
-
----
-
-## 📂 CẤU TRÚC DANH MỤC (DIRECTORY MAPPING)
-- `/rules`: Quy chuẩn chi tiết về Code, Design, Naming.
-- `/agents`: Hướng dẫn chuyên biệt cho từng loại Agent.
-- `/skills`: Các kỹ năng xử lý dữ liệu (Scanner, Sync, Generator).
-- `/memory`: Nơi lưu trữ trạng thái và "trí nhớ" của dự án.
-
----
-
-## 🎨 DESIGN SYSTEM RULES
-- **Colors**: `--color-[purpose]-[variant]-[state]`
-- **Typography**: `--font-[property]-[variant]` (Luôn dùng REM)
-- **Spacing**: `--space-[scale]` (Scale Finsweet)
-
----
-
-## 📝 GHI CHÚ CHO AI AGENT
-Khi làm việc, hãy luôn giữ thái độ của một Senior Webflow Developer. Ưu tiên sự gọn gàng của Class hơn là tốc độ build.
-
-
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
-
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
-
-## 1. Think Before Coding
-
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-Before implementing:
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them - don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-## 2. Simplicity First
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-## 3. Surgical Changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it - don't delete it.
-
-When your changes create orphans:
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
-
-The test: Every changed line should trace directly to the user's request.
-
-## 4. Goal-Driven Execution
-
-**Define success criteria. Loop until verified.**
-
-Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
-
-For multi-step tasks, state a brief plan:
 ```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
+scan [nodeId]    → Phân tích Figma (PARSE) + Tạo HTML + JSON
+build [nodeId]   → scan + BUILD + VERIFY + UPDATE inventory
+preview         → Xem memory/figma-reference.html
 ```
 
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+---
+
+## PRE-BUILD PROTOCOL
+
+**TUYỆT ĐỐI KHÔNG build nếu chưa parse.**
+
+```
+LOAD → READ FIGMA → PARSE → GENERATE (HTML) → GENERATE (JSON) → BUILD → VERIFY → UPDATE
+```
+
+### THỨ TỰ QUAN TRỌNG:
+1. **figma-reference.html** → Tạo TRƯỚC (nội dung đầy đủ từ Figma)
+2. **scan-result.json** → Tạo SAU (DỰA TRÊN figma-reference.html)
+
+### KHÔNG BAO GIỜ THIẾU CONTENT:
+> **Đọc**: `rules/content-extraction.md`
+- Copy **toàn bộ** text từ Figma (không tóm tắt)
+- Giữ nguyên số paragraphs và độ dài
+- Kiểm tra đếm trước khi lưu file
+
+### STYLE GUIDE CHECK (BẮT BUỘC TRƯỚC BUILD)
+
+**Step 1: Switch to Style Guide page**
+```
+switch_page → Style Guide (page_id: 69e9d8d41e9590186727c6d2)
+```
+
+**Step 2: Document available combo classes**
+```
+[DYNAMIC] - Liệt kê từ Style Guide page:
+- Query tất cả elements trong Style Guide
+- Ghi chú combo classes thực tế có sẵn
+- Ví dụ: text-size-regular + text-color-dark-70
+- Ví dụ: text-size-regular + opacity-70
+- [Thêm các combo khác dựa trên thực tế]
+```
+
+**Step 3: Switch to target page**
+```
+switch_page → [target_page]
+```
+
+**Step 4: Apply ONLY documented combo classes**
+- ❌ KHÔNG tạo classes mới (inline-p-1, div-block)
+- ✅ Dùng chính xác combo classes từ Style Guide
+- ✓ Kiểm tra mỗi element có combo class phù hợp
+
+**Step 5: Verify no violations**
+- ❌ Không có "inline-*" classes
+- ❌ Không có "div-block" classes  
+- ✅ Tất cả elements dùng combo classes documented
+
+| Step | Action | Output |
+|------|--------|--------|
+| 1 | LOAD | Đọc inventory + rules |
+| 2 | READ FIGMA | Lấy specs gốc từ API |
+| 3 | PARSE | Map Figma → inventory classes |
+| 4 | GENERATE | **figma-reference.html (TRƯỚC)** |
+| 5 | GENERATE | **scan-result.json (SAU)** |
+| 6 | BUILD | Tạo Webflow (REUSE classes) |
+| 7 | VERIFY | Snapshot check |
+| 8 | UPDATE | Ghi inventory (CHỈ SAU VERIFY PASS) |
 
 ---
 
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+## PARSE CHECKLIST
+
+| # | Item | Rule | Status |
+|---|------|------|--------|
+| 1 | **Naming** | Client-First: `section_[name]`, `heading-style-h2` | Pass/Fail |
+| 2 | **Structure** | `section > padding-global > container > padding-section` | Pass/Fail |
+| 3 | **Colors** | Chỉ CSS variables: `var(--color-*)` | Pass/Fail |
+| 4 | **Typography** | REM units: `var(--[name]-size)` | Pass/Fail |
+| 5 | **Spacing** | Utility classes | Pass/Fail |
+| 6 | **Classes** | REUSE vs CREATE check vs inventory | Pass/Fail |
+
+### Checklist Format:
+
+```json
+{
+  "checklist": {
+    "naming": { "status": "pass", "issues": [] },
+    "structure": { "status": "pass", "issues": [] },
+    "colors": { "status": "pass", "issues": [] },
+    "typography": { "status": "pass", "issues": [] },
+    "spacing": { "status": "pass", "issues": [] },
+    "classes": { "status": "pass", "reuse": [], "create": [] }
+  },
+  "overall": "pass"
+}
+```
+
+---
+
+## RULES
+
+### RULE 1: Client-First Naming Only
+
+- ✅ `section_navbar`, `heading-style-h1`, `text-color-white`, `button is-primary`
+- ❌ `Frame 1`, `Group 23`, `div-block`
+
+### RULE 2: Core Structure (BẮT BUỘC)
+
+```
+.page-wrapper
+  └── .main-wrapper
+      └── .section_[name]
+          └── .padding-global
+              └── .container-[size]
+                  └── .padding-section-[size]
+                      └── CONTENT_WRAPPER
+                          └── elements...
+```
+
+**TUYỆT ĐỐI KHÔNG được:**
+- ❌ Tạo style mới (heading-style-h3-1, heading-style-h2-1...)
+- ❌ Bỏ qua container/padding
+- ❌ Inline styles
+
+**Phải REUSE:**
+- ✅ heading-style-h2 (đã có trong inventory)
+- ✅ heading-style-h3 (đã có trong inventory)
+- ✅ Tất cả classes từ inventory
+
+### RULE 3: Colors - CSS Variables Only
+
+> **Load từ: inventory.variables.colors**
+
+```
+Figma HEX → var(--color-[key])
+```
+
+### RULE 4: Typography - REM Units
+
+> **Load từ: inventory.variables.typography**
+
+```
+Figma px → REM → var(--[key])
+```
+
+### RULE 5: Spacing - Utility Classes
+
+> **Load từ: rules/design-system.md + inventory.variables.spacing**
+
+```
+design-system.md → spacing scale
+inventory.variables.spacing[key]
+```
+
+### RULE 6: Container Sizes
+
+> **Load từ: inventory.classes.containers**
+
+```
+inventory.classes.containers[key].maxWidth
+```
+
+---
+
+## WORKFLOW DETAILS
+
+### 1. LOAD
+
+Đọc files bắt buộc:
+- `memory/classes-inventory.json` → Variables + Classes
+- `rules/code-style.md` → Core Structure
+- `rules/naming-convention.md` → Client-First patterns
+- `rules/design-system.md` → Spacing scale
+
+### 2. READ FIGMA
+
+```javascript
+figma_get_design_context(nodeId, fileKey)
+figma_get_metadata(nodeId, fileKey)
+```
+
+### 3. PARSE (Mapping + Conversion)
+
+**3.1 Map Figma → Client-First:**
+```
+"Frame 1" → "section_hero"
+```
+
+**3.2 Convert px → REM (÷16)**
+
+**3.3 Map HEX → CSS Variables (từ inventory):**
+```
+Figma HEX → inventory.variables.colors[key] → var(--color-[key])
+```
+
+**3.4 Cross-check vs inventory (REUSE vs CREATE):**
+
+- ✅ **REUSE**: Classes đã tồn tại trong inventory → SỬ DỤNG
+- ⚠️ **CREATE**: Classes MISSING trong inventory → Tạo mới (CHỈ khi thực sự cần)
+- ❌ **TUYỆT ĐỐI KHÔNG**: Tạo heading-style-h3-1, heading-style-h2-1...
+
+### 4. GENERATE (VỚI THỨ TỰ ĐÚNG)
+
+| File | Thứ tự | Nguồn |
+|------|--------|-------|
+| figma-reference.html | **1 (TRƯỚC)** | Từ Figma API + MAP inventory |
+| scan-results/[nodeId].json | **2 (SAU)** | DỰA TRÊN figma-reference.html |
+
+**Đặc biệt:** 
+- figma-reference.html TẠO TRƯỚC với nội dung đầy đủ
+- scan-result.json TẠO SAU, reference đến figma-reference.html
+
+### 5. BUILD (Sau user "Build")
+
+```
+PRE-BUILD CHECKLIST:
+├─ [STRUCTURE] page-wrapper > main-wrapper > sections
+├─ [CLASSES] REUSE vs CREATE
+└─ [REPLY "Build" TO PROCEED]
+```
+
+### 6. VERIFY
+
+```javascript
+element_snapshot_tool(action={"id": {...}})
+```
+
+### 7. UPDATE (CHỈ SAU VERIFY PASS)
+
+**Điều kiện:**
+- ✅ PARSE PASS
+- ✅ BUILD SUCCESS
+- ✅ VERIFY PASS
+
+---
+
+## FILES GENERATED (THỨ TỰ QUAN TRỌNG)
+
+| File | Thứ tự | Mô tả |
+|------|--------|-------|
+| `figma-reference.html` | **1 (TRƯỚC)** | HTML đầy đủ từ Figma + MAP inventory |
+| `scan-results/[nodeId].json` | **2 (SAU)** | JSON DỰA TRÊN figma-reference.html + **PHẢI có content section** |
+
+### QUAN TRỌNG:
+- **figma-reference.html** phải tạo TRƯỚC scan-result.json
+- **scan-result.json** phải reference đến figma-reference.html
+- **scan-result.json PHẢI include `content` section với actual text content từ Figma**
+
+### CRITICAL - KHÔNG BAO GIỜ thiếu content:
+```
+❌ SAI: scan-result.json không có content section
+✅ ĐÚNG: scan-result.json có content sections đầy đủ
+```
+
+---
+
+## DATA SOURCE PATHS
+
+### Colors
+
+```
+inventory.variables.colors[key] → var(--color-[key])
+```
+
+### Typography
+
+```
+inventory.variables.typography[key] → var(--[key])
+```
+
+### Spacing Scale
+
+```
+rules/design-system.md
+inventory.variables.spacing[key]
+```
+
+### Container Sizes
+
+```
+inventory.classes.containers[key].maxWidth
+```
+
+### Existing Classes
+
+```
+inventory.classes[key][]
+```
+
+---
+
+## COMBO CLASSES PATTERN - REUSE ONLY
+
+**Tất cả styles ĐÃ CÓ trong Webflow (REUSE):**
+
+| Class Name | ID | Dùng cho |
+|-----------|-----|----------|
+| heading-style-h2 | 90000bf3-f0da-af74-e306-c8ba210559e1 | H2 titles |
+| heading-style-h3 | 90000bf3-f0da-af74-e306-c8ba210559e2 | H3 titles |
+| text-size-regular | 90000bf3-f0da-af74-e306-c8ba210559e3 | Body text |
+| section_navbar | 748d9e0f-d2a4-9884-69dc-bd9809b6e858 | Navbar section |
+| section_privacy-hero | de4d3087-aee1-3536-d97b-4c24761bdead | Hero section |
+| section_privacy-content | 21557837-11b6-9c2a-da72-693413bf75da | Content section |
+| section_footer | fc469cfa-481d-06df-9384-9b0eda4a45da | Footer section |
+| text-color-dark | 80c778bf-c78b-32b6-1807-39ab7fc9a60b | Dark text |
+| text-color-white | 80c778bf-c78b-32b6-1807-39ab7fc9a60a | White text |
+| container-large | 90000bf3-f0da-af74-e306-c8ba210559e6 | Container 80rem |
+| padding-global | 90000bf3-f0da-af74-e306-c8ba210559e7 | Global padding |
+
+**TUYỆT ĐỐI KHÔNG ĐƯỢC:**
+- ❌ Tạo heading-style-h2-1, heading-style-h3-1
+- ❌ Tạo text-size-regular-1
+- ❌ Tạo section-*-1
+
+---
+
+## NEVER (BẮT BUỘC)
+
+- ❌ Build without PARSE
+- ❌ Use Figma defaults (Frame, Group)
+- ❌ Hard-code values (dùng inventory)
+- ❌ Update inventory WITHOUT verify pass
+- ❌ Tạo HTML mới (phải MAP từ inventory)
+- ❌ **Tạo style MỚI như heading-style-h3-1** (REUSE từ inventory)
+- ❌ **Bỏ qua cấu trúc Core Structure**
+
+---
+
+## TOOLS REFERENCE
+
+| Tool | Use For |
+|------|---------|
+| `figma_get_design_context` | Lấy design specs |
+| `figma_get_metadata` | Layout structure |
+| `webflow_whtml_builder` | Insert HTML structure |
+| `webflow_style_tool` | Create/apply styles |
+| `webflow_element_tool` | Modify elements |
+| `element_snapshot_tool` | Preview changes |
+
+---
+
+## FILE STRUCTURE
+
+```
+figma-to-webflow-mcp/
+├── INSTRUCTIONS.md
+├── skills/
+│   ├── parse_figma_to_webflow.md   # MAIN SKILL
+│   └── ...
+├── rules/
+│   ├── code-style.md
+│   ├── naming-convention.md
+│   └── design-system.md
+└── memory/
+    ├── classes-inventory.json  # SOURCE OF TRUTH
+    ├── figma-reference.html
+    └── scan-results/
+        └── [nodeId].json
+```
+
+---
+
+## PROTOCOL SUMMARY
+
+```
+LOAD → READ FIGMA → PARSE → GENERATE → BUILD → VERIFY → UPDATE
+```
+
+**Never: Build without parse**
+
+**Never: Hard-code values**

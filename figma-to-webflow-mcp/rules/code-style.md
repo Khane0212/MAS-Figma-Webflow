@@ -47,6 +47,44 @@
 
 ---
 
+### 🛑 COMBO CLASSES PATTERN (ÁP DỤNG MỌI TRƯỜNG HỢP)
+
+> **Pattern bắt BUỘC cho mọi variant classes - phải tạo base class trước, combo class sau**
+
+**Cấu trúc:**
+
+| Loại | Base Class | Combo Class | Khi Apply |
+|------|-----------|-------------|----------|
+| Button | `button` | `is-primary`, `is-secondary`, `is-text` | ["button", "is-primary"] |
+| Background | `background` | `is-dark`, `is-light`, `is-accent` | ["background", "is-dark"] |
+| Text | `text` | `is-muted`, `is-error`, `is-success` | ["text", "is-muted"] |
+| Layout | `container` | `is-fluid`, `is-narrow` | ["container", "is-fluid"] |
+
+**SAI (TUYỆT ĐỐI TRÁNH):**
+- ❌ Tạo `button is-primary` là standalone class chứa toàn bộ styles
+- ❌ Tạo `background is-dark` là standalone class
+- ❌ Gộp tên: `button is-primary` = 1 class
+
+**ĐÚNG (BẮT BUỘC):**
+- ✅ Tạo `button` (base) trước - chứa padding, font, radius...
+- ✅ Tạo `is-primary` (combo) với `parent_style_names: ["button"]` - CHỈ chứa override
+- ✅ Tạo `background` (base) trước
+- ✅ Tạo `is-dark` (combo) với `parent_style_names: ["background"]`
+- ✅ `isComboClass: true` cho combo classes
+- ✅ Khi apply: `style_names: ["button", "is-primary"]` (2 classes riêng biệt)
+- ✅ Verify: kiểm tra `isComboClass: true` sau khi tạo
+
+---
+
+### 🛑 QUY TẮC TẠO STYLE TRONG WEBFLOW
+
+1. **Tạo styles bằng Style Tool** trước khi build content
+2. **Đặt tên theo Client-First**: `heading-style-h1`, `text-size-regular`, `button is-primary` 
+3. **Verify tên class đúng** trước khi publish
+4. **WHTML Builder chỉ dùng để layout**, Style Tool dùng để tạo classes
+
+---
+
 ## REM Units
 
 ### Nguyên tắc

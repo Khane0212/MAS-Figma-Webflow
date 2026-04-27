@@ -1,294 +1,159 @@
 {
-  "project": "World Peas",
-  "lastUpdated": "2026-04-17",
-  "variables": {
-    "colors": {
-      "--color-primary-default": "#426b1f",
-      "--color-primary-hover": "#355818",
-      "--color-text-primary": "#000000",
-      "--color-text-muted": "#444444",
-      "--color-text-on-primary": "#ffffff",
-      "--color-background-page": "#ffffff",
-      "--color-background-muted": "#fafaf5",
-      "--color-border-default": "#e6e6e6",
-      "--color-border-subtle": "rgba(0, 0, 0, 0.06)",
-      "--color-success": "#426b1f",
-      "--color-error": "#b42318",
-      "--color-warning": "#b45309"
-    },
-    "typography": {
-      "--font-family-heading": "Newsreader, serif",
-      "--font-family-body": "Inter, sans-serif",
-      "--font-size-h1": "4rem",
-      "--font-size-h2": "2.5rem",
-      "--font-size-h3": "1.5rem",
-      "--font-size-h4": "1.25rem",
-      "--font-size-body": "1rem",
-      "--font-size-body-lg": "1.125rem",
-      "--font-size-small": "0.75rem",
-      "--font-size-caption": "0.875rem",
-      "--font-size-nav-logo": "2rem"
-    },
-    "spacing": {
-      "--space-xs": "0.25rem",
-      "--space-sm": "0.5rem",
-      "--space-md": "1rem",
-      "--space-lg": "1.5rem",
-      "--space-xl": "2rem",
-      "--space-2xl": "3rem",
-      "--space-3xl": "4rem",
-      "--space-4xl": "6rem"
-    },
-    "layout": {
-      "--line-height-tight": "1.2",
-      "--line-height-snug": "1.3",
-      "--radius-sm": "4px",
-      "--radius-md": "8px",
-      "--radius-pill": "20px",
-      "--radius-card": "24px",
-      "--section-padding-x": "6rem",
-      "--container-max": "80rem"
+  "meta": {
+    "version": "1.0.0",
+    "description": "SOURCE OF TRUTH - combo classes với generate.html cho Webflow build",
+    "generate": {
+      "enabled": true,
+      "description": "HTML template để Webflow build trực tiếp"
     }
   },
-  "frames": [
-    {
-      "name": "home",
-      "file": "home.whtml",
-      "classes": {
-        "layout": [
-          "page-wrapper",
-          "main-wrapper",
-          "padding-global",
-          "container-large",
-          "container-large-1-2-3",
-          "container-medium",
-          "padding-section-y",
-          "padding-section-small",
-          "surface-muted",
-          "divider"
-        ],
-        "navigation": [
-          "navbar",
-          "navbar-header",
-          "logo-heading-1",
-          "nav-links",
-          "nav",
-          "nav-cart"
-        ],
-        "hero": [
-          "hero-headline",
-          "hero-headline-1",
-          "text-title",
-          "hero-button",
-          "hero-images-1",
-          "hero-image-left",
-          "cta-button"
-        ],
-        "footer": [
-          "section_footer",
-          "footer-inner",
-          "footer-left",
-          "footer-links",
-          "footer-link",
-          "is-footer"
-        ]
-      }
-    },
-    {
-      "name": "who-we-are",
-      "file": "who-we-are.whtml",
-      "classes": {
-        "reusedFromHome": [
-          "page-wrapper",
-          "main-wrapper",
-          "padding-global",
-          "container-large",
-          "padding-section-large",
-          "padding-section-medium",
-          "section_nav",
-          "nav-inner",
-          "nav-links",
-          "nav-link",
-          "nav-cart",
-          "heading-xlarge",
-          "heading-large",
-          "text-large",
-          "text-body"
-        ],
-        "newClasses": {
-          "hero": [
-            "section_hero"
-          ],
-          "story": [
-            "section-story",
-            "card-story",
-            "grid-2-col"
-          ],
-          "stats": [
-            "section-stats",
-            "grid-4-col",
-            "stat-card"
-          ],
-          "values": [
-            "section-values",
-            "card-story",
-            "grid-3-col",
-            "value-card",
-            "value-icon"
-          ],
-          "team": [
-            "section-team",
-            "card-story",
-            "grid-4-col",
-            "team-card",
-            "team-image"
-          ]
+
+  "project": "Finsweet - Privacy Policy",
+  "siteId": "69e6f9ff2d918079b2295a5b",
+  "lastUpdated": "2026-04-24",
+
+  "classes": {
+    "structure": {
+      "section_navbar": {
+        "generate": {
+          "html": "<nav class='section_navbar padding-global'><div class='container-large navbar_wrapper'><img class='logo' src='...' alt='Logo'/><div class='nav_links'><a class='nav-link'>Home</a><a class='nav-link'>About</a><a class='nav-link'>Pricing</a><a class='nav-link'>Contact</a></div><a class='cta-button'>Get Started</a></div></nav>",
+          "children": ["padding-global", "container-large", "navbar_wrapper"]
+        }
+      },
+      "section_privacy-hero": {
+        "generate": {
+          "html": "<section class='section_privacy-hero padding-global'><div class='container-small padding-section-large privacy-hero_wrapper'><h1 class='heading-style-h2'>Privacy Policy</h1><p class='text-size-regular opacity-70'>Last updated: April 2024</p></div></section>",
+          "children": ["padding-global", "container-small", "padding-section-large", "privacy-hero_wrapper"]
+        }
+      },
+      "section_privacy-content": {
+        "generate": {
+          "html": "<section class='section_privacy-content padding-global'><div class='container-medium padding-section-medium privacy-content_wrapper'><div class='content-block'><h3 class='heading-style-h3'>Information We Collect</h3><p class='text-size-regular'>.</p></div></div></section>",
+          "children": ["padding-global", "container-medium", "padding-section-medium", "privacy-content_wrapper"]
+        }
+      },
+      "section_footer": {
+        "generate": {
+          "html": "<section class='section_footer padding-global'><div class='container-large footer-content'><div class='footer-grid'><div class='footer-cta'><img class='footer-logo' src='...' alt='Logo'/><p class='text-size-regular'>.</p><div class='social-icons'>.</div></div><div class='footer-links'>.</div></div></div></section>",
+          "children": ["padding-global", "container-large", "footer-content", "footer-grid"]
         }
       }
     },
-    {
-      "name": "newstand",
-      "file": "newstand.html",
-      "classes": {
-        "reusedFromHome": [
-          "page-wrapper",
-          "main-wrapper",
-          "padding-global",
-          "container-large",
-          "padding-section-large",
-          "padding-section-medium",
-          "section_nav",
-          "nav-inner",
-          "logo-heading-1",
-          "nav-links",
-          "nav-link",
-          "nav-cart",
-          "heading-xlarge",
-          "text-large",
-          "text-body"
-        ],
-        "newClasses": {
-          "hero": [
-            "section_newstand-hero",
-            "heading-h1",
-            "text-subtitle"
-          ],
-          "featured": [
-            "section_featured-article",
-            "featured-card",
-            "featured-image",
-            "featured-content",
-            "heading-h2",
-            "text-body-lg",
-            "tag-badge",
-            "text-meta"
-          ],
-          "filters": [
-            "section_filters",
-            "filter-bar",
-            "tag-filter",
-            "search-bar"
-          ],
-          "articles": [
-            "section_articles",
-            "newstand-grid",
-            "article-card",
-            "article-image",
-            "article-content",
-            "heading-h4",
-            "text-small",
-            "article-meta"
-          ],
-          "newsletter": [
-            "section_newsletter",
-            "newsletter-cta",
-            "newsletter-form",
-            "text-white",
-            "heading-h3"
-          ]
-        }
-      }
+
+    "containers": {
+      "container-large": { "maxWidth": "80rem", "margin": "0 auto", "padding": "0 1.5rem", "generate": { "html": "<div class='container-large'>[CONTENT]</div>" } },
+      "container-medium": { "maxWidth": "64rem", "margin": "0 auto", "padding": "0 1.5rem", "generate": { "html": "<div class='container-medium'>[CONTENT]</div>" } },
+      "container-small": { "maxWidth": "48rem", "margin": "0 auto", "padding": "0 1.5rem", "generate": { "html": "<div class='container-small'>[CONTENT]</div>" } },
+      "padding-global": { "padding": "0 1.5rem", "generate": { "html": "<div class='padding-global'>[CONTENT]</div>" } },
+      "padding-section-small": { "padding": "3rem 0", "generate": { "html": "<div class='padding-section-small'>[CONTENT]</div>" } },
+      "padding-section-medium": { "padding": "5rem 0", "generate": { "html": "<div class='padding-section-medium'>[CONTENT]</div>" } },
+      "padding-section-large": { "padding": "7rem 0", "generate": { "html": "<div class='padding-section-large'>[CONTENT]</div>" } }
+    },
+
+    "nav": {
+      "navbar_wrapper": { "display": "flex", "justifyContent": "space-between", "alignItems": "center", "generate": { "html": "<div class='navbar_wrapper'>[LOGO + NAV + CTA]</div>" } },
+      "nav_links": { "display": "flex", "gap": "2rem", "generate": { "html": "<div class='nav_links'>[LINKS]</div>" } },
+      "logo": { "width": "120px", "height": "40px", "generate": { "html": "<img class='logo' src='...' alt='Logo'/>" } },
+      "cta-button": { "padding": "12px 24px", "border": "2px solid rgba(244,246,252,0.2)", "borderRadius": "41px", "color": "white", "generate": { "html": "<a class='cta-button'>[TEXT]</a>" } },
+      "nav-link": { "fontFamily": "Poppins", "fontSize": "1rem", "fontWeight": 500, "color": "var(--color-muted)", "textDecoration": "none", "generate": { "html": "<a class='nav-link' href='#'>[TEXT]</a>" } },
+      "nav-link-home": { "fontFamily": "Poppins", "fontSize": "1rem", "fontWeight": 500, "color": "white", "textDecoration": "none", "generate": { "html": "<a class='nav-link-home' href='#'>[TEXT]</a>" } }
+    },
+
+    "typography": {
+      "heading-style-h2": { "fontSize": "var(--h2-size)", "fontWeight": 600, "lineHeight": "4rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<h2 class='heading-style-h2'>[TEXT]</h2>" } },
+      "heading-style-h3": { "fontSize": "var(--h3-size)", "fontWeight": 600, "lineHeight": "3.5rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<h3 class='heading-style-h3'>[TEXT]</h3>" } },
+      "text-size-regular": { "fontSize": "var(--body-size)", "fontWeight": 400, "lineHeight": "1.75rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<p class='text-size-regular'>[TEXT]</p>" } },
+      "text-size-medium": { "fontSize": "var(--body-size)", "fontWeight": 500, "lineHeight": "1.75rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<p class='text-size-medium'>[TEXT]</p>" } },
+      "text-size-label": { "fontSize": "var(--label-size)", "fontWeight": 500, "lineHeight": "2rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<p class='text-size-label'>[TEXT]</p>" } },
+      "text-size-small": { "fontSize": "var(--small-size)", "fontWeight": 400, "lineHeight": "1.5rem", "color": "var(--color-dark)", "fontFamily": "Poppins", "generate": { "html": "<p class='text-size-small'>[TEXT]</p>" } }
+    },
+
+    "colors": {
+      "text-color-white": { "color": "white", "generate": { "html": "<span class='text-color-white'>[TEXT]</span>" } },
+      "text-color-dark": { "color": "var(--color-dark)", "generate": { "html": "<span class='text-color-dark'>[TEXT]</span>" } },
+      "text-color-muted": { "color": "var(--color-muted)", "generate": { "html": "<span class='text-color-muted'>[TEXT]</span>" } },
+      "text-color-link": { "color": "var(--color-link)", "generate": { "html": "<a class='text-color-link'>[TEXT]</a>" } },
+      "background-color-primary": { "background": "var(--color-primary)", "generate": { "html": "<div class='background-color-primary'>[CONTENT]</div>" } },
+      "background-color-yellow": { "background": "var(--color-yellow)", "generate": { "html": "<div class='background-color-yellow'>[CONTENT]</div>" } },
+      "background-color-white": { "background": "white", "generate": { "html": "<div class='background-color-white'>[CONTENT]</div>" } },
+      "background-color-grey": { "background": "var(--color-grey)", "generate": { "html": "<div class='background-color-grey'>[CONTENT]</div>" } }
+    },
+
+    "buttons": {
+      "button": { "padding": "1rem 2rem", "borderRadius": "2.5625rem", "fontFamily": "Poppins", "fontSize": "1rem", "fontWeight": 500, "display": "inline-block", "textDecoration": "none", "cursor": "pointer", "generate": { "html": "<a class='button'>[TEXT]</a>" } },
+      "is-primary": { "background": "var(--color-primary)", "color": "white", "border": "none", "generate": { "html": "<a class='button is-primary'>[TEXT]</a>" } },
+      "is-secondary": { "background": "transparent", "color": "white", "border": "2px solid var(--color-grey)", "generate": { "html": "<a class='button is-secondary'>[TEXT]</a>" } },
+      "is-yellow": { "background": "var(--color-yellow)", "color": "var(--color-dark)", "border": "none", "generate": { "html": "<a class='button is-yellow'>[TEXT]</a>" } }
+    },
+
+    "layout": {
+      "display-flex": { "display": "flex", "generate": { "html": "<div class='display-flex'>[CONTENT]</div>" } },
+      "align-center": { "alignItems": "center", "generate": { "html": "<div class='align-center'>[CONTENT]</div>" } },
+      "justify-between": { "justifyContent": "space-between", "generate": { "html": "<div class='justify-between'>[CONTENT]</div>" } },
+      "gap-2rem": { "gap": "2rem", "generate": { "html": "<div class='gap-2rem'>[CONTENT]</div>" } },
+      "text-align-center": { "textAlign": "center", "generate": { "html": "<div class='text-align-center'>[CONTENT]</div>" } },
+      "inline-div-0": { "display": "flex", "marginTop": "2rem", "flexWrap": "wrap", "gap": "1.5rem", "generate": { "html": "<div class='inline-div-0'>[CONTENT]</div>" } }
+    },
+
+    "footer": {
+      "footer_contact-box": { "background": "var(--color-yellow)", "padding": "1.5rem", "generate": { "html": "<div class='footer_contact-box'>[CONTENT]</div>" } },
+      "footer-content": { "padding": "5rem 0", "generate": { "html": "<div class='footer-content'>[CONTENT]</div>" } },
+      "footer-grid": { "display": "grid", "gridTemplateColumns": "1fr 1fr", "gap": "3rem", "generate": { "html": "<div class='footer-grid'>[COLUMNS]</div>" } },
+      "footer-cta": { "generate": { "html": "<div class='footer-cta'>[CONTENT]</div>" } },
+      "footer-links": { "background": "white", "padding": "1.5rem", "display": "flex", "justifyContent": "space-between", "generate": { "html": "<div class='footer-links'>[LINKS]</div>" } }
+    },
+
+    "privacy": {
+      "privacy-hero_wrapper": { "maxWidth": "35.125rem", "margin": "0 auto", "generate": { "html": "<div class='privacy-hero_wrapper'>[HEADING + SUBTEXT]</div>" } },
+      "content-wrapper": { "generate": { "html": "<div class='content-wrapper'>[CONTENT]</div>" } },
+      "content-block": { "marginBottom": "3rem", "generate": { "html": "<div class='content-block'>[HEADING + PARAGRAPH]</div>" } },
+      "bullet-list": { "listStyle": "none", "paddingLeft": "1.5rem", "marginTop": "1.5rem", "generate": { "html": "<ul class='bullet-list'>[ITEMS]</ul>" } },
+      "bullet-item": { "position": "relative", "paddingLeft": "1rem", "marginBottom": "1rem", "generate": { "html": "<li class='bullet-item'>[TEXT]</li>" } },
+      "bullet": { "position": "absolute", "left": 0, "top": "8px", "width": "5px", "height": "5px", "background": "var(--color-dark)", "borderRadius": "50%", "generate": { "html": "<span class='bullet'></span>" } }
+    },
+
+    "utility": {
+      "opacity-70": { "opacity": 0.7, "generate": { "html": "<span class='opacity-70'>[TEXT]</span>" } },
+      "margin-top-small": { "marginTop": "1rem", "generate": { "html": "<div class='margin-top-small'>[CONTENT]</div>" } },
+      "margin-top-medium": { "marginTop": "1.5rem", "generate": { "html": "<div class='margin-top-medium'>[CONTENT]</div>" } },
+      "margin-bottom-small": { "marginBottom": "1rem", "generate": { "html": "<div class='margin-bottom-small'>[CONTENT]</div>" } },
+      "margin-bottom-medium": { "marginBottom": "1.5rem", "generate": { "html": "<div class='margin-bottom-medium'>[CONTENT]</div>" } }
+    },
+
+    "demo": {
+      "color-demo": { "marginTop": "0.75rem", "marginBottom": "0.75rem", "padding": "1.5rem", "borderRadius": "8px", "generate": { "html": "<div class='color-demo'>[CONTENT]</div>" } }
     }
-  ],
-  "allClasses": [
-    "page-wrapper",
-    "main-wrapper",
-    "padding-global",
-    "container-large",
-    "container-medium",
-    "padding-section-y",
-    "padding-section-small",
-    "padding-section-large",
-    "padding-section-medium",
-    "surface-muted",
-    "divider",
-    "section_nav",
-    "nav-inner",
-    "nav-link",
-    "navbar",
-    "navbar-header",
-    "logo-heading-1",
-    "nav-links",
-    "nav",
-    "nav-cart",
-    "heading-xlarge",
-    "heading-large",
-    "text-large",
-    "text-body",
-    "hero-headline",
-    "hero-headline-1",
-    "text-title",
-    "hero-button",
-    "hero-images-1",
-    "hero-image-left",
-    "cta-button",
-    "section_hero",
-    "section-story",
-    "card-story",
-    "grid-2-col",
-    "section-stats",
-    "stat-card",
-    "section-values",
-    "grid-3-col",
-    "value-card",
-    "value-icon",
-    "section-team",
-    "grid-4-col",
-    "team-card",
-    "team-image",
-    "heading-h1",
-    "heading-h2",
-    "heading-h3",
-    "heading-h4",
-    "text-subtitle",
-    "text-body-lg",
-    "text-meta",
-    "text-small",
-    "section_newstand-hero",
-    "section_featured-article",
-    "featured-card",
-    "featured-image",
-    "featured-content",
-    "tag-badge",
-    "section_filters",
-    "filter-bar",
-    "tag-filter",
-    "search-bar",
-    "section_articles",
-    "newstand-grid",
-    "article-card",
-    "article-image",
-    "article-content",
-    "article-meta",
-    "section_newsletter",
-    "newsletter-cta",
-    "newsletter-form",
-    "text-white",
-    "section_footer",
-    "footer-inner",
-    "footer-left",
-    "footer-links",
-    "footer-link",
-    "is-footer"
-  ]
+  },
+
+  "variables": {
+    "colors": {
+      "primary": "#1c1e53",
+      "dark": "#282938",
+      "yellow": "#fcd980",
+      "white": "#ffffff",
+      "grey": "#f4f6fc",
+      "muted": "#bbbbcb",
+      "link": "#2405f2"
+    },
+    "typography": {
+      "fontFamily": "Poppins",
+      "h2-size": "3rem",
+      "h3-size": "2.375rem",
+      "body-size": "1rem",
+      "label-size": "1.125rem",
+      "small-size": "0.875rem"
+    },
+    "spacing": {
+      "sectionSmall": "3rem",
+      "sectionMedium": "5rem",
+      "sectionLarge": "7rem",
+      "global": "1.5rem"
+    }
+  },
+
+  "RULES": {
+    "NEVER_INLINE_STYLES": "Tuyệt đối KHÔNG dùng inline styles như inline-p-*, inline-div-*, style='margin:...'",
+    "ALWAYS_USE_COMBO_CLASSES": "Luôn dùng combo classes từ inventory",
+    "GENERATE_FROM_INVENTORY": "Scan-result.json phải MAP từ inventory generate.html, KHÔNG tạo HTML mới"
+  }
 }

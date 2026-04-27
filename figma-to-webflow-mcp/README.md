@@ -118,3 +118,4 @@ Figma URL → Scanner → 4 Mappers → Payload → Sync → QA → 🛑
 - **Figma**: `mcp0_get_design_context()`
 - **Webflow**: `mcp1_style_tool`, `mcp1_element_builder`, `mcp1_navigate_to_page`
 
+**Note**: chat "luôn tuân thủ [INSTRUCTION.md]"
