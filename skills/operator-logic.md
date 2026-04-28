@@ -167,7 +167,7 @@ Nhiệm vụ của Operator là tạo ra "Nguồn sự thật" (Source of Truth)
 - **Assets:** URL ảnh, Icon SVG (nếu có thể lấy mã code).
 
 ### 2.3. Xử lý Asset
-- Nếu Node là Image: Lấy link download từ API và báo cáo cho Architect trong Blueprint.
+- Nếu Node là Image: Lấy link download từ API và ghi vào Blueprint để báo cáo kết quả.
 - Nếu Node là Component: Kiểm tra xem đó là Instance hay Main Component.
 
 ---

@@ -68,8 +68,8 @@ Architect thực hiện QA theo checklist 5 điểm sau:
 
 ---
 
-## 5. Logic Quản lý Context (Dual-Chat Communication)
+## 5. Logic Quản lý Context (PM-Agent Communication)
 
 - **Trách nhiệm:** Architect phải duy trì tính nhất quán của `workspace/blueprint.json`.
-- **Hành động:** Khi Operator báo cáo kết quả thực thi (State/Logs), Architect phải cập nhật ngay vào file Blueprint để đánh dấu Node nào đã "Verified" (Đã duyệt) và Node nào cần "Revision" (Sửa lại).
-- **Giao tiếp:** Luôn đưa ra chỉ dẫn rõ ràng cho User để bàn giao dữ liệu sang cửa sổ Operator (Ví dụ: "Hãy copy Blueprint mới này sang cho Operator và yêu cầu sửa lại Class X").
+- **Hành động:** Khi được `@pm` gọi để QA, Architect đọc `workspace/state.json` (kết quả thực thi của Operator) và đối soát trực tiếp với `workspace/blueprint.json`.
+- **Giao tiếp:** Trả về báo cáo kết quả cho `@pm`. Tuyệt đối không giao tiếp trực tiếp với User. Mọi yêu cầu lấy thêm dữ liệu hoặc sửa lỗi phải thông qua điều phối của `@pm`.

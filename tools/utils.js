@@ -139,7 +139,23 @@ const Utils = {
       Math.pow(c2.g - c1.g, 2) +
       Math.pow(c2.b - c1.b, 2) +
       Math.pow((c2.a - c1.a) * 255, 2)
-    );
+  },
+
+  /**
+   * 6. LOGGER: Standardized Error and Activity Tracking
+   */
+  Logger: {
+    formatEntry: (agent, type, message, context = {}, error_type = "Technical") => {
+      return {
+        timestamp: new Date().toISOString(),
+        agent: agent,
+        phase: context.phase || "unknown",
+        error_type: error_type,
+        message: message,
+        context: context,
+        resolution: "pending"
+      };
+    }
   }
 };
 
