@@ -1,0 +1,126 @@
+{
+  "meta": {
+    "file": "audit_privacy_policy.json",
+    "created": "2026-04-29",
+    "page": "privacy-policy",
+    "source_reference": "privacy_policy.html (Finsweet Client-First Template)",
+    "source_build": "webflow_privacy_policy_dom.html (Agent Webflow Build)",
+    "total_errors": 12,
+    "severity_summary": {
+      "critical": 4,
+      "major": 5,
+      "minor": 3
+    }
+  },
+  "errors": [
+    {
+      "id": "ERR-001",
+      "severity": "critical",
+      "category": "DOM Structure",
+      "element": "body > div (root wrapper)",
+      "reference": "div.page-wrapper",
+      "actual": "div (no class)"
+    },
+    {
+      "id": "ERR-002",
+      "severity": "critical",
+      "category": "DOM Structure",
+      "element": "div bọc section (giữa nav và section)",
+      "reference": "main.main-wrapper",
+      "actual": "div (no class)"
+    },
+    {
+      "id": "ERR-003",
+      "severity": "critical",
+      "category": "Class Naming",
+      "element": "nav element",
+      "reference": "div[role=banner].nav_component.w-nav",
+      "actual": "nav.navbar_component"
+    },
+    {
+      "id": "ERR-004",
+      "severity": "critical",
+      "category": "DOM Structure",
+      "element": "section name",
+      "reference": "div.section_privacy",
+      "actual": "section.section_private-policy"
+    },
+    {
+      "id": "ERR-005",
+      "severity": "major",
+      "category": "DOM Structure",
+      "element": "Padding spacers",
+      "reference": "div.padding-bottom.padding-xhuge (nằm ngoài padding-global, trên và dưới)",
+      "actual": "div.padding-section-large (nằm bên trong padding-global)"
+    },
+    {
+      "id": "ERR-006",
+      "severity": "major",
+      "category": "Class Naming",
+      "element": "container bên trong section",
+      "reference": "div.container-large",
+      "actual": "div.container-privacy-policy"
+    },
+    {
+      "id": "ERR-007",
+      "severity": "major",
+      "category": "Class Naming",
+      "element": "h1 heading",
+      "reference": "h1.heading-style-h1.text-align-center",
+      "actual": "h1.privacy-policy-heading"
+    },
+    {
+      "id": "ERR-008",
+      "severity": "major",
+      "category": "DOM Structure",
+      "element": "Content block",
+      "reference": "div.text-rich-text.w-richtext (h3, p, ul, li)",
+      "actual": "div.privacy-policy_content-block (h2 và p riêng lẻ)"
+    },
+    {
+      "id": "ERR-009",
+      "severity": "major",
+      "category": "Class Naming",
+      "element": "List items",
+      "reference": "ul[role=list] > li",
+      "actual": "div.privacy-policy_list-group > div.list_item > img + p"
+    },
+    {
+      "id": "ERR-010",
+      "severity": "minor",
+      "category": "Class Naming",
+      "element": "img footer logo",
+      "reference": "img.footer_logo",
+      "actual": "img.image-2"
+    },
+    {
+      "id": "ERR-011",
+      "severity": "minor",
+      "category": "DOM Structure",
+      "element": "2 div trong footer_contact-card",
+      "reference": "div.footer_contact-wrapper",
+      "actual": "div (no class) x2"
+    },
+    {
+      "id": "ERR-012",
+      "severity": "minor",
+      "category": "Accessibility",
+      "element": "Social icons",
+      "reference": "a.social_link.is-footer[aria-label] > div.social_icon > svg",
+      "actual": "img x4 (bare, no wrapper, no aria-label)"
+    }
+  ],
+  "summary": {
+    "root_cause": "Agent build không bám sát mapping plan, tự đặt tên class khi thực thi, không chạy pre-check query_elements.",
+    "fix_order": [
+      "ERR-001",
+      "ERR-002",
+      "ERR-004",
+      "ERR-006",
+      "ERR-007",
+      "ERR-010",
+      "ERR-011",
+      "ERR-012"
+    ]
+  }
+}

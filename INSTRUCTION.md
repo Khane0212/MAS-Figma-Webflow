@@ -1,48 +1,100 @@
-# MAS-Cursor: Master Instructions & Operational Mandates (V3.0)
+Behavioral guidelines to reduce common LLM coding mistakes.
 
-Hệ thống MAS V3 tự động hóa chuyên dụng cho dự án Figma to Webflow. Đây là tài liệu chỉ thị cao nhất.
+Tradeoff: These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+1. Think Before Coding
+Don't assume. Don't hide confusion. Surface tradeoffs.
+
+Before implementing:
+
+State your assumptions explicitly. If uncertain, ask.
+If multiple interpretations exist, present them - don't pick silently.
+If a simpler approach exists, say so. Push back when warranted.
+If something is unclear, stop. Name what's confusing. Ask.
+
+2. Simplicity First
+Minimum code that solves the problem. Nothing speculative.
+
+No features beyond what was asked.
+No abstractions for single-use code.
+No "flexibility" or "configurability" that wasn't requested.
+No error handling for impossible scenarios.
+If you write 200 lines and it could be 50, rewrite it.
+
+3. Surgical Changes
+Touch only what you must. Clean up only your own mess.
+
+When editing existing code:
+
+Don't "improve" adjacent code, comments, or formatting.
+Don't refactor things that aren't broken.
+Match existing style, even if you'd do it differently.
+If you notice unrelated dead code, mention it - don't delete it.
+When your changes create orphans:
+
+Remove imports/variables/functions that YOUR changes made unused.
+Don't remove pre-existing dead code unless asked.
+
+4. Goal-Driven Execution
+Define success criteria. Loop until verified.
+
+Transform tasks into verifiable goals:
+
+"Add validation" → "Write tests for invalid inputs, then make them pass"
+"Fix the bug" → "Write a test that reproduces it, then make it pass"
+"Refactor X" → "Ensure tests pass before and after"
 
 ---
 
-## 1. Nguyên tắc Cốt lõi (Core Principles)
-- **Sub-Agent Orchestration:** Hệ thống vận hành tự động thông qua `@pm` điều phối các Sub-Agent (`@architect`, `@operator`). Không còn thao tác copy/paste thủ công giữa các cửa sổ chat.
-- **Context Isolation:** Sử dụng `invoke_agent` để tạo môi trường thực thi độc lập cho từng nhiệm vụ, ngăn chặn Context Bias.
-- **Workspace-Driven:** Mọi sự giao tiếp giữa các Agent phải thông qua dữ liệu trong thư mục `workspace/`.
-- **Evidence-based Reporting:** Mọi báo cáo tiến độ PHẢI đi kèm snippet dữ liệu thực tế từ file JSON tương ứng.
+## WEBFLOW PROJECT RULES (QUY TẮC WEBFLOW — LUẬT TỐI THƯỢNG)
 
----
+Khi có mâu thuẫn giữa bất kỳ file nào, INSTRUCTION.md luôn thắng.
 
-## 2. Mô hình Vận hành (Orchestration Model)
-1.  **@PM (The Orchestrator):** Vai trò chủ đạo, nhận lệnh từ User, đọc `SOP.md` và điều phối các Sub-Agent.
-2.  **@Architect (Sub-Agent):** Phụ trách tư duy logic, lập Blueprint và thực hiện QA đối soát.
-3.  **@Operator (Sub-Agent):** Phụ trách trích xuất dữ liệu Figma và thực thi Webflow Designer tools.
+### 1. Kiến trúc Client-First (Finsweet)
 
----
+**Cấu trúc DOM bắt buộc:**
+```
+page-wrapper > main-wrapper > section_[name] > padding-global > container-[size] > padding-section-[size] > [name]_component
+```
 
-## 3. Quản lý Dữ liệu & Tri thức
-- **Workspace:**
-    - `workspace/blueprint.json`: Bản vẽ kỹ thuật (Source of Truth).
-    - `workspace/state.json`: Nhật ký thực thi.
-    - `workspace/design-system.json`: Bản đồ Style Guide.
-- **Knowledge Base:**
-    - `knowledge-base/client-first-theory.md`: Lý thuyết Finsweet.
-    - `knowledge-base/project-rules.md`: Kinh nghiệm dự án.
+**Quy tắc DivBlock (ANTI-ANONYMOUS-DIV):**
+- **TUYỆT ĐỐI CẤM** đẻ ra DivBlock không có class. Mọi div đều PHẢI có class.
+- Trước khi build bất kỳ section/component nào: `query_elements` để kiểm tra đã có chưa.
 
----
+**Quy tắc Tool Builder:**
+- Dùng `element_builder` mặc định.
+- Chỉ dùng `whtml_builder` nếu HTML chỉ chứa `class="..."` (TUYỆT ĐỐI CẤM nếu có `style="..."` inline).
 
-## 4. Kỹ thuật & Webflow MCP Mandates
-- **Diagnostic-First:** Nếu tool fail, phải kiểm tra Site ID/Node ID trước khi thử lại.
-- **Snapshot Protocol:** Luôn chụp ảnh trước và sau khi thực hiện thay đổi trên Webflow.
-- **Unit Safety:** 100% sử dụng đơn vị `rem`.
-- **Style Guide Sync:** Mọi thay đổi về Style phải được đồng bộ lên trang Style Guide của Webflow.
+**Quy tắc Form (DEFAULT FORM BUG):**
+- Webflow tự sinh input/button không class → BẮT BUỘC dùng `set_style` gán ngay:
+  - Form wrapper → `form_component`
+  - Input → `form_input` (thêm `is-text-area` cho textarea)
+  - Submit button → `button is-primary`
 
----
+**Anti-Amnesia / Duplicate DOM (Incremental Recovery Protocol):**
+- Sau timeout/reconnect/lỗi API (gemini is way too hot): PHẢI đọc `wf_progress_[page].json` trước, đặc biệt kiểm tra `in_progress_section`.
+- **LUẬT SKIP:** Nếu tên Section đã nằm trong mảng `completed_sections`, BẮT BUỘC phải BỎ QUA hoàn toàn, tuyệt đối không build lại.
+- **LUẬT PARENT ID CHO SECTION MỚI:** Khi bắt đầu build một Section mới, `parent_element_id` PHẢI LÀ ID của `main-wrapper` (hoặc `page-wrapper`). TUYỆT ĐỐI KHÔNG gắn section mới vào bên trong container của section cũ.
+- LUẬT TỐI THƯỢNG CHO RESUME: Nếu session bị ngắt giữa chừng (có dữ liệu trong `in_progress_section`), lấy ID của thẻ DOM cuối cùng trong `completed_elements` làm điểm neo (parent) để build tiếp các thẻ con bên trong nó.
+- KHÔNG BAO GIỜ xóa làm lại từ đầu (trừ khi chính thẻ neo bị lỗi) để tiết kiệm thời gian và resource, nhưng phải build nối tiếp một cách cực kỳ chính xác vào đúng thẻ cha.
 
-## 5. Hướng dẫn Hành vi (Behavioral Guidelines)
-- **Approval Gates:** `@pm` PHẢI dừng lại xin ý kiến User sau khi hoàn thành Blueprint và trước khi thực thi Build.
-- **Surgical Changes:** Chỉ sửa đổi những gì cần thiết, tuân thủ nghiêm ngặt Blueprint đã duyệt.
-- **QA Rigor:** `@architect` có quyền REJECT sản phẩm của `@operator` nếu sai lệch dù chỉ 1px.
+### 2. Đơn vị & Spacing
 
----
+**REM Conversion:** PX ÷ 16 = REM. Không làm tròn. 77px = 4.8125rem.
 
-**Hệ thống đang hoạt động đúng nếu:** `@pm` điều phối trơn tru, không có sự can thiệp thủ công vào dữ liệu JSON, và sản phẩm Webflow khớp 1:1 với Figma chuẩn Client-First.
+**Naming Convention:**
+- Utility Class (dùng chung): dấu gạch ngang `-` → `margin-top`, `text-color-primary`
+- Custom Class (riêng component): dấu gạch dưới `_` → `contact_form-block`, `hero_content-left`
+
+**Spacing Rules (Single Source of Truth):**
+- **MICRO (< 32px, trong cùng component):** Dùng `gap` trên flex/grid. KHÔNG tạo spacer div.
+- **MACRO (≥ 32px, giữa các block/section):** Dùng `margin-bottom` utility hoặc `padding-section-*`.
+- TUYỆT ĐỐI KHÔNG tạo `<div>` rỗng không có class để tạo khoảng cách.
+
+### 3. Đồng bộ & Bộ nhớ
+
+- **Startup:** Đọc `shared_components.json` (site_id, navbar/footer IDs) + `wf_progress_[page].json` (tiến độ).
+- **Sau mỗi section:** Ghi vào `wf_progress_[page].json` + `wf_build_log.md`.
+- **Shared component mới:** Cập nhật ID vào `shared_components.json` ngay lập tức.
+
+These guidelines are working if: fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.

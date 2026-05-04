@@ -1,0 +1,48 @@
+{
+  "page": "home",
+  "page_url": "https://ngos-stellar-site-e978ac.design.webflow.com/",
+  "completed_sections": [
+    "section-contact-us"
+  ],
+  "in_progress_section": null,
+  "pending_sections": [
+    "section-navbar",
+    "section-footer"
+  ],
+  "element_ids": {
+    "page-wrapper": "5dd04d65-951a-c408-0c4e-0bd39ce71e3c",
+    "main-wrapper": "1abfff03-e475-675c-454f-e3a7b68768b6",
+    "section-contact-us": "b53c0a94-496e-b54c-b465-5a1abaffa7ac",
+    "padding-global": "ccca22d6-6be7-fdd7-72e2-b3f8b2beaaaf",
+    "container-large": "3c5a97ea-8c1b-64db-3a83-60aafb69e73f",
+    "padding-section-medium": "7fd9b7f9-7615-314f-41e5-bf1a4e564b1f",
+    "contact-us_component": "0bbf7033-54cd-c119-d3fe-3b68f48a8551",
+    "contact-heading-wrapper": "fa84bb6d-fd5f-e54e-4645-c69242f5fabf",
+    "heading_contact_us": "49e0c831-575d-e707-522c-0cb08e27c7d2",
+    "paragraph_contact_desc": "5d678b12-b166-8913-46f8-9a808bd77d7a",
+    "margin_spacer": "85f94818-c792-9c8b-b1e3-8ac24927621a",
+    "contact-form_wrapper": "d6108cfe-507d-b433-9e36-0b94dbb8a3d0",
+    "contact-form_block": "82293553-7e40-493f-b47d-9244b170badc",
+    "form_component": "c16b38a8-9f9e-52bf-545a-974ae532446f",
+    "form_form": "c16b38a8-9f9e-52bf-545a-974ae5324470",
+    "row1_2col": "6c2ac669-1f2d-a545-d1ef-e9bf35e8bc1c",
+    "fw_name": "37ba9f48-b113-e1b3-64f8-f79ee232a24f",
+    "name_label": "48e30463-6a63-f2ad-948e-0d18e4bfcfb1",
+    "name_input": "af606e2c-6f8c-51e9-8272-9fab21002e73",
+    "fw_email": "57b615db-5b13-ea0d-1dd2-352f9748a556",
+    "email_label": "d85fc9fd-99a8-b52d-73e9-7b6009c373b8",
+    "email_input": "43f4ec6f-2456-f812-3943-1033d0bbda92",
+    "row2_2col": "cabc7d36-f76b-37ff-3040-f116d89de352",
+    "fw_subject1": "5a456528-d504-44e7-4744-92f91ec5129b",
+    "subject1_label": "4ee7727a-1086-5b94-1ee6-aaa1a385205e",
+    "subject1_input": "68a3bbf7-5d2d-91c2-66ad-25ce947b96d6",
+    "fw_subject2": "3c98581f-7da6-bf35-5089-05c72cbc3786",
+    "subject2_label": "40b12691-876b-44c4-b77c-1bb312759332",
+    "subject2_input": "f80fbcfb-c230-044b-6567-f3f5bf579614",
+    "row3_1col": "8bb9ef31-b3f6-3f59-0bab-7e2b6210b26b",
+    "msg_label": "5e133600-aec8-7fc1-0905-987d4699c81d",
+    "msg_textarea": "2d8e380e-beed-6446-9250-0dc249a1750f",
+    "submit_btn": "9f04dff7-6112-51cd-4008-89e32701e472"
+  },
+  "last_updated": "2026-05-03T00:00:00Z"
+}

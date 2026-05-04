@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "file": "audit_log_contact_us.json",
+    "created": "2026-04-29",
+    "page": "home",
+    "section": "section-contact-us",
+    "source_reference": "scratch/mapping_plan_contact_us.md (nodeID: 363:6)",
+    "source_build": "webflow_element_builder (Agent Webflow Build)",
+    "total_errors": 3,
+    "severity_summary": {
+      "critical": 1,
+      "major": 1,
+      "minor": 1
+    }
+  },
+  "errors": [
+    {
+      "id": "ERR-002",
+      "severity": "critical",
+      "category": "Class Naming",
+      "element": "Form row wrappers (4 divs)",
+      "reference": "contact-form_row (flex column layout gốc)",
+      "actual": "contact-form_row-2-col / contact-form_row-1-col (grid layout mới)",
+      "description": "Mapping plan gốc dùng 'contact-form_row' nhưng build dùng class mới cho layout 2-column. Cần sync mapping plan với thực tế build."
+    },
+    {
+      "id": "ERR-003",
+      "severity": "major",
+      "category": "Class Naming",
+      "element": "Field wrapper divs (4 divs)",
+      "reference": "Không có trong mapping plan gốc",
+      "actual": "contact-form_field-wrapper",
+      "description": "Thêm layer contact-form_field-wrapper giữa row và label/input để hỗ trợ layout 2-column. Không có trong mapping plan gốc."
+    },
+    {
+      "id": "ERR-004",
+      "severity": "minor",
+      "category": "Content",
+      "element": "Form field inputName attributes",
+      "reference": "Name, Email, Subject, Message (semantic names)",
+      "actual": "Field, Field 2, Field 3, Field 4 (Webflow auto-generated)",
+      "description": "Webflow tự sinh inputName là 'Field', 'Field 2'... Ảnh hưởng đến form submission data."
+    }
+  ],
+  "summary": {
+    "root_cause": "2 nguyên nhân chính: (1) Mapping plan update 2-column layout không sync với build, (2) Webflow auto-generate form field names.",
+    "fix_order": [
+      "ERR-002",
+      "ERR-003",
+      "ERR-004"
+    ]
+  }
+}

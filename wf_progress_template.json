@@ -1,0 +1,9 @@
+{
+  "page_name": "[PAGE_NAME]",
+  "site_id": "[SITE_ID]",
+  "figma_node_id": "[FIGMA_NODE_ID]",
+  "last_updated": "[ISO_DATE]",
+  "completed_sections": [],
+  "pending_sections": ["[SECTION_NAME]"],
+  "notes": ""
+}

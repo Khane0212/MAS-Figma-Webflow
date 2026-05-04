@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "file": "audit_privacy_policy.json",
+    "created": "2026-04-29",
+    "page": "privacy-policy",
+    "focus": "Client-First Architecture Only",
+    "total_errors": 8
+  },
+  "errors": [
+    {
+      "id": "ERR-001",
+      "severity": "critical",
+      "category": "Client-First Structure",
+      "element": "body > div (root wrapper)",
+      "rule": "Mọi trang phải có div.page-wrapper bọc ngoài cùng.",
+      "actual": "div (no class)"
+    },
+    {
+      "id": "ERR-002",
+      "severity": "critical",
+      "category": "Client-First Structure",
+      "element": "div bọc section (giữa nav và section)",
+      "rule": "Phần nội dung chính phải được bọc trong thẻ <main class='main-wrapper'>.",
+      "actual": "div (no class)"
+    },
+    {
+      "id": "ERR-005",
+      "severity": "major",
+      "category": "Client-First Structure",
+      "element": "Padding spacers",
+      "rule": "Các class padding-section (top/bottom) phải nằm NGOÀI padding-global.",
+      "actual": "div.padding-section-large nằm BÊN TRONG padding-global"
+    },
+    {
+      "id": "ERR-006",
+      "severity": "major",
+      "category": "Client-First Naming",
+      "element": "container bên trong section",
+      "rule": "Phải dùng class container chuẩn (container-large, medium, small). Không dùng custom class trừ khi có width ngoại lệ.",
+      "actual": "div.container-privacy-policy"
+    },
+    {
+      "id": "ERR-007",
+      "severity": "major",
+      "category": "Client-First Naming",
+      "element": "h1 heading",
+      "rule": "Custom class phải sử dụng dấu gạch dưới (_) thay vì dấu gạch ngang (-).",
+      "actual": "h1.privacy-policy-heading (đúng ra phải là privacy-policy_heading)"
+    },
+    {
+      "id": "ERR-009",
+      "severity": "major",
+      "category": "Client-First Naming",
+      "element": "List items",
+      "rule": "Custom class cần có namespace (Tên component) để tránh trùng lặp.",
+      "actual": "div.list_item (đúng ra nên là privacy-policy_list-item)"
+    },
+    {
+      "id": "ERR-010",
+      "severity": "minor",
+      "category": "Webflow Hygiene",
+      "element": "img footer logo",
+      "rule": "Không sử dụng class auto-generated của Webflow.",
+      "actual": "img.image-2"
+    },
+    {
+      "id": "ERR-011",
+      "severity": "minor",
+      "category": "Client-First Structure",
+      "element": "2 div trong footer_contact-card",
+      "rule": "Quy tắc No Anonymous Div: Mọi div đều phải có class.",
+      "actual": "div (no class) x2"
+    }
+  ],
+  "summary": {
+    "root_cause": "Agent không kiểm tra lại quy tắc naming convention (_) và cấu trúc cơ bản (page-wrapper, main-wrapper) khi tự động build.",
+    "fix_order": [
+      "ERR-001",
+      "ERR-002",
+      "ERR-005",
+      "ERR-006",
+      "ERR-007",
+      "ERR-009",
+      "ERR-010",
+      "ERR-011"
+    ]
+  }
+}

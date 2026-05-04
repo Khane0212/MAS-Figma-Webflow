@@ -1,0 +1,15 @@
+{
+  "site_id": "69d878332f3a71727615fabf",
+  "site_name": "Ngô's Stellar Site",
+  "fonts": [
+    "Poppins"
+  ],
+  "colors": {
+    "primary": "#YOUR_PRIMARY_COLOR",
+    "secondary": "#YOUR_SECONDARY_COLOR",
+    "background": "#FFFFFF",
+    "text": "#1A1A1A"
+  },
+  "navbar_component_id": "8df7abc1-ff00-48ab-dced-ad820c9a8b47",
+  "footer_component_id": "8d04c8e0-0926-edb4-8813-5ebd10eca5b3"
+}
