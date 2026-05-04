@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "name": "",
+    "version": "1.0.0",
+    "created": ""
+  },
+  "webflow": {
+    "site": "69e6f9ff2d918079b2295a5b",
+    "domain": "",
+    "staging": false
+  },
+  "build": {
+    "auto_publish": false,
+    "strict_mode": true,
+    "rem_base": 16
+  },
+  "tokens": {
+    "fonts": {
+      "body": "Inter",
+      "display": "",
+      "mono": ""
+    },
+    "palette": {
+      "brand": "#000000",
+      "surface": "#FFFFFF",
+      "ink": "#232536",
+      "muted": "#6D6E76"
+    }
+  },
+  "inventory": {
+    "navbar": { "id": null, "built": false, "verified": false },
+    "footer": { "id": null, "built": false, "verified": false }
+  }
+}

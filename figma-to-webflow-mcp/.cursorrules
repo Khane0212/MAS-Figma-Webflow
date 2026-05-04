@@ -2,12 +2,12 @@
 
 > **HÀNH ĐỘNG BẮT BUỘC**:
 > 
-> Trước khi thực hiện bất kỳ thao tác nào, Cursor PHẢI đọc file **`INSTRUCTIONS.md`** để hiểu toàn bộ quy tắc và "bộ não" của dự án này.
+> Trước khi thực hiện bất kỳ thao tác nào, Cursor PHẢI đọc file **`INSTRUCTION.md`** để hiểu toàn bộ quy tắc và "bộ não" của dự án này.
 > 
-> File `INSTRUCTIONS.md` chứa:
+> File `INSTRUCTION.md` chứa:
 > 1. Quy tắc điều phối chính (Orchestration rules)
 > 2. Quy trình làm việc (Workflow)
 > 3. Cấu trúc thư mục (Directory structure)
 > 4. Quy chuẩn thiết kế (Design System rules)
 > 
-> Cursor không được tự ý thực hiện các bước nằm ngoài quy trình đã quy định trong `INSTRUCTIONS.md`.
+> Cursor không được tự ý thực hiện các bước nằm ngoài quy trình đã quy định trong `INSTRUCTION.md`.
