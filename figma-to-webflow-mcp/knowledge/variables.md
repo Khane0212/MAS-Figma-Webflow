@@ -25,13 +25,13 @@ background-color-tertiary
 
 ```
 Phase 1: Extract
-    ? Figma HEX values
+    ↓ Figma HEX values
 Phase 2: Transform
-    ? Create variables (variable_tool)
-    ? Name: text-color-primary, etc.
+    ↓ Create variables (variable_tool)
+    ↓ Name: text-color-primary, etc.
 Phase 3: Link
-    ? Apply to styles
-    ? color: var(--text-color-primary)
+    ↓ Apply to styles
+    ↓ color: var(--text-color-primary)
 ```
 
 ## Mapping Table

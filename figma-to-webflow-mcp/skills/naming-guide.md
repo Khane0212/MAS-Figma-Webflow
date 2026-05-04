@@ -4,19 +4,19 @@
 
 ```
 Is this element reusable?
-+-- Yes ? Utility class
-¶   +-- Pattern: [property]-[value]
-¶   +-- Example: margin-top, text-size-large
-¶
-+-- No ? Custom class
++-- Yes ‚Üí Utility class
+|   +-- Pattern: [property]-[value]
+|   +-- Example: margin-top, text-size-large
+|
++-- No ‚Üí Custom class
     +-- Is this a variant of another class?
-    ¶   +-- Yes ? Combo class
-    ¶   ¶   +-- Pattern: [base] is-[modifier]
-    ¶   ¶   +-- Example: button is-primary
-    ¶   ¶
-    ¶   +-- No ? Unique custom class
-    ¶       +-- Pattern: [block]_[element]-[variant]
-    ¶       +-- Example: hero_heading
+    |   +-- Yes ‚Üí Combo class
+    |   |   +-- Pattern: [base] is-[modifier]
+    |   |   +-- Example: button is-primary
+    |   |
+    |   +-- No ‚Üí Unique custom class
+    |       +-- Pattern: [block]_[element]-[variant]
+    |       +-- Example: hero_heading
 ```
 
 ## Priority Order
@@ -33,16 +33,33 @@ Is this element reusable?
 
 ## Examples
 
-```html
-<!-- Utility only -->
-<div class="margin-top margin-large padding-global">
-
-<!-- Custom only -->
-<div class="hero_content-wrapper">
-
-<!-- Base + combo -->
-<button class="button is-primary is-small">
-
-<!-- Utility + custom -->
-<h2 class="heading-style-h2 hero_heading">
+### Utility Classes
 ```
+padding-global
+margin-top
+margin-large
+text-size-regular
+text-weight-medium
+```
+
+### Custom Classes
+```
+hero_content-wrapper
+hero_heading
+navbar_logo
+footer_grid
+```
+
+### Combo Classes
+```
+button is-primary
+button is-secondary
+card is-featured
+```
+
+## Forbidden Patterns
+
+- ‚ùå `div-block` or `div-block-3`
+- ‚ùå `inline-xxx` or `inline-block`
+- ‚ùå Frame names from Figma (`Frame 1`, `Group A`)
+- ‚ùå Mixed separators in one name

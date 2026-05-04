@@ -1,6 +1,6 @@
 # Layout Translation
 
-## Auto Layout ? CSS
+## Auto Layout → CSS
 
 ### Direction
 | Figma | CSS Property |
@@ -47,8 +47,8 @@ Action: Use padding-global
 
 ### Grouping Logic
 1. Scan Y coordinates (top to bottom)
-2. Elements with Y diff < 5px ? flex-row
-3. Elements stacked ? flex-column
+2. Elements with Y diff < 5px → flex-row
+3. Elements stacked → flex-column
 
 ### Absolute Positioning
 Use only for:
@@ -59,8 +59,8 @@ Use only for:
 ## Gap Conversion
 
 ```
-Figma gap: 32px ? margin-top margin-large (3rem)
-Figma gap: 16px ? margin-top margin-small (1rem)
+Figma gap: 32px → margin-top margin-large (3rem)
+Figma gap: 16px → margin-top margin-small (1rem)
 ```
 
 Round to nearest standard token.

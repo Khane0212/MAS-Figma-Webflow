@@ -5,16 +5,16 @@
 ### Merge Rules
 ```
 IF color_distance < 15 AND same_role:
-    ? Merge to existing variable
+    ↓ Merge to existing variable
 ELSE IF color_distance == 0 AND different_role:
-    ? Keep separate (Brand vs Success)
+    ↓ Keep separate (Brand vs Success)
 ELSE IF same_hex AND different_alpha:
-    ? Create [Name]-[Opacity] variable
+    ↓ Create [Name]-[Opacity] variable
 ```
 
 ### Alpha Handling
-- Primary-Blue at 100% ? `text-color-primary`
-- Primary-Blue at 50% ? `text-color-primary-50`
+- Primary-Blue at 100% → `text-color-primary`
+- Primary-Blue at 50% → `text-color-primary-50`
 
 ## Spacing Audit
 

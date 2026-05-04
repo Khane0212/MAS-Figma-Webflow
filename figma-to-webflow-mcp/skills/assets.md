@@ -4,13 +4,13 @@
 
 ```
 Figma Export URL
-    ?
+    ↓
 asset_tool (upload)
-    ?
+    ↓
 Webflow Asset ID
-    ?
+    ↓
 element_builder (set src)
-    ?
+    ↓
 Image rendered
 ```
 
@@ -24,7 +24,7 @@ Create folders by section:
 ## Validation
 
 Before insertion:
-1. `get_image_preview` ? verify format
+1. `get_image_preview` → verify format
 2. Supported: JPG, PNG, WEBP, AVIF
 3. Max size check
 

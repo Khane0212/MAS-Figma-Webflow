@@ -69,7 +69,7 @@ section_hero is-dark
 
 ## Forbidden Patterns
 
-- ? `div-block` or `div-block-3`
-- ? `inline-xxx` or `inline-block`
-- ? Frame names from Figma (`Frame 1`, `Group A`)
-- ? Mixed separators in one name
+- ❌ `div-block` or `div-block-3`
+- ❌ `inline-xxx` or `inline-block`
+- ❌ Frame names from Figma (`Frame 1`, `Group A`)
+- ❌ Mixed separators in one name

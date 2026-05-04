@@ -33,8 +33,8 @@ Speed: Slower, more control
 
 ### Selection Required
 Before any build:
-1. `de_page_tool` ? `get_current_page`
-2. `element_tool` ? `select_element` (parent)
+1. `de_page_tool` → `get_current_page`
+2. `element_tool` → `select_element` (parent)
 
 ## Construction Order
 
