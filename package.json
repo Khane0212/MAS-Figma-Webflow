@@ -1,8 +1,7 @@
 {
   "scripts": {
-    "start:mcp": "node scripts/mcp-proxy.js",
     "init:workspace": "node scripts/init-workspace.js",
-    "postinstall": "node scripts/fix-mcp-remote.js && node scripts/init-workspace.js"
+    "postinstall": "node scripts/init-workspace.js"
   },
   "dependencies": {
     "archiver": "^7.0.1",
