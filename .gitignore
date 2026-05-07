@@ -18,3 +18,9 @@ Thumbs.db
 
 # Gemini settings
 .gemini/
+
+# MCP Proxy cache
+.cache/
+
+# Workspace data
+workspace/*.json

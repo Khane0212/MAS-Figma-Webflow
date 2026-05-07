@@ -1,4 +1,4 @@
-# MAS-Cursor: Figma to Webflow Client-First Orchestrator (V3.0)
+# figma2webflow-agentic-workflow: Figma to Webflow Client-First Orchestrator (V3.0)
 
 Hệ thống MAS V3 là một bộ khung **Agentic Workflow tự động hóa** chuyên dụng để chuyển đổi thiết kế từ Figma sang Webflow theo tiêu chuẩn **Client-First V2**. 
 
