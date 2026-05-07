@@ -26,7 +26,7 @@
 ## Margin Utility — Cú Pháp
 
 ```
-Hướng: margin-top | margin-bottom | margin-left | margin-right
+Hướng: margin-bottom | margin-left | margin-right (TUYỆT ĐỐI CẤM: margin-top)
 Size:  tiny | xxsmall | xsmall | small | medium | large | xlarge | xxlarge | huge | xhuge | xxhuge
 
 Ví dụ: div.margin-bottom.margin-large → đẩy phần tử bên dưới xuống 3rem

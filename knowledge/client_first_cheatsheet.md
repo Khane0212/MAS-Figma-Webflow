@@ -17,7 +17,7 @@
 *Ghi chú: Để tạo khoảng cách, dùng Utility (ví dụ: `margin-bottom` kết hợp với `margin-large`). KHÔNG thêm margin trực tiếp vào Component.*
 | Class Name | Kích thước |
 | :--- | :--- |
-| `margin-top`, `margin-bottom`, `margin-left`, `margin-right` | Dùng để xác định HƯỚNG khoảng cách. |
+| `margin-bottom`, `margin-left`, `margin-right` | Dùng để xác định HƯỚNG khoảng cách (CẤM margin-top). |
 | `margin-tiny` | Rất nhỏ (0.125rem). Dùng cho khoảng cách các thành phần dính sát. |
 | `margin-small` | Nhỏ (1rem). Dùng khoảng cách giữa các input, đoạn văn. |
 | `margin-medium` | Vừa (2rem). Khoảng cách giữa các khối nội dung nhỏ. |

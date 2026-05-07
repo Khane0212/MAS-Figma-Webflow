@@ -9,7 +9,7 @@
    - Sử dụng `style_tool`.
    - Luôn kiểm tra xem style đã tồn tại chưa bằng `get_all_styles` trước khi tạo mới (`create_style`) để tránh duplicate.
    - Khi tạo Style, hãy liên kết các giá trị màu sắc với các Variables vừa tạo ở bước 1.
-   - **Đặc biệt lưu ý:** Khi tạo các Utility Class của Client-First (như `padding-global`, `margin-top`), đảm bảo tên class chính xác từng ký tự (dùng dấu gạch ngang `-`).
+   - **Đặc biệt lưu ý:** Khi tạo các Utility Class của Client-First (như `padding-global`, `margin-bottom`), đảm bảo tên class chính xác từng ký tự (dùng dấu gạch ngang `-`).
 
 3. **Quy trình kết hợp Cheatsheet và `class.json` (Vô cùng quan trọng):**
    - **BƯỚC CHỌN LỌC (Dùng Cheatsheet):** Khi xây dựng DOM, chỉ đọc `knowledge/client_first_cheatsheet.md` để quyết định xem sẽ dùng TÊN CLASS nào (VD: chọn `margin-large` để tạo khoảng cách 3rem). Việc này giúp Agent tư duy cấu trúc cực nhanh.
@@ -47,4 +47,4 @@ FLOW: Cần style "margin-large"
 Chỉ sau Pre-Check mới được build DOM
 ```
 
-**Tối ưu hóa theo batch:** Khi cần nhiều styles, gom tất cả tên class vào 1 lần `query_styles` (array nhiều queries) thay vì gọi nhiều lần riêng lẻ để tiết kiệm token.
+**Tối ưu hóa theo batch:** Khi cần nhiều styles, gom tất cả tên class vào 1 lần `query_styles` (array nhiều queries) thay vì gọi nhiều lần riêng lẻ để tiết kiệm token.

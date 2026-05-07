@@ -2,7 +2,8 @@
   "page": "home",
   "page_url": "https://ngos-stellar-site-e978ac.design.webflow.com/",
   "completed_sections": [
-    "section-contact-us"
+    "section-contact-us",
+    "section_blog"
   ],
   "in_progress_section": null,
   "pending_sections": [
@@ -42,7 +43,8 @@
     "row3_1col": "8bb9ef31-b3f6-3f59-0bab-7e2b6210b26b",
     "msg_label": "5e133600-aec8-7fc1-0905-987d4699c81d",
     "msg_textarea": "2d8e380e-beed-6446-9250-0dc249a1750f",
-    "submit_btn": "9f04dff7-6112-51cd-4008-89e32701e472"
+    "submit_btn": "9f04dff7-6112-51cd-4008-89e32701e472",
+    "section_blog": "a805e6e4-c54f-2e53-1e48-e640463e29cc"
   },
-  "last_updated": "2026-05-03T00:00:00Z"
+  "last_updated": "2026-05-05T00:00:00Z"
 }

@@ -83,7 +83,7 @@ page-wrapper > main-wrapper > section_[name] > padding-global > container-[size]
 **REM Conversion:** PX ÷ 16 = REM. Không làm tròn. 77px = 4.8125rem.
 
 **Naming Convention:**
-- Utility Class (dùng chung): dấu gạch ngang `-` → `margin-top`, `text-color-primary`
+- Utility Class (dùng chung): dấu gạch ngang `-` → `margin-bottom`, `text-color-primary`
 - Custom Class (riêng component): dấu gạch dưới `_` → `contact_form-block`, `hero_content-left`
 
 **Spacing Rules (Single Source of Truth):**

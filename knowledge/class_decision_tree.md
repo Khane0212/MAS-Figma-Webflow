@@ -146,9 +146,9 @@ Khoảng cách
 ├─► GIỮA CÁC SECTION lớn (≥ 48px)?
 │     └─► Dùng padding-section-* trên wrapper, KHÔNG dùng margin element
 │
-├─► GIỮA CÁC BLOCK trong cùng section (≥ 32px)?
-│     └─► margin-bottom [size] gắn trực tiếp vào element con
-│         (KHÔNG tạo div rỗng để chứa margin)
+├─► GIỮA CAC BLOCK trong cung section (≥ 32px)?
+│     └─► margin-bottom [size] gắn TRỰC TIẾP vào element phía trên
+│         (TUYỆT ĐỐI CẤM: margin-top, spacer div rỗng)
 │
 └─► GIỮA CÁC ELEMENT trong cùng component (< 32px)?
       └─► gap trên flex/grid container (row-gap / column-gap)

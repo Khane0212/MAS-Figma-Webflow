@@ -135,8 +135,8 @@ Agent phải luôn nhớ các hành vi mặc định này để Override (Ghi đ
   + Tuyệt đối không để Combo Class tồn tại như một Global Class độc lập.
 
 ## BƯỚC 9: TƯ DUY SPACING HIỆN ĐẠI (CHỐNG RÁC DOM / DIVCEPTION)
-- **Sai lầm:** Sử dụng thẻ `DivBlock` rỗng để đẩy khoảng cách (Spacer Div) hoặc bọc nội dung vào trong một `DivBlock` chỉ với mục đích để mượn class `margin-top`. Điều này gây ra hiện tượng "Divception" (Thẻ bọc thẻ vô tội vạ), làm rác cấu trúc DOM, HTML phình to và cực kỳ khó chỉnh sửa khi làm Responsive.
-- **Quy tắc:**
-  + **Tuyệt đối KHÔNG** tạo thẻ `<div>` chỉ để chứa margin.
+- **SAI LẦM NGHIÊM TRỌNG:** Sử dụng thẻ `DivBlock` rỗng để đẩy khoảng cách (Spacer Div) hoặc bọc nội dung vào trong một `DivBlock` chỉ với mục đích để mượn class `margin-bottom`. 
+- **LUẬT TỐI THƯỢNG:**
+  + **TUYỆT ĐỐI CẤM** tạo thẻ `<div>` rỗng chỉ để chứa margin.
   + **Ưu tiên dùng GAP:** Cấp thuộc tính `display: flex`, `flex-direction: column` cho thẻ Cha bọc ngoài và dùng thuộc tính `gap` (row-gap) để tạo khoảng cách đều đặn giữa các thẻ con.
-  + **Dùng Margin trực tiếp:** Nếu khoảng cách giữa các phần tử không đều nhau, hãy cấp `margin-bottom` trực tiếp cho bản thân thẻ con đó (hoặc tạo Combo Class), tuyệt đối không tạo thẻ `div` bọc ngoài chỉ để chứa margin.
+  + **Dùng Margin-bottom trực tiếp:** Nếu khoảng cách không đều, hãy gán class `margin-bottom` (Utility) TRỰC TIẾP vào chính phần tử phía trên để đẩy phần tử bên dưới xuống. TUYỆT ĐỐI KHÔNG dùng `margin-top`.`margin-bottom` trực tiếp cho bản thân thẻ con đó (hoặc tạo Combo Class), tuyệt đối không tạo thẻ `div` bọc ngoài chỉ để chứa margin.

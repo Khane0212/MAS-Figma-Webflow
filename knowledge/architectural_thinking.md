@@ -10,9 +10,9 @@
 > Quy tắc spacing chính xác nằm tại `INSTRUCTION.md` §2 và `knowledge/class_decision_tree.md` §BƯỚC 6.
 
 **MACRO SPACING (≥ 32px — giữa các Block hoặc Section):**
-- Dùng `margin-bottom` utility gắn trực tiếp vào element con.
+- Dùng `margin-bottom` utility gắn trực tiếp vào element CẤP TRÊN.
 - Hoặc `padding-section-*` cho khoảng cách giữa các Section.
-- KHÔNG tạo `<div>` rỗng không có class để chứa margin.
+- **TUYỆT ĐỐI CẤM:** Tạo `<div>` rỗng để chứa margin hoặc dùng `margin-top` làm xáo trộn luồng (flow) từ trên xuống dưới.
 
 **MICRO SPACING (< 32px — trong cùng một Component):**
 - CHỈ dùng `gap` (row-gap / column-gap) trên flex/grid container.
