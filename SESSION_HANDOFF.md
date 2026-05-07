@@ -1,35 +1,40 @@
-# SESSION HANDOFF - MAS V3 OPTIMIZATION & LAYOUT FIXES
+# Session Handoff - MAS V3 (Database Reform Edition)
 
-## Project Status
-- **Architecture:** MAS V3 (Sub-Agent Orchestration)
-- **Current Stage:** Maintenance & Optimization
-- **Webflow Site ID:** 69d6045f113e53f87d5d2de9
-- **Active Pages:** Contact Us (69f05f3ad386a28401c310aa) & Home (69d60461113e53f87d5d2e46)
+## 1. Trạng thái hiện tại (Current Status)
+- **Dự án:** Webflow Agency Prototype.
+- **Giai đoạn:** Giai đoạn 2 & 3 (Execution & QA) + **Quy hoạch lại hạ tầng dữ liệu (Data Infrastructure Reform)**.
+- **Tiến độ trang Home:**
+    - [x] **Navbar/Hero/Features/FAQ:** Hoàn thành.
+    - [~] **Our Work:** Đã thực hiện fix Naming (xóa hậu tố -1) và cấu trúc (xóa div thừa). Đã mapping content một phần. *Lưu ý: Đang chờ xác nhận Visual cuối cùng do sự cố MCP Cancelled ở cuối phiên.*
+    - [ ] **Contact Form:** Section tiếp theo (Node ID `706:793`).
 
-## Recent Activity & Fixes
-1. **MAS V3 Workflow Optimization (Context & Routing Fix):**
-   - Bổ sung bước **Context Sync** và **Page Routing** vào `SOP.md`.
-   - Cập nhật chỉ thị lõi cho `@pm`, `@operator`, `@architect` để các Agent biết tự kiểm tra ngữ cảnh trang đích, chống lỗi lồng (duplicate) các thẻ Wrapper và chống xây nhầm trang.
+## 2. Các công việc đã thực hiện trong phiên này (Work Completed)
+### 2.1. Cải cách công cụ (Tooling Optimization):
+- **Unlocking `read_file`:** Đã điều chỉnh cấu trúc `.gitignore` và `.git/info/exclude` để cho phép AI sử dụng tool `read_file` trên thư mục `workspace/` nhằm tiết kiệm token, trong khi vẫn đảm bảo file không bị đẩy lên GitHub.
+- **Surgical Reading:** Áp dụng kỹ thuật đọc dải dòng chính xác (PowerShell) để đảm bảo không mất dữ liệu đối với các file JSON lớn.
 
-2. **Webflow Component Cleanup:**
-   - **Gỡ bỏ Component lỗi:** Đã gỡ bỏ và xóa hoàn toàn component `Page Wrapper` bị đóng gói sai mục đích thiết kế.
-   - **Tái cấu trúc DOM:** Khôi phục cấu trúc phẳng chuẩn Client-First cho trang Contact Us:
-     - `Navbar` (Đã chuyển thành Component độc lập, tái sử dụng toàn cục)
-     - `main-wrapper` (Chứa section_contact)
-     - `Footer` (Đã chuyển thành Component độc lập, tái sử dụng toàn cục)
-   - Hệ thống thư viện Webflow hiện tại chỉ lưu trữ đúng 2 Component chuẩn: `Navbar` và `Footer`. Trạng thái đã được đồng bộ vào `workspace/state.json`.
+### 2.2. Xử lý Section "Our Work":
+- **Audit & Fix:** Đã phát hiện và xử lý 7 lỗi Naming class và 1 lỗi cấu trúc 6 lớp (thừa Div wrapper).
+- **Content Mapping:** Đã yêu cầu chuyển đổi từ Placeholder sang dữ liệu thật từ `content.json`.
 
-3. **Layout & Visual Fixes (Contact Us Form):**
-   - **Form Grid:** Gán lại thủ công toàn bộ hệ thống class Finsweet (`form_field-grid`, `form_field-wrapper`, `form_label`, `form_input`, `button`) cho các element con bên trong Form để khôi phục Layout 2 cột bị vỡ sau khi tái cấu trúc.
-   - **Logo Missing:** Cập nhật lại chính xác Asset ID cho biểu tượng Logo (Image SVG) trong cả Navbar và Footer.
-   - **Cleanup:** Xóa bỏ triệt để các dòng văn bản rác (Success/Error messages bị Webflow sinh thừa) nằm phía dưới Form.
+### 2.3. Định hướng kiến trúc Database (MANDATE):
+- **Phát hiện:** Việc lưu trữ Blueprint và Content dưới dạng JSON phình to đang gây rủi ro về hiệu năng và giới hạn token.
+- **Quyết định:** Chuyển đổi sang mô hình **Database-First (SQLite)** để quản lý dữ liệu bền vững, truy vấn chính xác (Surgical Query) và giảm thiểu Context Overflow.
 
-## Next Steps (Dự kiến cho Session Tới)
-1. **Responsive Design:** 
-   - Kiểm tra và tinh chỉnh Layout trên các breakpoint (Tablet, Mobile Landscape, Mobile Portrait) cho trang Home và Contact Us.
-   - Đảm bảo cấu trúc Grid 2 cột của Form có thể chuyển về dạng xếp dọc (stack) trên Mobile.
-   - Đảm bảo Navbar, Footer hiển thị mượt mà trên thiết bị di động.
-   
-2. **Workspace Optimization:**
-   - Tối ưu không gian làm việc (cấu trúc thư mục dự án `workspace/` hoặc cách lưu trữ, gom nhóm các files JSON/Log để tránh phình to).
-   - Tiếp tục Audit và dọn dẹp các class rác/thừa (nếu có) trên Webflow Designer để tăng tốc độ tải dự án.
+## 3. Nhật ký lỗi & Ghi chú (Notes & Feedback)
+- **Technical Issue:** Gặp hiện tượng lệnh MCP (Webflow) bị **Cancelled** liên tục ở cuối phiên. Khả năng cao do:
+    1. MCP Server bị treo/timeout.
+    2. Token hết hạn (Cần triển khai Auto-Refresh Script).
+- **Data Risk:** File `blueprint.json` hiện đã rất lớn. Việc đọc/ghi thủ công vào file này bắt đầu xuất hiện độ trễ và sai số.
+
+## 4. Chỉ thị cho phiên sau (Next Steps)
+1. **Thiết lập Database:**
+    - Tạo file `workspace/mas_v3.db` (SQLite).
+    - Viết script bridge `tools/db-client.js` để AI thực hiện các lệnh SQL (Select/Insert/Update).
+    - Migration: Chuyển dữ liệu từ JSON hiện có sang các bảng `sections`, `content`, `styles`, `state`.
+2. **Final QA "Our Work":** Kiểm tra lại trên Webflow Designer sau khi hệ thống ổn định (Fix nốt nếu vẫn còn lỗi Cancelled).
+3. **Tiếp tục Section "Contact form":** Thực hiện Build dựa trên kiến trúc Database mới.
+4. **Auto-Refresh MCP:** Hoàn thiện `scripts/mcp-proxy.js` để ổn định kết nối Designer.
+
+---
+*Ngày kết thúc phiên: 07/05/2026 (Kế hoạch cải cách đã được phê duyệt)*

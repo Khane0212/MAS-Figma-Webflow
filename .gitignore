@@ -21,6 +21,3 @@ Thumbs.db
 
 # MCP Proxy cache
 .cache/
-
-# Workspace data
-workspace/*.json

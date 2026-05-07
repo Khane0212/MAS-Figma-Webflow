@@ -5,6 +5,8 @@
     "postinstall": "node scripts/fix-mcp-remote.js && node scripts/init-workspace.js"
   },
   "dependencies": {
-    "mcp-remote": "^0.1.38"
+    "archiver": "^7.0.1",
+    "mcp-remote": "^0.1.38",
+    "unzipper": "^0.12.3"
   }
 }

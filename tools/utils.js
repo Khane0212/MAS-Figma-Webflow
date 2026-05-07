@@ -139,6 +139,7 @@ const Utils = {
       Math.pow(c2.g - c1.g, 2) +
       Math.pow(c2.b - c1.b, 2) +
       Math.pow((c2.a - c1.a) * 255, 2)
+    );
   },
 
   /**

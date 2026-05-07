@@ -1,0 +1,172 @@
+{
+  "component_name": "Navbar",
+  "node_id": "904:956",
+  "target_page": "Home",
+  "structure": {
+    "tag": "div",
+    "class": "navbar_component",
+    "styles": {
+      "background-color": "var(--color--primary)",
+      "width": "100%",
+      "z-index": "100",
+      "position": "fixed",
+      "top": "0",
+      "left": "0",
+      "right": "0"
+    },
+    "children": [
+      {
+        "tag": "div",
+        "class": "padding-global",
+        "children": [
+          {
+            "tag": "div",
+            "class": "container-large",
+            "children": [
+              {
+                "tag": "div",
+                "class": "navbar_container",
+                "styles": {
+                  "display": "flex",
+                  "justify-content": "space-between",
+                  "align-items": "center",
+                  "height": "5.75rem"
+                },
+                "children": [
+                  {
+                    "tag": "a",
+                    "class": "navbar_logo-link",
+                    "styles": {
+                      "display": "flex",
+                      "align-items": "center",
+                      "padding-left": "0rem"
+                    },
+                    "children": [
+                      {
+                        "tag": "img",
+                        "class": "navbar_logo",
+                        "content_key": "navbar_logo",
+                        "styles": {
+                          "width": "auto",
+                          "height": "1.5rem"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "class": "navbar_menu",
+                    "styles": {
+                      "display": "flex",
+                      "align-items": "center",
+                      "gap": "2rem"
+                    },
+                    "children": [
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "combo_class": "is-active",
+                        "content_key": "navbar_link_home",
+                        "styles": {
+                          "color": "var(--color--text-active)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "content_key": "navbar_link_about",
+                        "styles": {
+                          "color": "var(--color--text-inactive)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "content_key": "navbar_link_features",
+                        "styles": {
+                          "color": "var(--color--text-inactive)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "content_key": "navbar_link_pricing",
+                        "styles": {
+                          "color": "var(--color--text-inactive)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "content_key": "navbar_link_faq",
+                        "styles": {
+                          "color": "var(--color--text-inactive)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      },
+                      {
+                        "tag": "a",
+                        "class": "navbar_link",
+                        "content_key": "navbar_link_blog",
+                        "styles": {
+                          "color": "var(--color--text-inactive)",
+                          "text-decoration": "none",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "tag": "div",
+                    "class": "navbar_button-wrapper",
+                    "children": [
+                      {
+                        "tag": "a",
+                        "class": "button",
+                        "combo_class": "is-nav",
+                        "content_key": "navbar_button",
+                        "styles": {
+                          "border": "0.125rem solid var(--color--border-nav)",
+                          "background-color": "transparent",
+                          "padding": "1rem 3rem",
+                          "border-radius": "2.5625rem",
+                          "color": "var(--color--white)",
+                          "font-family": "Poppins, sans-serif",
+                          "font-weight": "500",
+                          "font-size": "1rem",
+                          "text-decoration": "none"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "rationale": "Designed using Finsweet's 6-layer Client-First logic to ensure maximum scalability and clarity. Built from scratch with Div Blocks to avoid 'w-nav' limitations and ensure 100% control over naming conventions as per MAS-DS-001. All spacing, dimensions, and typography are defined in 'rem' to ensure fluid responsiveness and accessibility. Styles are mapped to existing Webflow variables identified in the design system audit (e.g., color--primary, color--text-active) to maintain architectural integrity."
+}

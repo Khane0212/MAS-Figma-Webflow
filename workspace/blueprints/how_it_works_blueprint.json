@@ -1,0 +1,385 @@
+{
+  "component_name": "This is how it work",
+  "node_id": "706:670",
+  "target_page": "Home",
+  "structure": {
+    "tag": "section",
+    "class": "section_how-it-works",
+    "styles": {
+      "background-color": "var(--color--grey)"
+    },
+    "children": [
+      {
+        "tag": "div",
+        "class": "padding-global",
+        "children": [
+          {
+            "tag": "div",
+            "class": "container-large",
+            "children": [
+              {
+                "tag": "div",
+                "class": "padding-section-medium",
+                "styles": {
+                  "padding-top": "8rem",
+                  "padding-bottom": "8rem"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "class": "how-it-works_component",
+                    "styles": {
+                      "display": "grid",
+                      "grid-template-columns": "1fr 1.5fr",
+                      "align-items": "start",
+                      "gap": "5rem"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "class": "how-it-works_content",
+                        "styles": {
+                          "display": "flex",
+                          "flex-direction": "column",
+                          "align-items": "flex-start",
+                          "max-width": "25.375rem"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "class": "margin-bottom",
+                            "combo_class": "margin-small",
+                            "styles": {
+                              "margin-bottom": "1rem"
+                            },
+                            "children": [
+                              {
+                                "tag": "h2",
+                                "class": "heading-style-h2",
+                                "content_key": "how_it_works_heading",
+                                "styles": {
+                                  "color": "var(--color--dark-blue)"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "class": "margin-bottom",
+                            "combo_class": "margin-medium",
+                            "styles": {
+                              "margin-bottom": "1.5rem"
+                            },
+                            "children": [
+                              {
+                                "tag": "p",
+                                "class": "text-style-paragraph",
+                                "content_key": "how_it_works_subtext",
+                                "styles": {
+                                  "color": "var(--color--dark-blue)",
+                                  "opacity": "0.7"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "a",
+                            "class": "how-it-works_link-wrapper",
+                            "styles": {
+                              "display": "flex",
+                              "align-items": "center",
+                              "gap": "1rem",
+                              "text-decoration": "none"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "text-style-link",
+                                "content_key": "how_it_works_link_text",
+                                "styles": {
+                                  "color": "var(--color--royal-blue)",
+                                  "font-family": "Poppins, sans-serif",
+                                  "font-weight": "500",
+                                  "font-size": "1.125rem"
+                                }
+                              },
+                              {
+                                "tag": "img",
+                                "class": "how-it-works_link-icon",
+                                "content_key": "how_it_works_link_icon",
+                                "styles": {
+                                  "width": "1.5rem",
+                                  "height": "auto"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "class": "how-it-works_list",
+                        "styles": {
+                          "display": "grid",
+                          "grid-template-columns": "1fr 1fr",
+                          "gap": "3rem 1.5rem"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "class": "how-it-works_item",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "how-it-works_step-indicator",
+                                "styles": {
+                                  "position": "relative",
+                                  "width": "3.125rem",
+                                  "height": "3.125rem",
+                                  "display": "flex",
+                                  "justify-content": "center",
+                                  "align-items": "center",
+                                  "margin-bottom": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "img",
+                                    "class": "how-it-works_step-shape",
+                                    "content_key": "how_it_works_card_bg_shape",
+                                    "styles": {
+                                      "position": "absolute",
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "object-fit": "contain"
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "how-it-works_step-number",
+                                    "content_key": "how_it_works_step_1_number",
+                                    "styles": {
+                                      "position": "relative",
+                                      "z-index": "1",
+                                      "color": "var(--color--white)",
+                                      "font-family": "Poppins, sans-serif",
+                                      "font-weight": "500",
+                                      "font-size": "1.125rem"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "h3",
+                                "class": "heading-style-h5",
+                                "content_key": "how_it_works_step_1_title",
+                                "styles": {
+                                  "margin-bottom": "0.5rem"
+                                }
+                              },
+                              {
+                                "tag": "p",
+                                "class": "text-style-paragraph",
+                                "content_key": "how_it_works_step_1_description",
+                                "styles": {
+                                  "opacity": "0.7"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "class": "how-it-works_item",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "how-it-works_step-indicator",
+                                "styles": {
+                                  "position": "relative",
+                                  "width": "3.125rem",
+                                  "height": "3.125rem",
+                                  "display": "flex",
+                                  "justify-content": "center",
+                                  "align-items": "center",
+                                  "margin-bottom": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "img",
+                                    "class": "how-it-works_step-shape",
+                                    "content_key": "how_it_works_card_bg_shape",
+                                    "styles": {
+                                      "position": "absolute",
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "object-fit": "contain"
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "how-it-works_step-number",
+                                    "content_key": "how_it_works_step_2_number",
+                                    "styles": {
+                                      "position": "relative",
+                                      "z-index": "1",
+                                      "color": "var(--color--white)",
+                                      "font-family": "Poppins, sans-serif",
+                                      "font-weight": "500",
+                                      "font-size": "1.125rem"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "h3",
+                                "class": "heading-style-h5",
+                                "content_key": "how_it_works_step_2_title",
+                                "styles": {
+                                  "margin-bottom": "0.5rem"
+                                }
+                              },
+                              {
+                                "tag": "p",
+                                "class": "text-style-paragraph",
+                                "content_key": "how_it_works_step_2_description",
+                                "styles": {
+                                  "opacity": "0.7"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "class": "how-it-works_item",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "how-it-works_step-indicator",
+                                "styles": {
+                                  "position": "relative",
+                                  "width": "3.125rem",
+                                  "height": "3.125rem",
+                                  "display": "flex",
+                                  "justify-content": "center",
+                                  "align-items": "center",
+                                  "margin-bottom": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "img",
+                                    "class": "how-it-works_step-shape",
+                                    "content_key": "how_it_works_card_bg_shape",
+                                    "styles": {
+                                      "position": "absolute",
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "object-fit": "contain"
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "how-it-works_step-number",
+                                    "content_key": "how_it_works_step_3_number",
+                                    "styles": {
+                                      "position": "relative",
+                                      "z-index": "1",
+                                      "color": "var(--color--white)",
+                                      "font-family": "Poppins, sans-serif",
+                                      "font-weight": "500",
+                                      "font-size": "1.125rem"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "h3",
+                                "class": "heading-style-h5",
+                                "content_key": "how_it_works_step_3_title",
+                                "styles": {
+                                  "margin-bottom": "0.5rem"
+                                }
+                              },
+                              {
+                                "tag": "p",
+                                "class": "text-style-paragraph",
+                                "content_key": "how_it_works_step_3_description",
+                                "styles": {
+                                  "opacity": "0.7"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "class": "how-it-works_item",
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "how-it-works_step-indicator",
+                                "styles": {
+                                  "position": "relative",
+                                  "width": "3.125rem",
+                                  "height": "3.125rem",
+                                  "display": "flex",
+                                  "justify-content": "center",
+                                  "align-items": "center",
+                                  "margin-bottom": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "img",
+                                    "class": "how-it-works_step-shape",
+                                    "content_key": "how_it_works_card_bg_shape",
+                                    "styles": {
+                                      "position": "absolute",
+                                      "width": "100%",
+                                      "height": "100%",
+                                      "object-fit": "contain"
+                                    }
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "how-it-works_step-number",
+                                    "content_key": "how_it_works_step_4_number",
+                                    "styles": {
+                                      "position": "relative",
+                                      "z-index": "1",
+                                      "color": "var(--color--white)",
+                                      "font-family": "Poppins, sans-serif",
+                                      "font-weight": "500",
+                                      "font-size": "1.125rem"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "h3",
+                                "class": "heading-style-h5",
+                                "content_key": "how_it_works_step_4_title",
+                                "styles": {
+                                  "margin-bottom": "0.5rem"
+                                }
+                              },
+                              {
+                                "tag": "p",
+                                "class": "text-style-paragraph",
+                                "content_key": "how_it_works_step_4_description",
+                                "styles": {
+                                  "opacity": "0.7"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "rationale": "The 'How we work' section follows Finsweet's 6-layer Client-First hierarchy, ensuring a robust and scalable structure. A Grid layout is used for the main component with an asymmetrical 1fr to 1.5fr split to balance the heading and the step list. The step cards are organized in a 2x2 grid, each utilizing absolute positioning for the background shape to create a layered indicator effect. All dimensions, spacing, and typography are defined in 'rem' units for fluid responsiveness. The design leverages pre-defined typography classes (heading-style-h2, heading-style-h5, text-style-paragraph) and color variables (color--grey, color--dark-blue, color--royal-blue) from the design system to ensure architectural consistency. Spacing wrappers (margin-bottom) handle vertical gaps between elements, and object-fit: contain is applied to icons/shapes as per MAS-V2-003 to prevent distortion."
+}

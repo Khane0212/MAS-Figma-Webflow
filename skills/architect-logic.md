@@ -41,7 +41,7 @@ Architect phải luôn đặt câu hỏi: "Class này có thể tái sử dụng
 
 ---
 
-## 3. Chuẩn hóa Schema Blueprint (`blueprint.json`)
+## 3. Chuẩn hóa Schema Blueprint (`blueprints/[section_id].json`)
 
 Mọi Blueprint Architect tạo ra phải chứa các trường thông tin tối thiểu sau:
 - **`rationale`**: Giải thích tại sao chọn cấu trúc này thay vì cấu trúc khác.
@@ -70,6 +70,6 @@ Architect thực hiện QA theo checklist 5 điểm sau:
 
 ## 5. Logic Quản lý Context (PM-Agent Communication)
 
-- **Trách nhiệm:** Architect phải duy trì tính nhất quán của `workspace/blueprint.json`.
-- **Hành động:** Khi được `@pm` gọi để QA, Architect đọc `workspace/state.json` (kết quả thực thi của Operator) và đối soát trực tiếp với `workspace/blueprint.json`.
+- **Trách nhiệm:** Architect phải duy trì tính nhất quán của các file `workspace/blueprints/[section_id].json`.
+- **Hành động:** Khi được `@pm` gọi để QA, Architect đọc `workspace/state.json` (kết quả thực thi của Operator) và đối soát trực tiếp với file `workspace/blueprints/[section_id].json` tương ứng.
 - **Giao tiếp:** Trả về báo cáo kết quả cho `@pm`. Tuyệt đối không giao tiếp trực tiếp với User. Mọi yêu cầu lấy thêm dữ liệu hoặc sửa lỗi phải thông qua điều phối của `@pm`.

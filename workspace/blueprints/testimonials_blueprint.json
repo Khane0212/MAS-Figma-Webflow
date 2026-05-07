@@ -1,0 +1,235 @@
+{
+  "component_name": "Testimonials",
+  "node_id": "706:1014",
+  "target_page": "Home",
+  "structure": {
+    "tag": "section",
+    "class": "section_testimonials",
+    "styles": {
+      "background-color": "var(--color--grey)"
+    },
+    "children": [
+      {
+        "tag": "div",
+        "class": "padding-global",
+        "children": [
+          {
+            "tag": "div",
+            "class": "container-large",
+            "children": [
+              {
+                "tag": "div",
+                "class": "padding-section-medium",
+                "styles": {
+                  "padding-top": "8rem",
+                  "padding-bottom": "8rem"
+                },
+                "children": [
+                  {
+                    "tag": "div",
+                    "class": "testimonials_component",
+                    "styles": {
+                      "display": "grid",
+                      "grid-template-columns": "1fr 2fr",
+                      "align-items": "start",
+                      "gap": "5rem"
+                    },
+                    "children": [
+                      {
+                        "tag": "div",
+                        "class": "testimonials_header",
+                        "styles": {
+                          "max-width": "20.5rem"
+                        },
+                        "children": [
+                          {
+                            "tag": "div",
+                            "class": "margin-bottom",
+                            "combo_class": "margin-small",
+                            "styles": {
+                              "margin-bottom": "1rem"
+                            },
+                            "children": [
+                              {
+                                "tag": "h3",
+                                "class": "heading-style-h3",
+                                "content_key": "testimonials_heading",
+                                "styles": {
+                                  "color": "var(--color--dark-blue)"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "p",
+                            "class": "text-style-paragraph",
+                            "content_key": "testimonials_subtext",
+                            "styles": {
+                              "opacity": "0.7"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "tag": "div",
+                        "class": "testimonials_content",
+                        "children": [
+                          {
+                            "tag": "div",
+                            "class": "margin-bottom",
+                            "combo_class": "margin-large",
+                            "styles": {
+                              "margin-bottom": "3rem"
+                            },
+                            "children": [
+                              {
+                                "tag": "h4",
+                                "class": "heading-style-h5",
+                                "content_key": "testimonials_quote",
+                                "styles": {
+                                  "line-height": "3rem"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "tag": "div",
+                            "class": "testimonials_author-wrapper",
+                            "styles": {
+                              "display": "flex",
+                              "justify-content": "space-between",
+                              "align-items": "center"
+                            },
+                            "children": [
+                              {
+                                "tag": "div",
+                                "class": "testimonials_author-info",
+                                "styles": {
+                                  "display": "flex",
+                                  "align-items": "center",
+                                  "gap": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "class": "testimonials_avatar-wrapper",
+                                    "styles": {
+                                      "width": "3.25rem",
+                                      "height": "3.25rem",
+                                      "border-radius": "100%",
+                                      "overflow": "hidden"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "img",
+                                        "class": "testimonials_avatar",
+                                        "content_key": "testimonials_author_avatar",
+                                        "styles": {
+                                          "width": "100%",
+                                          "height": "100%",
+                                          "object-fit": "cover"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "testimonials_author-details",
+                                    "children": [
+                                      {
+                                        "tag": "div",
+                                        "class": "text-weight-medium",
+                                        "content_key": "testimonials_author_name",
+                                        "styles": {
+                                          "font-size": "1.125rem",
+                                          "color": "var(--color--dark-blue)"
+                                        }
+                                      },
+                                      {
+                                        "tag": "div",
+                                        "class": "text-size-small",
+                                        "content_key": "testimonials_author_title",
+                                        "styles": {
+                                          "font-size": "0.75rem",
+                                          "opacity": "0.7"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "tag": "div",
+                                "class": "testimonials_arrow-wrapper",
+                                "styles": {
+                                  "display": "flex",
+                                  "gap": "1rem"
+                                },
+                                "children": [
+                                  {
+                                    "tag": "div",
+                                    "class": "testimonials_arrow",
+                                    "combo_class": "is-left",
+                                    "styles": {
+                                      "width": "3rem",
+                                      "height": "3rem",
+                                      "display": "flex",
+                                      "justify-content": "center",
+                                      "align-items": "center",
+                                      "border-radius": "100%",
+                                      "cursor": "pointer"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "img",
+                                        "content_key": "testimonials_arrow_left",
+                                        "styles": {
+                                          "width": "1.5rem",
+                                          "height": "auto"
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "tag": "div",
+                                    "class": "testimonials_arrow",
+                                    "combo_class": "is-right",
+                                    "styles": {
+                                      "width": "3rem",
+                                      "height": "3rem",
+                                      "display": "flex",
+                                      "justify-content": "center",
+                                      "align-items": "center",
+                                      "border-radius": "100%",
+                                      "cursor": "pointer",
+                                      "background-color": "var(--color--white)"
+                                    },
+                                    "children": [
+                                      {
+                                        "tag": "img",
+                                        "content_key": "testimonials_arrow_right",
+                                        "styles": {
+                                          "width": "1.5rem",
+                                          "height": "auto"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "rationale": "The Testimonials section is structured using a 1fr to 2fr CSS Grid ratio, prioritizing the quote content while maintaining a strong header presence on the left. Following Finsweet's 6-layer logic, the hierarchy ensures responsive stability. The quote uses heading-style-h5 for appropriate visual weight. Author details and navigation are unified in a space-between flex row to create a clean visual anchor at the bottom of the component. All interactive elements (arrows) and profile images follow exact rem dimensions (48px and 52px respectively) mapped from the design audit. The structure is compatible with Webflow's native Slider but uses custom div-based components for 1:1 visual fidelity as per MAS-V2-007."
+}

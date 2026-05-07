@@ -20,10 +20,13 @@ Hệ thống MAS V3 tự động hóa chuyên dụng cho dự án Figma to Webfl
 ---
 
 ## 3. Quản lý Dữ liệu & Tri thức
-- **Workspace:**
-    - `workspace/blueprint.json`: Bản vẽ kỹ thuật (Source of Truth).
+- **Workspace (File Chunking Architecture):**
+    - `workspace/meta.json`: Chứa thông tin cấu hình dự án (Tên dự án, Figma URL gốc).
+    - `workspace/blueprints/`: Thư mục chứa các file JSON cấu trúc kỹ thuật (DOM Tree). Mỗi Section/Page là một file riêng biệt.
+    - `workspace/contents/`: Thư mục chứa các file JSON nội dung (Text, Assets) được băm nhỏ tương ứng với Blueprint.
     - `workspace/state.json`: Nhật ký thực thi.
     - `workspace/design-system.json`: Bản đồ Style Guide.
+    - `workspace/error-logs.json`: Ghi nhật ký lỗi.
 - **Knowledge Base:**
     - `knowledge-base/client-first-theory.md`: Lý thuyết Finsweet.
     - `knowledge-base/project-rules.md`: Kinh nghiệm dự án.
