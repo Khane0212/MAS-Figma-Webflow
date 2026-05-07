@@ -1,6 +1,6 @@
-# MAS-Cursor V3: AI-Driven Figma to Webflow Orchestrator
+# Figma2Webflow-AW: AI-Driven Agentic Workflow
 
-MAS V3 (Multi-Agent System) là một nền tảng tự động hóa giúp bạn chuyển đổi thiết kế từ Figma sang Webflow một cách chính xác theo tiêu chuẩn **Client-First V2** (Finsweet). 
+Figma2Webflow-AW (Agentic Workflow) là một luồng công việc tự động hóa giúp bạn chuyển đổi thiết kế từ Figma sang Webflow một cách chính xác theo tiêu chuẩn **Client-First V2** (Finsweet). 
 
 Hệ thống hoạt động như một **Team sản xuất Web ảo**, nơi bạn đóng vai trò là Khách hàng (User), giao tiếp với Quản lý Dự án ảo (`@pm`) để ra lệnh cho các chuyên gia ảo (`@architect` và `@operator`) thực thi công việc.
 
@@ -8,7 +8,7 @@ Hệ thống hoạt động như một **Team sản xuất Web ảo**, nơi bạ
 
 ## 🛠 Cách Cài đặt & Khởi động Dự án Mới
 
-Dữ liệu của dự án được lưu cục bộ trong thư mục `workspace/`. Để đảm bảo dữ liệu không bị lẫn lộn giữa các dự án khác nhau, MAS V3 sử dụng cơ chế **Xoay vòng Workspace**.
+Dữ liệu của dự án được lưu cục bộ trong thư mục `workspace/`. Để đảm bảo dữ liệu không bị lẫn lộn giữa các dự án khác nhau, Figma2Webflow-AW sử dụng cơ chế **Xoay vòng Workspace**.
 
 Bạn cần thao tác qua Terminal (Command Prompt / PowerShell) trước khi giao việc cho AI.
 
