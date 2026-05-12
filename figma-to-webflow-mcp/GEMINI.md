@@ -50,3 +50,5 @@ tracker.unlock('page-name');
 - Luon dung `tracker.js` de quan ly state
 - Khong bao gio skip checklist
 - Moi section phai co element_id trong log
+- **MANDATORY:** Su dung `rtk` proxy cho tat ca cac lenh shell de tiet kiem token va lam sach output.
+- Tuyet doi tuan thu quy tac **Variables -> Styles -> DOM** trong Phase 3.

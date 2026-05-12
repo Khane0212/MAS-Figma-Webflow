@@ -10,16 +10,16 @@ Phase 1: EXTRACT
 Phase 2: TRANSFORM
     ↓ Convert to Client-First
     ↓ px → rem, HEX → variables
-    ↓ Auto Layout → Flexbox
+    ↓ Auto Layout → Flexbox / Grid
     
 Phase 3: CONSTRUCT
     ↓ Create variables (variable_tool)
     ↓ Create styles (style_tool)
-    ↓ Build DOM (element_builder, whtml_builder)
+    ↓ Build DOM (whtml_builder, element_builder)
     
 Phase 4: VALIDATE
     ↓ Check structure
-    ↓ Apply opacity, assets
+    ↓ Apply assets
     ↓ Log to tracker
 ```
 

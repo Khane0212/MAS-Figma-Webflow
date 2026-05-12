@@ -1,5 +1,36 @@
 # DOM Construction
 
+## Global Component Standards (Navbar & Footer)
+
+To ensure consistency across multiple pages and minimize redundant work, global elements must be identified and converted into **Webflow Components**.
+
+### 1. Identification
+- **Navbar:** Any `section_navbar` or top-level navigation container.
+- **Footer:** Any `section_footer` or bottom-level global site info.
+
+### 2. Implementation Workflow
+Once the element structure is built using `whtml_builder` or `element_builder`, it must be immediately converted:
+
+1. **Transform:** Call `transform_element_to_component` on the top-level Section ID.
+2. **Naming:** Use standard naming: `Navbar` and `Footer`.
+3. **Reuse:** On subsequent pages, use `insert_component_instance` instead of rebuilding the HTML.
+
+```javascript
+// Action: Convert to Component
+{
+  "transform_element_to_component": {
+    "id": { "component": "...", "element": "..." },
+    "name": "Footer",
+    "group": "Global"
+  }
+}
+```
+
+### 3. Files Responsible
+- **`skills/dom.md`**: Defines the structural logic for identification (this file).
+- **`skills/execution.md`**: Dictates the sequence of transformation after build.
+- **`workflow/WORKFLOW.md`**: Tracks the component status in the project lifecycle.
+
 ## Tool Selection
 
 ### whtml_builder (Primary)

@@ -69,9 +69,11 @@ Chỉ được thực hiện khi tất cả 4 phase trên đạt 100%.
 | # | Thao tác | Trạng thái |
 |---|----------|------------|
 | 5.1 | Tạo variables (colors, spacing) | ☐ |
-| 5.2 | Tạo utility styles | ☐ |
+| 5.2 | **Tạo Styles theo đúng thứ tự:** | ☐ |
+| 5.2.1 | - Bước 1: Tạo TẤT CẢ base typography classes (standalone) | ☐ |
+| 5.2.2 | - Bước 2: Tạo combo classes (bắt buộc có parent_style_names) | ☐ |
 | 5.3 | Build HTML structure theo cấu trúc 7 lớp | ☐ |
-| 5.4 | Apply classes cho từng element | ☐ |
+| 5.4 | **Apply classes:** Áp dụng cả 2 class (base + combo) cùng lúc | ☐ |
 | 5.5 | Upload và gán assets | ☐ |
 | 5.6 | Verify bằng `element_snapshot_tool` | ☐ |
 
