@@ -26,7 +26,7 @@ Utility classes là các lớp dùng chung toàn site, có thể tái sử dụn
 Combo classes dùng để tạo biến thể cho một lớp cơ sở.
 - **Tiền tố:** Bắt đầu bằng `is-`.
 - **Ví dụ:** `button` + `is-secondary`, `nav_link` + `is-active`.
-- **Lưu ý:** Tránh việc "chồng class" (class stacking) quá 2 lớp nếu có thể thay thế bằng Custom class.
+- **Lưu ý:** **Cấm** "chồng class" (class stacking) quá 3 lớp nếu có thể thay thế bằng Custom class.
 
 ---
 

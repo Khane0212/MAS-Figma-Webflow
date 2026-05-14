@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "webflow": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.webflow.com/mcp"
+      ]
+    }
+  }
+}

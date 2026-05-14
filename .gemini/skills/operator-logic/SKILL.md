@@ -1,3 +1,7 @@
+---
+name: operator-logic
+description: Logic thực thi Webflow, các bước sử dụng tool element_builder và quy trình xử lý Micro-Chunking (3-5-2).
+---
 # Operator Logic (Thao tác Thực thi)
 
 Kỹ năng tương tác API và sử dụng Webflow MCP cho Agent Operator.
@@ -151,7 +155,6 @@ Before creating, updating, or deleting anything:
 - Check `de_learn_more_about_styles` for supported style properties when unsure
 
 ## 2. Giao thức Trích xuất Figma chuyên sâu (Deep Extraction Protocol)
-
 Nhiệm vụ của Operator là tạo ra "Nguồn sự thật" (Source of Truth) tuyệt đối cho Architect.
 
 ### 2.1. Quy trình quét đa tầng
@@ -171,31 +174,7 @@ Nhiệm vụ của Operator là tạo ra "Nguồn sự thật" (Source of Truth)
 - Nếu Node là Component: Kiểm tra xem đó là Instance hay Main Component.
 
 ---
-
-## 3. Đồng bộ Style Guide Trực quan (Visual Documentation)
-
-Mọi thay đổi về hệ thống Style phải được hiển thị trực quan trên Webflow để dễ quản lý.
-
-### 3.1. Nguyên tắc "Tạo mới - Đồng bộ"
-Mọi Variable hoặc Global Class mới được tạo ra **BẮT BUỘC** phải được đưa vào trang `Style Guide`.
-
-### 3.2. Quy trình 3 bước thực thi
-1.  **Bước 1 (Ghi API):** Sử dụng `style_tool` hoặc `data_variables_tool` để tạo thuộc tính trên hệ thống Webflow.
-2.  **Bước 2 (Điều hướng):** Sử dụng `de_page_tool` để chuyển sang trang có tên `Style Guide` (hoặc tên tương đương).
-3.  **Bước 3 (Xây dựng trực quan):** 
-    - Sử dụng `element_builder` để tạo một khối hiển thị (Ví dụ: một Div hình vuông để hiển thị màu, một Paragraph để hiển thị Font).
-    - Gán Class/Variable vừa tạo vào khối này.
-    - Ghi chú tên Class/Variable ngay bên cạnh để người dùng dễ nhận biết.
-
-### 3.3. Cấu trúc trang Style Guide tiêu chuẩn
-Operator phải tìm và chèn Node vào đúng khu vực:
-- **Colors:** Chèn vào Wrapper chứa bảng màu.
-- **Typography:** Chèn vào khu vực liệt kê H1-H6 và Body Text.
-- **Buttons:** Chèn các biến thể Button is-secondary, is-outline, v.v.
-- **Spacing:** Chèn các khối Div có chiều cao tương ứng với margin/padding utility.
-
----
-
-## 4. Quản lý Trạng thái & Báo cáo
+   
+## 3. Quản lý Trạng thái & Báo cáo
 - Sau mỗi hành động thực thi, phải chụp ảnh bằng `element_snapshot_tool`.
 - Ghi nhật ký vào `workspace/state.json`: `{ "action": "create_element", "figma_id": "...", "webflow_id": "...", "status": "success" }`.

@@ -21,59 +21,50 @@ for (let i = 0; i < args.length; i++) {
 function initWorkspace() {
   console.log('Initializing workspace...');
 
-  // 1. Check if workspace has existing active data
-  if (fs.existsSync(workspaceDir)) {
-    const files = fs.readdirSync(workspaceDir);
-    // If there are files and it's not just an empty directory
-    if (files.length > 0 && files.some(f => f !== '.gitkeep')) {
-      const metaPath = path.join(workspaceDir, 'meta.json');
-      if (fs.existsSync(metaPath)) {
-         const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
-         console.warn(`\n[WARNING] Active project found: "${meta.projectName}".`);
-      } else {
-         console.warn(`\n[WARNING] Existing files found in workspace.`);
-      }
-      console.warn('Please run "node scripts/archive-workspace.js" to save and clear current data before initializing a new one.');
-      process.exit(1);
-    }
-  } else {
+  // 1. Check if workspace exists, if not create it
+  if (!fs.existsSync(workspaceDir)) {
     fs.mkdirSync(workspaceDir, { recursive: true });
   }
 
   // 2. Create subdirectories for chunking
-  const dirsToCreate = ['blueprints', 'contents'];
+  const dirsToCreate = ['blueprints', 'contents', 'rawdata'];
   dirsToCreate.forEach(dir => {
     const dirPath = path.join(workspaceDir, dir);
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath);
       console.log(`Created directory: workspace/${dir}/`);
+    } else {
+      console.log(`Directory already exists: workspace/${dir}/ (keeping files)`);
     }
   });
 
-  // 3. Create initial empty tracking files
+  // 3. Create initial files ONLY if they don't exist
   const initialFiles = {
     'meta.json': {
       projectName: projectName,
       figmaUrl: figmaUrl,
       initializedAt: new Date().toISOString()
     },
+    'page_structure.json': [],
     'state.json': [],
     'error-logs.json': [],
     'design-system.json': {
-      colors: {},
-      typography: {},
-      spacing: {}
+      variables: [],
+      global_classes: []
     }
   };
 
   for (const [filename, content] of Object.entries(initialFiles)) {
     const filePath = path.join(workspaceDir, filename);
-    fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
-    console.log(`Created file: workspace/${filename}`);
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
+      console.log(`Created file: workspace/${filename}`);
+    } else {
+      console.log(`File already exists: workspace/${filename} (preserving context)`);
+    }
   }
 
-  console.log('\n✅ Workspace initialization complete.');
-  console.log(`Project: ${projectName}`);
+  console.log('\n✅ Workspace ready (Knowledge preserved).');
 }
 
 initWorkspace();

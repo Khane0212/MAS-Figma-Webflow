@@ -1,4 +1,8 @@
-# Client-First Action Rules (Directives)
+---
+name: client-first-rules
+description: Toàn bộ quy tắc, quy chuẩn đặt tên và cấu trúc DOM của hệ sinh thái Finsweet Client-First.
+---
+# Client-First Action Rules (Directives - Full Reinforced)
 
 Bộ kỹ năng này chuyển đổi tri thức Client-First thành các chỉ thị hành động bắt buộc cho Architect và Operator. 
 
@@ -10,12 +14,12 @@ Bộ kỹ năng này chuyển đổi tri thức Client-First thành các chỉ t
 
 Architect phải áp dụng "Luật sắt" dựa trên lý thuyết chuẩn (Theory Chapters 1 & 2):
 
-- **BẮT BUỘC** phân rã mọi Section theo cấu trúc 6 lớp lý thuyết: `section` > `padding-global` > `container` > `padding-section` > `[Content Wrapper]`.
-- **BẮT BUỘC** đặt tên lớp theo đúng Chương 1 (Naming Strategy): 
+- **BẮT BUỘC Phân rã 6 lớp (MAS-V2-002):** Phân rã mọi Section theo cấu trúc: `section` > `padding-global` > `container` > `padding-section` > `[Content Wrapper]`.
+- **BẮT BUỘC Chiến lược đặt tên (MAS-V2-001):** 
     - Custom: `[component]_[element]` (Bắt buộc dùng dấu `_` để phân tách component/element).
     - Utility: `[property]-[value]` (Chỉ dùng dấu `-`, không được dùng `_`).
-- **REJECT** (Từ chối) mọi tên lớp viết tắt. Phải dùng tên đầy đủ để đảm bảo tính "Human-readable".
-- **KIỂM SOÁT REM (Chapter 4):** Trong Blueprint, mọi thông số phải được ghi chú rõ giá trị PX gốc và giá trị REM (PX/16).
+- **REJECT (Từ chối) mọi tên viết tắt:** Phải dùng tên đầy đủ (vd: dùng `button` thay vì `btn`) để đảm bảo tính "Human-readable".
+- **KIỂM SOÁT REM (Chapter 4):** Trong Blueprint, mọi thông số phải ghi chú rõ giá trị PX gốc và giá trị REM mục tiêu (PX/16).
 - **STRATEGY:** Chỉ định rõ layout Flex/Grid dựa trên logic Auto Layout của Figma.
 
 ---
@@ -24,15 +28,16 @@ Architect phải áp dụng "Luật sắt" dựa trên lý thuyết chuẩn (The
 
 Operator thực thi dựa trên các tiêu chuẩn kỹ thuật (Theory Chapters 3, 4 & 5):
 
-- **TRANSFORMATION (Chapter 4):** Mọi giá trị PX từ Figma **BẮT BUỘC** phải chạy qua hàm `toRem()`. Tuyệt đối không để giá trị PX lọt vào Webflow.
-- **DISCOVERY FIRST:** Trước khi tạo Style mới, phải kiểm tra hệ thống hiện có để tái sử dụng, tránh rác code.
+- **NATIVE BUILD ONLY (MAS-V2-012):** **TUYỆT ĐỐI CẤM** dùng `whtml_builder`. Sử dụng `element_builder` cho 100% phần tử để đảm bảo tính trong sạch của DOM.
+- **TRANSFORMATION (Chapter 4):** Mọi giá trị PX từ Figma **BẮT BUỘC** phải chạy qua hàm `toRem()`. Tuyệt đối không để giá trị PX lọt vào Webflow Styles.
+- **DISCOVERY FIRST:** Trước khi tạo Style mới, BẮT BUỘC phải kiểm tra hệ thống hiện có để tái sử dụng, tránh rác code.
 - **VARIABLE BINDING (Chapter 5):** Ưu tiên gán thuộc tính vào Webflow Variables nếu Figma có sử dụng Tokens.
-- **TRACEABILITY:** Gắn `data-figma-id` vào mọi element để phục vụ QA 1:1.
-- **STYLE GUIDE SYNC:** Mọi Variable/Global Class mới phải được đồng bộ trực quan lên trang Style Guide theo đúng quy trình tại `skills/operator-logic.md`.
+- **TRACEABILITY:** Gắn thuộc tính `data-figma-id` vào mọi element trên Webflow để phục vụ QA 1:1.
+- **ASSET POLICY (MAS-V2-007):** Sử dụng Placeholder cho toàn bộ ảnh/icon để ưu tiên hoàn thiện Layout và Cấu trúc.
 
 ---
 
-## 3. Quy trình Kiểm soát Chất lượng (QA Gate)
+## 3. Quy trình Kiểm soát Chất lượng (QA Gate - MAS-V2-006)
 
 Architect thực hiện QA đối soát dựa trên toàn bộ nền tảng tri thức:
 1.  **Visual Fidelity:** Đạt độ tương đồng 100% so với Figma (Snapshot vs Figma).

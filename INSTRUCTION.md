@@ -12,18 +12,23 @@ Hệ thống MAS V3 tự động hóa chuyên dụng cho dự án Figma to Webfl
 
 ---
 
-## 2. Mô hình Vận hành (Orchestration Model)
-1.  **@PM (The Orchestrator):** Vai trò chủ đạo, nhận lệnh từ User, đọc `SOP.md` và điều phối các Sub-Agent.
-2.  **@Architect (Sub-Agent):** Phụ trách tư duy logic, lập Blueprint và thực hiện QA đối soát.
-3.  **@Operator (Sub-Agent):** Phụ trách trích xuất dữ liệu Figma và thực thi Webflow Designer tools.
+## 2. Mô hình Vận hành (Multi-Agent Architecture)
+Hệ thống vận hành thông qua sự điều phối trực tiếp từ **Main Session (trong vai trò @pm)** và các chuyên gia hỗ trợ:
+1.  **Main Session (@pm - The Orchestrator):** Chịu trách nhiệm điều phối chính. Trực tiếp thực thi `SOP.md`, quản lý tiến độ và điều phối các chuyên gia khác thông qua `invoke_agent`.
+2.  **@architect (Logic & QA Specialist):** Native Agent chuyên biệt về Finsweet Client-First, lập Blueprint và thực hiện QA đối soát.
+3.  **@operator (Execution Specialist):** Native Agent chuyên thực thi, trích xuất dữ liệu Figma và thao tác Webflow tools.
+
+**Cơ chế cách ly:** Mỗi Agent hoạt động trong một Context Window riêng biệt, giúp giải quyết triệt để giới hạn Payload và Timeout của dự án.
 
 ---
 
 ## 3. Quản lý Dữ liệu & Tri thức
 - **Workspace (File Chunking Architecture):**
-    - `workspace/meta.json`: Chứa thông tin cấu hình dự án (Tên dự án, Figma URL gốc).
-    - `workspace/blueprints/`: Thư mục chứa các file JSON cấu trúc kỹ thuật (DOM Tree). Mỗi Section/Page là một file riêng biệt.
-    - `workspace/contents/`: Thư mục chứa các file JSON nội dung (Text, Assets) được băm nhỏ tương ứng với Blueprint.
+    - `workspace/meta.json`: Chứa thông tin cấu hình dự án.
+    - `workspace/page_structure.json`: Bản đồ chỉ mục (Index Map) định tuyến toàn trang.
+    - `workspace/rawdata/`: Thư mục chứa dữ liệu thiết kế thô trích xuất từ Figma.
+    - `workspace/blueprints/`: Thư mục chứa các file JSON bản vẽ kỹ thuật chuẩn Client-First.
+    - `workspace/contents/`: Thư mục chứa nội dung tĩnh của từng Section (đã được gộp chung thành 1 file duy nhất để chống phân mảnh).
     - `workspace/state.json`: Nhật ký thực thi.
     - `workspace/design-system.json`: Bản đồ Style Guide.
     - `workspace/error-logs.json`: Ghi nhật ký lỗi.
@@ -36,8 +41,9 @@ Hệ thống MAS V3 tự động hóa chuyên dụng cho dự án Figma to Webfl
 ## 4. Kỹ thuật & Webflow MCP Mandates
 - **Diagnostic-First:** Nếu tool fail, phải kiểm tra Site ID/Node ID trước khi thử lại.
 - **Snapshot Protocol:** Luôn chụp ảnh trước và sau khi thực hiện thay đổi trên Webflow.
-- **Unit Safety:** 100% sử dụng đơn vị `rem`.
-- **Style Guide Sync:** Mọi thay đổi về Style phải được đồng bộ lên trang Style Guide của Webflow.
+- Ưu tiên tái sử dụng Style/Variable hiện có, chỉ tạo mới khi bắt buộc và ghi nhận vào design-system.json (Không yêu cầu làm trang Style Guide trực quan).
+- Unit Safety: 100% sử dụng đơn vị `rem`.
+- Native Build: TUYỆT ĐỐI CẤM dùng `whtml_builder`. 100% sử dụng `element_builder` kết hợp thuật toán Micro-Chunking.
 
 ---
 

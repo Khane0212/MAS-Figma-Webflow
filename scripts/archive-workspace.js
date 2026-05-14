@@ -40,12 +40,22 @@ async function archiveWorkspace() {
     output.on('close', () => {
       console.log(`\nWorkspace successfully archived to: ${archivePath} (${archive.pointer()} total bytes)`);
       
-      // Wipe the workspace directory cleanly
-      console.log('Cleaning up workspace directory...');
-      fs.rmSync(workspaceDir, { recursive: true, force: true });
-      fs.mkdirSync(workspaceDir); // Recreate empty root
-      console.log('Workspace wiped. Ready for init-workspace.');
-      resolve();
+      try {
+        // Validation (Safeguard): Check if zip file actually exists and size > 0
+        if (fs.existsSync(archivePath) && fs.statSync(archivePath).size > 0) {
+          console.log('Cleaning up workspace directory...');
+          fs.rmSync(workspaceDir, { recursive: true, force: true });
+          fs.mkdirSync(workspaceDir); // Recreate empty root
+          console.log('Workspace wiped. Ready for init-workspace.');
+          resolve();
+        } else {
+          throw new Error('Archive file missing or empty.');
+        }
+      } catch (err) {
+        console.error(`\n[CRITICAL SAFEGUARD TRIGGERED] Archive validation failed: ${err.message}`);
+        console.error('Workspace directory was NOT deleted to prevent data loss.');
+        reject(err);
+      }
     });
 
     archive.on('error', (err) => {
