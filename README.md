@@ -6,6 +6,7 @@ Hệ thống hoạt động như một Team sản xuất Web ảo, nơi bạn đ
 
 ---
 
+<<<<<<< HEAD
 ## Trạng thái Dự án Hiện tại
 
 Dự án: Client-First Template 9
@@ -21,10 +22,13 @@ Các phần đã hoàn thành:
 
 ---
 
+=======
+>>>>>>> 1082220af2bfb04984de13360d61422677b479db
 ## Cách Vận hành Hệ thống (MAS V3)
 
 Dữ liệu dự án được quản lý trong thư mục workspace để tránh lỗi quá tải ngữ cảnh cho AI.
 
+<<<<<<< HEAD
 ### Mô hình Đội ngũ AI
 - @pm (Quản lý dự án): Người nhận yêu cầu từ bạn, điều phối quy trình và báo cáo tiến độ.
 - @architect (Kiến trúc sư): Thiết kế bản vẽ kỹ thuật và kiểm tra chất lượng (QA) để đảm bảo độ chính xác tuyệt đối.
@@ -39,6 +43,22 @@ Dữ liệu dự án được quản lý trong thư mục workspace để tránh
 ---
 
 ## Cấu trúc Dữ liệu
+=======
+### Mô hình Multi-Agent
+- **`@pm` (The Orchestrator):** Điều phối viên trung tâm, thực thi nghiêm ngặt `SOP.md` và quản lý `SESSION_HANDOFF.md`.
+- **`@architect` (Logic & QA):** Chuyên gia về Finsweet Client-First. Lập Blueprint kỹ thuật và thực hiện QA đối soát 1:1 (Pixel-Perfect) thông qua snapshot thực tế.
+- **`@operator` (Execution):** Chuyên gia thực thi. Trích xuất dữ liệu sâu từ Figma và xây dựng Webflow bằng bộ công cụ Native Primitives (`element_builder`), TUYỆT ĐỐI không dùng code nhúng.
+
+### Quy trình 4 Giai đoạn (SOP)
+1.  **Phase 0 (Setup & Audit):** Quét Site ID, Node ID và đồng bộ Style Guide vào `design-system.json`.
+2.  **Phase 1 (Deep Extraction & Blueprint):** Trích xuất dữ liệu thô (`rawdata/`), tách nội dung (`contents/`) và lập bản vẽ kỹ thuật (`blueprints/`).
+3.  **Phase 2 (Automated Execution):** Xây dựng Webflow bằng thuật toán **Micro-Chunking (MCP-352)** (Xây nông, chèn sâu, kiểm soát liên tục).
+4.  **Phase 3 (QA Loop):** Đối soát snapshot thực tế với Figma. Chỉ cấp trạng thái `[APPROVED]` khi đạt độ khớp 1:1.
+
+---
+
+## Cấu trúc Dữ liệu Workspace (File Chunking)
+>>>>>>> 1082220af2bfb04984de13360d61422677b479db
 
 Hệ thống băm nhỏ dữ liệu để AI luôn hoạt động hiệu quả:
 - workspace/meta.json: Thông tin dự án và link Figma.
@@ -50,8 +70,14 @@ Hệ thống băm nhỏ dữ liệu để AI luôn hoạt động hiệu quả:
 
 ---
 
+<<<<<<< HEAD
 ## Lưu ý cho Người dùng
 Dữ liệu trong thư mục workspace là tạm thời và được AI sử dụng để ghi nhớ tiến độ. Bạn không nên tự ý chỉnh sửa các file trong thư mục này trừ khi được AI yêu cầu.
 
 Tác giả: Khang Nguyễn
 Tiêu chuẩn: Finsweet Client-First V2
+=======
+## Credits & Copyright
+*   **Kiến trúc sư hệ thống:** Khang Nguyễn
+*   **Tiêu chuẩn:** Finsweet Client-First V2
+>>>>>>> 1082220af2bfb04984de13360d61422677b479db
