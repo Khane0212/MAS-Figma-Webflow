@@ -6,6 +6,7 @@
 Phase 1: EXTRACT
     ↓ Get Figma node data
     ↓ Colors, typography, spacing, assets
+    ↓ **MANDATORY: Generate Content Manifest**
     
 Phase 2: TRANSFORM
     ↓ Convert to Client-First

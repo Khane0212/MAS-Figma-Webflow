@@ -27,6 +27,7 @@
 | 2.4 | Đã trích xuất spacing/gap values | ☐ |
 | 2.5 | Đã xác định layout structure (auto layout) | ☐ |
 | 2.6 | Đã liệt kê tất cả images/assets cần thiết | ☐ |
+| 2.7 | Đã tạo Content Manifest (Text, Links, Assets) | ☐ |
 
 **Nếu FAIL bất kỳ mục → DỪNG. Không được build.**
 
@@ -84,9 +85,10 @@ Chỉ được thực hiện khi tất cả 4 phase trên đạt 100%.
 | # | Thao tác | Trạng thái |
 |---|----------|------------|
 | 6.1 | Kiểm tra visual bằng snapshot | ☐ |
-| 6.2 | So sánh với Figma (pixel nếu cần) | ☐ |
-| 6.3 | Ghi `tracker.markSectionComplete()` | ☐ |
-| 6.4 | Cập nhật `build_[page].json` | ☐ |
+| 6.2 | Kiểm tra Content Fidelity (Manifest vs DOM) | ☐ |
+| 6.3 | So sánh với Figma (pixel nếu cần) | ☐ |
+| 6.4 | Ghi `tracker.markSectionComplete()` | ☐ |
+| 6.5 | Cập nhật `build_[page].json` | ☐ |
 
 ---
 

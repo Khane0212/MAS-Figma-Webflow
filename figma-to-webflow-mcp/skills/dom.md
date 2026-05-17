@@ -1,5 +1,11 @@
 # DOM Construction
 
+## Strict Rule: Image Elements
+**NEVER** build structural or visual images using the generic `DOM` element type with a hardcoded `imgraw` tag and a CDN `src` URL. 
+- Using raw DOM tags bypasses Webflow's native asset manager, making it impossible for the user to double-click and replace the image in the Webflow Designer.
+- **ALWAYS** use the native Webflow `Image` element type.
+- **ALWAYS** link the image directly to a Webflow Asset ID using the `set_image_asset` configuration during `element_builder` or after insertion.
+
 ## Global Component Standards (Navbar & Footer)
 
 To ensure consistency across multiple pages and minimize redundant work, global elements must be identified and converted into **Webflow Components**.

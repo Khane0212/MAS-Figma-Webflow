@@ -7,7 +7,9 @@
 - Resolve variable IDs
 - Resolve class IDs
 - Resolve asset IDs
+- **Create Content Manifest:** Extract all text, links, and assets from Figma node.
 - Read and cache `knowledge/structure.md` 7-layer requirements
+- Read and cache `knowledge/fidelity.md` content rules
 - Read and cache `skills/dom.md` tool-selection rules
 
 ### Step2: Prepare
@@ -71,6 +73,7 @@ DOM safety checks before first write:
 
 ### Step5: Verify
 - `get_node` to verify attributes
+- **Content Fidelity Audit:** Verify 100% of Content Manifest exists in the new DOM.
 - `element_snapshot_tool` for visual
 - Log to progress file
 

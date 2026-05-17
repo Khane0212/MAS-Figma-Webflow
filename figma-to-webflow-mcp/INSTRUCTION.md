@@ -10,8 +10,9 @@ Truoc khi nhan lenh build, phai hoan thanh:
 4. Doc `knowledge/structure.md` - bat buoc nho 7-layer architecture
 5. Doc `skills/dom.md` - chon dung tool va thu tu dung DOM
 6. **Doc `skills/combo-class.md` - cach tao combo class (QUAN TRONG!)**
-7. Kiem tra `project.json` - co `site_id`?
-8. Kiem tra `build_[page].json` - section nay chua build?
+7. **Doc `knowledge/fidelity.md` - Quy tac bao toan noi dung (NEW!)**
+8. Kiem tra `project.json` - co `site_id`?
+9. Kiem tra `build_[page].json` - section nay chua build?
 
 ---
 
@@ -28,7 +29,8 @@ Du an nay su dung **RTK (Rust Token Killer)** proxy de tiet kiem 60-90% token:
 ## Workflow 4 Phases (Synced with WORKFLOW.md)
 
 ### Phase1: Extract
-Lay data tu Figma: Colors (HEX), Typography (px), Spacing, Layout hierarchy, Assets.
+Lay data tu Figma: Colors (HEX), Typography (px), Spacing, Layout hierarchy, Assets. 
+**MANDATORY:** Tao Content Manifest (text, links, assets) de kiem doi sau nay.
 
 ### Phase2: Transform
 Logic noi bo: px -> rem, HEX -> variables, Auto Layout -> Flex/Grid.
@@ -37,14 +39,18 @@ Logic noi bo: px -> rem, HEX -> variables, Auto Layout -> Flex/Grid.
 Build tren Webflow theo dung thu tu:
 1. **Variables (`variable_tool`):** Tao Variables tu HEX Figma TRUOC KHI tao style.
 2. **Styles (`style_tool`):** Tao Class. BẮT BUỘC dung `variable_as_value`, CẤM dung HEX.
-3. **Build DOM (`whtml_builder`):** Lap rap HTML bang cac Class da tao.
+3. **Build DOM (`whtml_builder`):** Lap rap HTML bang cac Class da tao. 
+   - **Audit Rule:** Check HTML so voi Content Manifest de dam bao khong thieu content.
 
 **Gate kiem duyet truoc khi build DOM:**
 - Kiem tra 7-layer architecture (page -> main -> section -> global -> container -> section-size -> component).
 - Tuyet doi khong dán padding/margin truc tiep vao `section_[name]`.
+- **CẤM** tạo hình ảnh bằng thẻ `DOM` thô (raw `imgraw`). **LUÔN LUÔN** dùng thẻ `Image` native của Webflow và liên kết với Webflow Asset ID (`set_image_asset`).
 
 ### Phase4: Validate
-Kiem tra visual fidelity va ghi log vao `tracker.record()`.
+1. **Content Fidelity Check:** So sanh Webflow DOM thuc te voi Content Manifest.
+2. **Visual Fidelity:** Kiem tra visual qua `element_snapshot_tool`.
+3. **Logging:** Ghi log vao `tracker.record()`.
 
 ---
 
